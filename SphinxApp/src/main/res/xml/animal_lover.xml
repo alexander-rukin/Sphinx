@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <account></account>
+
+    <application>
+        <weight-array id="80">
+            <item>gameloft.android.ANMP</item>
+            <item>friends.pet.daycare</item>
+            <item>teamlava.petshop</item>
+            <item>miniclip.animalshelter</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>king.petrescuesaga</item>
+            <item>pixeldevelopers.Vippets</item>
+            <item>android.lpetvet</item>
+        </weight-array>
+        <weight-array id="40">
+            <item>talkingtom</item>
+            <item>talkingben</item>
+        </weight-array>
+    </application>
+
+    <history>
+        <weight-array id="100">
+            <item>theanimalrescuesite</item>
+            <item>zooclub.ru</item>
+            <item>mau.ru</item>
+            <item>murlyki.ru</item>
+            <item>catster.com</item>
+            <item>thecatsite.com</item>
+            <item>funnycatsite.com</item>
+            <item>dogster.com</item>
+            <item>theiloveddogssite.com</item>
+            <item>konura.info</item>
+            <item>doggi.ru</item>
+            <item>sobakovodu.ru</item>
+            <item>sobaka.lv</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>домашний питомец</item>
+            <item>домашний зверек</item>
+            <item>домашний любимец</item>
+            <item>pet</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>любимец</item>
+        </weight-array>
+        <weight-array id="40">
+            <item>питомец</item>
+            <item>питомцем</item>
+        </weight-array>
+        <weight-array id="20">
+            <item>кошк</item>
+            <item>собак</item>
+            <item>хомяк</item>
+            <item>животн</item>
+            <item>лошад</item>
+            <item>cat</item>
+            <item>dog</item>
+            <item>hamster</item>
+            <item>animal</item>
+            <item>horse</item>
+        </weight-array>
+    </history>
+
+    <music></music>
+</plist>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <account></account>
+
+    <application>
+        <weight-array id="100">
+            <item>com.wolfram.android.alpha</item>
+            <item>translate</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>vkontakte</item>
+            <item>twitter</item>
+            <item>youtube</item>
+            <item>telegram</item>
+            <item>whatsapp</item>
+        </weight-array>
+        <weight-array id="70">
+            <item>dropbox</item>
+            <item>disk</item>
+            <item>drive</item>
+        </weight-array>
+    </application>
+
+    <history>
+        <weight-array id="100">
+            <item>porn</item>
+            <item>порн</item>
+            <item>ifmo.ru</item>
+            <item>edu.</item>
+        </weight-array>
+        <weight-array id="20">
+            <item>google.</item>
+            <item>yandex.</item>
+        </weight-array>
+    </history>
+
+    <music></music>
+</plist>

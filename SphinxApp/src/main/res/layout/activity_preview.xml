@@ -1,0 +1,162 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="@string/gender"
+        android:textColor="@color/title"
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/genderText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="@string/male"
+        android:textColor="@color/title"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/maleValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="75%"
+                android:textColor="@color/title"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/male"
+                android:src="@drawable/triangle_reverse" />
+
+            <ImageView
+                android:id="@+id/maleValueImage"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="@color/male" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/male"
+                android:padding="4dp"
+                android:src="@drawable/gender_symbolon_male" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/female"
+                android:padding="3dp"
+                android:src="@drawable/gender_symbolon_female" />
+
+            <ImageView
+                android:id="@+id/femaleValueImage"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:background="@color/female" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/female"
+                android:src="@drawable/triangle" />
+
+            <TextView
+                android:id="@+id/femaleValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="25%"
+                android:textColor="@color/title"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="SMTH TEXT"
+        android:textColor="@color/title"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/age"
+        android:textColor="@color/title"
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/ageText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="25"
+        android:textColor="@color/title"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/continueButton"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_selector"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="@string/continue_text"
+        android:textColor="@color/title"
+        android:textSize="25sp" />
+
+</LinearLayout>

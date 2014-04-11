@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="start">СТАРТ</string>
+    <string name="no_internet">НЕТ ИНТЕРНЕТА</string>
+    <string name="check_internet">Проверьте ваше интернет соединение\nи коснитесь кнопки снова</string>
+    <string name="click_start">Коснитесь кнопки чтобы начать</string>
+    <string name="general_statistics">ОБЩАЯ СТАТИСТИКА</string>
+    <string name="select_social_network">Поделиться</string>
+    <string name="send">ОТПРАВИТЬ</string>
+    <string name="feedback_title">ПОМОГИТЕ ПРОЕКТУ</string>
+    <string name="feedback_text">Выберите пункты из списка статистики, которые вам показались правильными и нажмите кнопку отправить.</string>
+    <string name="gender">ВАШ ПОЛ</string>
+    <string name="age">ВОЗРАСТ</string>
+    <string name="male">МУЖСКОЙ</string>
+    <string name="female">ЖЕНСКИЙ</string>
+    <string name="continue_text">ПРОДОЛЖИТЬ</string>
+
+    <!--Types of people-->
+    <string-array name="types">
+        <item>Гик</item>
+        <item>Холостяк</item>
+        <item>Модник</item>
+        <item>Студент</item>
+        <item>Путешественник</item>
+        <item>Анимешник</item>
+        <item>Меломан</item>
+        <item>Любитель животных</item>
+        <item>Пикабушник</item>
+    </string-array>
+    <string name="ufo">НЛО</string>
+
+</resources>

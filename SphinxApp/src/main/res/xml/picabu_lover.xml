@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <account>
+        <weight-array id="100">
+            <item>pikabu</item>
+        </weight-array>
+    </account>
+
+    <application>
+        <weight-array id="100">
+            <item>pikabu</item>
+        </weight-array>
+    </application>
+
+    <history>
+        <weight-array id="80">
+            <item>pikabu</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>кот</item>
+        </weight-array>
+        <weight-array id="40">
+            <item>паблик</item>
+            <item>public</item>
+        </weight-array>
+    </history>
+
+    <music></music>
+</plist>

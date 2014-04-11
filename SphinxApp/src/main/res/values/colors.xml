@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background">#655253</color>
+    <color name="title">#F8F9ED</color>
+    <color name="border">#FDB13D</color>
+    <color name="male">#453ED9</color>
+    <color name="female">#EC3D3D</color>
+
+</resources>

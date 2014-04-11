@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <account>
+        <weight-array id="100">
+            <item>com.github</item>
+        </weight-array>
+        <weight-array id="50">
+            <item>twitter</item>
+            <item>com.dropbox</item>
+        </weight-array>
+        <weight-array id="20">
+            <item>com.google</item>
+        </weight-array>
+    </account>
+
+    <application>
+        <weight-array id="100">
+            <item>github.mobile</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>twitter</item>
+        </weight-array>
+    </application>
+
+    <history>
+        <weight-array id="100">
+            <item>stackoverflow</item>
+            <item>джава</item>
+            <item>java</item>
+            <item>си++</item>
+            <item>c++</item>
+            <item>хаскель</item>
+            <item>haskell</item>
+            <item>программирование</item>
+            <item>programing</item>
+            <item>вижуал студия</item>
+            <item>visual studio</item>
+            <item>язык программирования</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>github</item>
+        </weight-array>
+        <weight-array id="40">
+            <item>плюсы</item>
+            <item>андроид</item>
+            <item>android</item>
+            <item>парсер</item>
+            <item>parser</item>
+        </weight-array>
+    </history>
+
+    <music></music>
+</plist>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <account></account>
+
+    <application>
+        <weight-array id="100">
+            <item>istaristudio.shinudaanime</item>
+            <item>crunchyroll.crunchyroid</item>
+            <item>pgtube.anime</item>
+            <item>darki.cancionesanimes</item>
+            <item>mlabeca.animelogoquiz</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>mangaapp9.app</item>
+            <item>hs3lzx.howtodrawanime</item>
+            <item>mobapps.radiosanime</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>ultimate.ninja.rush</item>
+        </weight-array>
+        <weight-array id="40">
+            <item>anime</item>
+        </weight-array>
+
+    </application>
+
+    <history>
+        <weight-array id="100">
+            <item>myanimelist.net</item>
+            <item>animespirit.ru</item>
+            <item>narutoplanet.ru</item>
+            <item>top.ani-best.ru</item>
+            <item>animeland.su</item>
+            <item>animeget.com</item>
+            <item>kissanime.com</item>
+            <item>animecrave.com</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>блич</item>
+            <item>blich</item>
+            <item>крутой учитель онидзука</item>
+            <item>great teacher onizuka</item>
+            <item>кланнад</item>
+            <item>clannad</item>
+            <item>врата штейна</item>
+            <item>steins</item>
+            <item>код гиас</item>
+            <item>code geass</item>
+            <item>стальной алхимик</item>
+            <item>fullmetal alchemist</item>
+            <item>ван-пис</item>
+            <item>one piece</item>
+            <item>унесённые призраками</item>
+            <item>spirited away</item>
+            <item>тетрадь смерти</item>
+            <item>death note</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>аниме</item>
+            <item>anime</item>
+            <item>наруто</item>
+            <item>naruto</item>
+            <item>манга</item>
+            <item>manga</item>
+        </weight-array>
+    </history>
+
+    <music>
+        <weight-array id="80">
+            <item>zoku sayonara</item>
+            <item>flcl</item>
+            <item>bakemonogatari</item>
+            <item>kara no kyoukai</item>
+            <item>kaiji</item>
+            <item>tengen toppa gurren lagann</item>
+            <item>sayonara zetsubou sensei</item>
+            <item>kanon</item>
+            <item>maria holic</item>
+            <item>sayonara zetsubou sensei</item>
+            <item>full metal alchemist</item>
+            <item>ef a tale of memories</item>
+            <item>naruto</item>
+            <item>kotoko</item>
+            <item>coorie</item>
+            <item>chieco kawabe</item>
+            <item>yuki</item>
+            <item>round table</item>
+        </weight-array>
+    </music>
+</plist>

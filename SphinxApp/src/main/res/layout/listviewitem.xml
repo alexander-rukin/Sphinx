@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="horizontal"
+    android:padding="1dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_dark"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/progressBar"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_dark" />
+
+    <ImageView
+        android:id="@+id/progressBarTriangle"
+        android:layout_width="16dp"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_dark"
+        android:src="@drawable/triangle" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="25%"
+        android:textColor="@color/title"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/typeName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="right|center_vertical"
+        android:text="@string/ufo"
+        android:textColor="@color/title"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Sphinx</string>
+    <string name="start">START</string>
+    <string name="no_internet">NO INTERNET</string>
+    <string name="check_internet">Check your internet connection\nand touch button again</string>
+    <string name="click_start">Touch button to start</string>
+    <string name="general_statistics">GENERAL STATISTICS</string>
+    <string name="select_social_network">Share</string>
+    <string name="send">SEND</string>
+    <string name="feedback_title">HELP PROJECT</string>
+    <string name="feedback_text">Select items from the list of statistics which you seemed correct and click send.</string>
+    <string name="gender">YOUR GENDER</string>
+    <string name="age">AGE</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="continue_text">CONTINUE</string>
+
+    <!-- Types of people -->
+    <string-array name="types">
+        <item>Geek</item>
+        <item>Loner</item>
+        <item>Trendy</item>
+        <item>Student</item>
+        <item>Traveler</item>
+        <item>Anime addicted</item>
+        <item>Music lover</item>
+        <item>Animal lover</item>
+        <item>Picabu lover</item>
+    </string-array>
+    <string name="ufo">UFO</string>
+
+</resources>
