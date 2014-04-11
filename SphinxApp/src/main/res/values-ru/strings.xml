@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Sphinx</string>
     <string name="start">СТАРТ</string>
     <string name="no_internet">НЕТ ИНТЕРНЕТА</string>
     <string name="check_internet">Проверьте ваше интернет соединение\nи коснитесь кнопки снова</string>
