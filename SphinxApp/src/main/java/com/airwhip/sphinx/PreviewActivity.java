@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.parser.Characteristic;
+import com.vk.sdk.VKUIHelper;
 
 
 public class PreviewActivity extends Activity {

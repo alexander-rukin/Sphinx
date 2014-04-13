@@ -1,6 +1,7 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,59 +15,20 @@ import android.widget.TextView;
 import com.airwhip.sphinx.anim.Fade;
 import com.airwhip.sphinx.anim.Move;
 import com.airwhip.sphinx.anim.Spin;
-import com.airwhip.sphinx.getters.AccountInformation;
-import com.airwhip.sphinx.getters.SMSInformation;
 import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.Internet;
 import com.airwhip.sphinx.misc.Names;
-import com.airwhip.sphinx.parser.Characteristic;
-import com.airwhip.sphinx.parser.InformationParser;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCaptchaDialog;
-import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.VKSdkListener;
 import com.vk.sdk.VKUIHelper;
 import com.vk.sdk.api.VKError;
-import com.vk.sdk.util.VKUtil;
 
 public class WelcomeActivity extends Activity {
 
-    public static final String[] sMyScope = new String[]{
-            VKScope.FRIENDS,
-            VKScope.WALL,
-            VKScope.PHOTOS,
-            VKScope.NOHTTPS
-    };
-    private final VKSdkListener sdkListener = new VKSdkListener() {
-        @Override
-        public void onCaptchaError(VKError captchaError) {
-            new VKCaptchaDialog(captchaError).show();
-            Log.d(Constants.DEBUG_TAG, "onCaptchaError");
-        }
-
-        @Override
-        public void onTokenExpired(VKAccessToken expiredToken) {
-            VKSdk.authorize(sMyScope);
-            Log.d(Constants.DEBUG_TAG, "onTokenExpired");
-        }
-
-        @Override
-        public void onAccessDenied(VKError authorizationError) {
-            Log.d(Constants.DEBUG_TAG, "onAccessDenied");
-        }
-
-        @Override
-        public void onReceiveNewToken(VKAccessToken newToken) {
-            Log.d(Constants.DEBUG_TAG, "onReceiveNewToken");
-        }
-
-        @Override
-        public void onAcceptUserToken(VKAccessToken token) {
-            Log.d(Constants.DEBUG_TAG, "onAcceptUserToken");
-        }
-    };
     private static Names names;
+
     private ImageButton circle;
     private TextView startText;
     private TextView tipText;
@@ -82,12 +44,6 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        VKUIHelper.onCreate(this);
-        VKSdk.initialize(sdkListener, "3974615");
-        if (VKSdk.wakeUpSession()) {
-            Log.d(Constants.DEBUG_TAG, "wake up session");
-        }
-
         circle = (ImageButton) findViewById(R.id.circle);
         startText = (TextView) findViewById(R.id.startText);
         tipText = (TextView) findViewById(R.id.tipText);
@@ -98,9 +54,6 @@ public class WelcomeActivity extends Activity {
         circle.setOnClickListener(new StartButtonClick(ProgramState.START));
 
         names = new Names(this);
-
-        String[] fingerprint = VKUtil.getCertificateFingerprint(this, this.getPackageName());
-        Log.d(Constants.DEBUG_TAG, fingerprint[0]);
     }
 
     private enum ProgramState {
@@ -203,12 +156,12 @@ public class WelcomeActivity extends Activity {
                 }
             });
 
-            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
-            SMSInformation.get(getApplicationContext());
-            InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
-            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
-            publishProgress(20);
+//            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
+//            SMSInformation.get(getApplicationContext());
+//            InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
+//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+//            Characteristic.append(partOfXml);
+//            publishProgress(20);
 //            partOfXml = ApplicationInformation.get(getApplicationContext());
 //            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.APPLICATION);
 //            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());

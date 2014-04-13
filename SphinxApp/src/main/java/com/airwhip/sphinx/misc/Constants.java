@@ -7,6 +7,8 @@ import com.airwhip.sphinx.R;
  */
 public class Constants {
 
+    public static final String VK_APP_ID = "4063561";
+
     public static final String ERROR_TAG = "ERROR_TAG";
     public static final String DEBUG_TAG = "DEBUG_TAG";
 

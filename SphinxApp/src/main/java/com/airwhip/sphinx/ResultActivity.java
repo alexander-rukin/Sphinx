@@ -1,6 +1,7 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,14 +15,49 @@ import android.widget.TextView;
 import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.CustomizeArrayAdapter;
 import com.airwhip.sphinx.parser.Characteristic;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKCaptchaDialog;
+import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
+import com.vk.sdk.VKSdkListener;
 import com.vk.sdk.VKUIHelper;
+import com.vk.sdk.api.VKError;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ResultActivity extends Activity {
+
+    private final VKSdkListener sdkListener = new VKSdkListener() {
+        @Override
+        public void onCaptchaError(VKError captchaError) {
+            new VKCaptchaDialog(captchaError).show();
+            Log.d(Constants.DEBUG_TAG, "onCaptchaError");
+        }
+
+        @Override
+        public void onTokenExpired(VKAccessToken expiredToken) {
+            Log.d(Constants.DEBUG_TAG, "onTokenExpired");
+        }
+
+        @Override
+        public void onAccessDenied(VKError authorizationError) {
+            Log.d(Constants.DEBUG_TAG, "onAccessDenied");
+        }
+
+        @Override
+        public void onReceiveNewToken(VKAccessToken newToken) {
+            Log.d(Constants.DEBUG_TAG, "onReceiveNewToken");
+            DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE);
+            dlg.show(getFragmentManager(), "");
+        }
+
+        @Override
+        public void onAcceptUserToken(VKAccessToken token) {
+            Log.d(Constants.DEBUG_TAG, "onAcceptUserToken");
+        }
+    };
 
     private ListView otherResults;
     private int maxResultIndex = 0;
@@ -30,6 +66,9 @@ public class ResultActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        VKUIHelper.onCreate(this);
+        VKSdk.initialize(sdkListener, Constants.VK_APP_ID);
 
         otherResults = (ListView) findViewById(R.id.otherResults);
 
@@ -75,9 +114,7 @@ public class ResultActivity extends Activity {
         findViewById(R.id.shareVK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(Constants.DEBUG_TAG, "VK");
-                VKSdk.authorize(WelcomeActivity.sMyScope, true, false);
-
+                VKSdk.authorize(VKScope.WALL);
             }
         });
         findViewById(R.id.shareFacebook).setOnClickListener(new View.OnClickListener() {
