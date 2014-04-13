@@ -25,6 +25,11 @@
     <history>
         <weight-array id="100">
             <item>stackoverflow</item>
+            <item>pastebin</item>
+            <item>pastie</item>
+            <item>linux</item>
+            <item>json</item>
+            <item>xml</item>
             <item>джава</item>
             <item>java</item>
             <item>си++</item>
@@ -32,7 +37,7 @@
             <item>хаскель</item>
             <item>haskell</item>
             <item>программирование</item>
-            <item>programing</item>
+            <item>program</item>
             <item>вижуал студия</item>
             <item>visual studio</item>
             <item>язык программирования</item>
