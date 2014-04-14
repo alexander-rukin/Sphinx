@@ -16,6 +16,7 @@
     <string name="male">MALE</string>
     <string name="female">FEMALE</string>
     <string name="continue_text">CONTINUE</string>
+    <string name="smth_text">Congratulations, you have been recognized as a %s! We will be so happy if it is truth.</string>
 
     <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
     <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook</string>
