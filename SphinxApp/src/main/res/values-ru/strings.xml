@@ -18,8 +18,8 @@
     <string name="continue_text">ПРОДОЛЖИТЬ</string>
 
     <string name="vk_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Вконтакте?</string>
-    <string name="facebook_dialog_message">FACEBOOK Text of your message</string>
-    <string name="twitter_dialog_message">TWITTER Text of your message</string>
+    <string name="facebook_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Facebook?</string>
+    <string name="twitter_dialog_message">Уверены что хотите продолжить и разместить пост в Twitter?</string>
     <string name="accept_dialog">Да</string>
     <string name="reject_dialog">Нет</string>
 

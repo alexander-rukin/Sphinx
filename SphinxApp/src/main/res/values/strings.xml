@@ -17,9 +17,9 @@
     <string name="female">FEMALE</string>
     <string name="continue_text">CONTINUE</string>
 
-    <string name="vk_dialog_message">VKONTAKTE Text of your message</string>
-    <string name="facebook_dialog_message">FACEBOOK Text of your message</string>
-    <string name="twitter_dialog_message">TWITTER Text of your message</string>
+    <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
+    <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook</string>
+    <string name="twitter_dialog_message">Are you sure that you want to continue and post message in Twitter?</string>
     <string name="accept_dialog">Yes</string>
     <string name="reject_dialog">No</string>
 

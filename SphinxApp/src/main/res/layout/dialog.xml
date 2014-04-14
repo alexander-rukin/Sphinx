@@ -14,7 +14,7 @@
         android:layout_margin="20dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:text="Text of your message"
+        android:text="@string/vk_dialog_message"
         android:textColor="@color/title"
         android:textSize="20sp" />
 
@@ -60,4 +60,5 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+
 </LinearLayout>

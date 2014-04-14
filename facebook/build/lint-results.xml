@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 22.6.2">
+
+    <issue
+        id="ScrollViewSize"
+        severity="Warning"
+        message="This LinearLayout should use android:layout_height=&quot;wrap_content&quot;"
+        category="Correctness"
+        priority="7"
+        summary="Checks that ScrollViews use `wrap_content` in the scrolling dimension"
+        explanation="ScrollView children must set their `layout_width` or `layout_height` attributes to `wrap_content` rather than `fill_parent` or `match_parent` in the scrolling dimension"
+        errorLine1="        android:layout_height=&quot;fill_parent&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_usersettingsfragment.xml"
+            line="26"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (current.source == AccessTokenSource.FACEBOOK_APPLICATION_WEB ||"
+        errorLine2="        ^">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\AccessToken.java"
+            line="214"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="                assert dataNeededListener != null &amp;&amp; cursor.areMoreObjectsAvailable();"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\GraphObjectAdapter.java"
+            line="511"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="                assert cursor.areMoreObjectsAvailable() &amp;&amp; (dataNeededListener != null);"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\GraphObjectAdapter.java"
+            line="675"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (connection != null) || isFromCache;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\Response.java"
+            line="356"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="            assert runningCount == count;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\internal\WorkQueue.java"
+            line="76"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="            assert prev.next == this;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\internal\WorkQueue.java"
+            line="210"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="            assert next.prev == this;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\internal\WorkQueue.java"
+            line="211"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable. Use BuildConfig.DEBUG conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Looks for usages of the assert keyword"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (`adb shell setprop debug.assert 1`), but the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.
+
+For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { throw new AssertionError() }`.
+
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="            assert isRunning() == shouldBeRunning;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\internal\WorkQueue.java"
+            line="212"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                        errorCode = String.format(&quot;%d&quot;, requestError.getErrorCode());"
+        errorLine2="                                           ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\AuthorizationClient.java"
+            line="671"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                    U result = (U) String.format(&quot;%f&quot;, value);"
+        errorLine2="                                          ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\model\GraphObject.java"
+            line="377"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                    U result = (U) String.format(&quot;%d&quot;, value);"
+        errorLine2="                                          ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\model\GraphObject.java"
+            line="381"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                result = result.substring(0, 1).toUpperCase();"
+        errorLine2="                                                ~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\GraphObjectAdapter.java"
+            line="247"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        return String.format(&quot;picture.height(%d).width(%d)&quot;, layoutParams.height, layoutParams.width);"
+        errorLine2="                      ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\GraphObjectAdapter.java"
+            line="438"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                String name = String.format(&quot;%s%d&quot;, ATTACHMENT_FILENAME_PREFIX, attachments.size());"
+        errorLine2="                                     ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\Request.java"
+            line="1824"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                String subKey = String.format(&quot;%s[%d]&quot;, key, i);"
+        errorLine2="                                       ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\Request.java"
+            line="2036"
+            column="40"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead"
+        category="Correctness"
+        priority="6"
+        summary="Finds calls to locale-ambiguous `String` manipulation methods"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            responseCode = String.format(&quot;%d&quot;, (connection != null) ? connection.getResponseCode() : 200);"
+        errorLine2="                                  ~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\Response.java"
+            line="232"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Checks that the manifest specifies a targetSdkVersion that is recent"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.
+
+To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 16"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\build.gradle"
+            line="13"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ValidFragment"
+        severity="Fatal"
+        message="This fragment class should be public (com.facebook.widget.FacebookFragment)"
+        category="Correctness"
+        priority="6"
+        summary="Ensures that `Fragment` subclasses can be instantiated"
+        explanation="From the Fragment documentation:
+*Every* fragment must have an empty constructor, so it can be instantiated when restoring its activity&apos;s state. It is strongly recommended that subclasses do not have other constructors with parameters, since these constructors will not be called when the fragment is re-instantiated; instead, arguments can be supplied by the caller with `setArguments(Bundle)` and later retrieved by the Fragment with `getArguments()`."
+        url="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        urls="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        errorLine1="class FacebookFragment extends Fragment {"
+        errorLine2="      ~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\FacebookFragment.java"
+            line="42"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="ValidFragment"
+        severity="Fatal"
+        message="Avoid non-default constructors in fragments: use a default constructor plus Fragment#setArguments(Bundle) instead"
+        category="Correctness"
+        priority="6"
+        summary="Ensures that `Fragment` subclasses can be instantiated"
+        explanation="From the Fragment documentation:
+*Every* fragment must have an empty constructor, so it can be instantiated when restoring its activity&apos;s state. It is strongly recommended that subclasses do not have other constructors with parameters, since these constructors will not be called when the fragment is re-instantiated; instead, arguments can be supplied by the caller with `setArguments(Bundle)` and later retrieved by the Fragment with `getArguments()`."
+        url="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        urls="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        errorLine1="        super(GraphUser.class, R.layout.com_facebook_friendpickerfragment, args);"
+        errorLine2="        ^">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\FriendPickerFragment.java"
+            line="74"/>
+    </issue>
+
+    <issue
+        id="ValidFragment"
+        severity="Fatal"
+        message="Avoid non-default constructors in fragments: use a default constructor plus Fragment#setArguments(Bundle) instead"
+        category="Correctness"
+        priority="6"
+        summary="Ensures that `Fragment` subclasses can be instantiated"
+        explanation="From the Fragment documentation:
+*Every* fragment must have an empty constructor, so it can be instantiated when restoring its activity&apos;s state. It is strongly recommended that subclasses do not have other constructors with parameters, since these constructors will not be called when the fragment is re-instantiated; instead, arguments can be supplied by the caller with `setArguments(Bundle)` and later retrieved by the Fragment with `getArguments()`."
+        url="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        urls="http://developer.android.com/reference/android/app/Fragment.html#Fragment()"
+        errorLine1="        super(GraphPlace.class, R.layout.com_facebook_placepickerfragment, args);"
+        errorLine2="        ^">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\widget\PlacePickerFragment.java"
+            line="112"/>
+    </issue>
+
+    <issue
+        id="ManifestOrder"
+        severity="Warning"
+        message="&lt;uses-sdk> tag appears after &lt;application> tag"
+        category="Correctness"
+        priority="5"
+        summary="Checks for manifest problems like `&lt;uses-sdk>` after the `&lt;application>` tag"
+        explanation="The &lt;application> tag should appear after the elements which declare which version you need, which features you need, which libraries you need, and so on. In the past there have been subtle bugs (such as themes not getting applied correctly) when the `&lt;application>` tag appears before some of these other elements, so it&apos;s best to order your manifest in the logical dependency order."
+        errorLine1="    &lt;uses-sdk android:minSdkVersion=&quot;8&quot; />"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\AndroidManifest.xml"
+            line="21"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:support-v4 than 13.0.+ is available: 19.1.0"
+        category="Correctness"
+        priority="4"
+        summary="Looks for old or obsolete Gradle library dependencies"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:support-v4:13.0.+&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\build.gradle"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This minSdkVersion value (8) is not used; it is always overridden by the value specified in the Gradle build script (16)"
+        category="Correctness"
+        priority="4"
+        summary="Looks for values specified in the manifest file which are overridden by values in Gradle"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    &lt;uses-sdk android:minSdkVersion=&quot;8&quot; />"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\AndroidManifest.xml"
+            line="21"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="SpUsage"
+        severity="Warning"
+        message="Should use &quot;sp&quot; instead of &quot;dp&quot; for text sizes"
+        category="Correctness"
+        priority="3"
+        summary="Looks for uses of `dp` instead of `sp` dimensions for text sizes"
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.
+
+There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        url="http://developer.android.com/training/multiscreen/screendensities.html"
+        urls="http://developer.android.com/training/multiscreen/screendensities.html"
+        errorLine1="            android:textSize=&quot;16dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_search_bar_layout.xml"
+            line="23"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Orientation"
+        severity="Error"
+        message="No orientation specified, and the default is horizontal. This is a common source of bugs when children are added dynamically."
+        category="Correctness"
+        priority="2"
+        summary="Checks that LinearLayouts with multiple children set the orientation"
+        explanation="The default orientation of a LinearLayout is horizontal. It&apos;s pretty easy to believe that the layout is vertical, add multiple children to it, and wonder why only the first child is visible (when the subsequent children are off screen to the right). This lint rule helps pinpoint this issue by warning whenever a LinearLayout is used with an implicit orientation and multiple children.
+
+It also checks for empty LinearLayouts without an `orientation` attribute that also defines an `id` attribute. This catches the scenarios where children will be added to the `LinearLayout` dynamically. "
+        errorLine1="    &lt;LinearLayout"
+        errorLine2="    ^">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_picker_title_bar.xml"
+            line="40"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="Should explicitly set android:allowBackup to true or false (it&apos;s true by default, and that can have some security implications for the application&apos;s data)"
+        category="Security"
+        priority="3"
+        summary="Ensure that allowBackup is explicitly set in the application&apos;s manifest"
+        explanation="The allowBackup attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`"
+        url="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        urls="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\AndroidManifest.xml"/>
+    </issue>
+
+    <issue
+        id="HandlerLeak"
+        severity="Warning"
+        message="This Handler class should be static or leaks might occur (com.facebook.internal.PlatformServiceClient.1)"
+        category="Performance"
+        priority="4"
+        summary="Ensures that Handler classes do not hold on to a reference to an outer class"
+        explanation="Since this Handler is declared as an inner class, it may prevent the outer class from being garbage collected. If the Handler is using a Looper or MessageQueue for a thread other than the main thread, then there is no issue. If the Handler is using the Looper or MessageQueue of the main thread, you need to fix your Handler declaration, as follows: Declare the Handler as a static class; In the outer class, instantiate a WeakReference to the outer class and pass this object to your Handler when you instantiate the Handler; Make all references to members of the outer class using the WeakReference object."
+        errorLine1="        handler = new Handler() {"
+        errorLine2="                      ~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\src\com\facebook\internal\PlatformServiceClient.java"
+            line="51"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        severity="Warning"
+        message="Set android:baselineAligned=&quot;false&quot; on this element for better performance"
+        category="Performance"
+        priority="3"
+        summary="Looks for LinearLayouts which should set android:baselineAligned=false"
+        explanation="When a LinearLayout is used to distribute the space proportionally between nested layouts, the baseline alignment property should be turned off to make the layout computation faster."
+        errorLine1="    &lt;LinearLayout"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_placepickerfragment_list_row.xml"
+            line="23"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="InefficientWeight"
+        severity="Warning"
+        message="Use a layout_width of 0dp instead of 100dip for better performance"
+        category="Performance"
+        priority="3"
+        summary="Looks for inefficient weight declarations in LinearLayouts"
+        explanation="When only a single widget in a LinearLayout defines a weight, it is more efficient to assign a width/height of `0dp` to it since it will absorb all the remaining space anyway. With a declared width/height of `0dp` it does not have to measure its own size first."
+        errorLine1="            android:layout_width=&quot;100dip&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_picker_list_row.xml"
+            line="31"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NestedWeights"
+        severity="Warning"
+        message="Nested weights are bad for performance"
+        category="Performance"
+        priority="3"
+        summary="Looks for nested layout weights, which are costly"
+        explanation="Layout weights require a widget to be measured twice. When a LinearLayout with non-zero weights is nested inside another LinearLayout with non-zero weights, then the number of measurements increase exponentially."
+        errorLine1="                    android:layout_weight=&quot;1.0&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_placepickerfragment_list_row.xml"
+            line="53"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @android:style/Theme.Holo)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="              android:background=&quot;#FFFFFF&quot;>"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_friendpickerfragment.xml"
+            line="21"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @android:style/Theme.Holo)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="              android:background=&quot;#FFFFFF&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_placepickerfragment.xml"
+            line="21"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @color/com_facebook_picker_search_bar_background with a theme that also paints a background (inferred theme is @android:style/Theme.Holo)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="        android:background=&quot;@color/com_facebook_picker_search_bar_background&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_search_bar_layout.xml"
+            line="13"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.drawable.com_facebook_picker_item_background appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_picker_item_background.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.com_facebook_dialogloginactivity_ok_button appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;com_facebook_dialogloginactivity_ok_button&quot;>OK&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\values\strings.xml"
+            line="19"
+            column="13"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\values-es\strings.xml"
+            line="19"
+            column="13"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\values-he\strings.xml"
+            line="43"
+            column="13"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\values-iw\strings.xml"
+            line="43"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        severity="Warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        category="Usability:Typography"
+        priority="5"
+        summary="Looks for ellipsis strings (...) which can be replaced with an ellipsis character"
+        explanation="You can replace the string &quot;...&quot; with a dedicated ellipsis character, ellipsis character (…, &amp;#8230;). This can help make the text more readable."
+        url="http://en.wikipedia.org/wiki/Ellipsis"
+        urls="http://en.wikipedia.org/wiki/Ellipsis"
+        errorLine1="    &lt;string name=&quot;com_facebook_loading&quot;>Loading...&lt;/string>"
+        errorLine2="                                        ^"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\values\strings.xml"
+            line="36"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The com_facebook_button_blue_focused.9.png icon has identical contents in the following configuration folders: drawable-mdpi, drawable"
+        category="Usability:Icons"
+        priority="5"
+        summary="Finds icons that have identical bitmaps across various configuration parameters"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_focused.9.png"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable-mdpi\com_facebook_button_blue_focused.9.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The com_facebook_button_blue_normal.9.png icon has identical contents in the following configuration folders: drawable-mdpi, drawable"
+        category="Usability:Icons"
+        priority="5"
+        summary="Finds icons that have identical bitmaps across various configuration parameters"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_normal.9.png"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable-mdpi\com_facebook_button_blue_normal.9.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The com_facebook_button_blue_pressed.9.png icon has identical contents in the following configuration folders: drawable-mdpi, drawable"
+        category="Usability:Icons"
+        priority="5"
+        summary="Finds icons that have identical bitmaps across various configuration parameters"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_pressed.9.png"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable-mdpi\com_facebook_button_blue_pressed.9.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The com_facebook_inverse_icon.png icon has identical contents in the following configuration folders: drawable-mdpi, drawable"
+        category="Usability:Icons"
+        priority="5"
+        summary="Finds icons that have identical bitmaps across various configuration parameters"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_inverse_icon.png"/>
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable-mdpi\com_facebook_inverse_icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_blue_focused.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_focused.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_blue_normal.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_normal.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_blue_pressed.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_blue_pressed.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_check_off.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_check_off.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_check_on.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_check_on.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_grey_focused.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_grey_focused.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_grey_normal.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_grey_normal.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_button_grey_pressed.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_button_grey_pressed.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_close.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_close.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_inverse_icon.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_inverse_icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_list_divider.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_list_divider.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_list_section_header_background.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_list_section_header_background.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_logo.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_logo.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_picker_list_focused.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_picker_list_focused.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_picker_list_longpressed.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_picker_list_longpressed.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_picker_list_pressed.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_picker_list_pressed.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_picker_list_selector_disabled.9.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_picker_list_selector_disabled.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_place_default_icon.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_place_default_icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_profile_default_icon.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_profile_default_icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_profile_picture_blank_portrait.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_profile_picture_blank_portrait.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/com_facebook_profile_picture_blank_square.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable\com_facebook_profile_picture_blank_square.png"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        severity="Warning"
+        message="Missing the following drawables in drawable-mdpi: com_facebook_button_grey_focused.9.png, com_facebook_button_grey_normal.9.png, com_facebook_button_grey_pressed.9.png, com_facebook_close.png, com_facebook_logo.png"
+        category="Usability:Icons"
+        priority="4"
+        summary="Ensures that icons provide custom versions for all supported densities"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.
+
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\drawable-mdpi"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        severity="Warning"
+        message="This text field does not specify an inputType or a hint"
+        category="Usability"
+        priority="5"
+        summary="Looks for text fields missing `inputType` or `hint` settings"
+        explanation="Providing an `inputType` attribute on a text field improves usability because depending on the data to be input, optimized keyboards can be shown to the user (such as just digits and parentheses for a phone number). Similarly,a hint attribute displays a hint to the user for what is expected in the text field.
+
+The lint detector also looks at the `id` of the view, and if the id offers a hint of the purpose of the field (for example, the `id` contains the phrase `phone` or `email`), then lint will also ensure that the `inputType` contains the corresponding type attributes.
+
+If you really want to keep the text field generic, you can suppress this warning by setting `inputType=&quot;text&quot;`."
+        errorLine1="    &lt;EditText"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_search_bar_layout.xml"
+            line="15"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="[Accessibility] Missing contentDescription attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Ensures that image widgets provide a contentDescription"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.
+
+Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.
+
+Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="&lt;ImageView"
+        errorLine2="^"
+        quickfix="adt">
+        <location
+            file="C:\Users\Whiplash\Documents\GitHub\Sphinx\facebook\res\layout\com_facebook_picker_image.xml"
+            line="18"
+            column="1"/>
+    </issue>
+
+</issues>

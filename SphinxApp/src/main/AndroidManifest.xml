@@ -32,6 +32,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name="com.vk.sdk.VKOpenAuthActivity" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1482375271986982"/>
     </application>
 
 </manifest>
