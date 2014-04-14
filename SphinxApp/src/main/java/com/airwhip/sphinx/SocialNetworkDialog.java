@@ -11,11 +11,16 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.misc.Constants;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
+
+import java.util.Arrays;
 
 /**
  * Created by Whiplash on 14.04.2014.
@@ -47,6 +52,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                 Log.wtf(Constants.ERROR_TAG, "Strange social network");
                 break;
         }
+
         view.findViewById(R.id.acceptDialog).setOnClickListener(this);
         view.findViewById(R.id.rejectDialog).setOnClickListener(this);
         return view;
@@ -59,6 +65,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                     vkClick();
                     break;
                 case FACEBOOK:
+                    facebookClick();
                     break;
                 case TWITTER:
                     break;
@@ -68,6 +75,25 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
             }
         }
         dismiss();
+    }
+
+    private void facebookClick() {
+        Session session = Session.getActiveSession();
+        if (session.getPermissions().contains("publish_actions")) {
+            ResultActivity.publicatePost = true;
+            Request request = Request.newStatusUpdateRequest(
+                    session, "ТЕСТ!", new Request.Callback() {
+                        @Override
+                        public void onCompleted(Response response) {
+                        }
+                    }
+            );
+            request.executeAsync();
+        } else {
+            Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(getActivity(), Arrays.asList("publish_actions"));
+            session.requestNewPublishPermissions(newPermissionsRequest);
+            ResultActivity.publicatePost = true;
+        }
     }
 
     private void vkClick() {
