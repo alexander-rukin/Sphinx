@@ -16,6 +16,7 @@
     <string name="male">МУЖСКОЙ</string>
     <string name="female">ЖЕНСКИЙ</string>
     <string name="continue_text">ПРОДОЛЖИТЬ</string>
+    <string name="smth_text">Поздравляем, ваш пол был определен как <b>%s</b>! Мы были бы очень рады, если окажется правдой.</string>
 
     <string name="vk_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Вконтакте?</string>
     <string name="facebook_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Facebook?</string>
