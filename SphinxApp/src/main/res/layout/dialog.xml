@@ -32,13 +32,14 @@
             android:id="@+id/acceptDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:background="@drawable/dialog_button_selector"
             android:clickable="true"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
+            android:padding="10dp"
             android:text="@string/accept_dialog"
-            android:textColor="@color/title"
+            android:textColor="@drawable/dialog_button_text_selector"
             android:textSize="20sp" />
 
         <ImageView
@@ -50,13 +51,14 @@
             android:id="@+id/rejectDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:background="@drawable/dialog_button_selector"
             android:clickable="true"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
+            android:padding="10dp"
             android:text="@string/reject_dialog"
-            android:textColor="@color/title"
+            android:textColor="@drawable/dialog_button_text_selector"
             android:textSize="20sp" />
 
     </LinearLayout>
