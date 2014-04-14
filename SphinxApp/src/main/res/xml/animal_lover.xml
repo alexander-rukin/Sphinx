@@ -8,11 +8,13 @@
             <item>friends.pet.daycare</item>
             <item>teamlava.petshop</item>
             <item>miniclip.animalshelter</item>
+            <item>com.supercell.hayday</item>
         </weight-array>
         <weight-array id="60">
             <item>king.petrescuesaga</item>
             <item>pixeldevelopers.Vippets</item>
             <item>android.lpetvet</item>
+            <item>farm</item>
         </weight-array>
         <weight-array id="40">
             <item>talkingtom</item>

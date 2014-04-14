@@ -1,11 +1,9 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
@@ -15,15 +13,15 @@ import android.widget.TextView;
 import com.airwhip.sphinx.anim.Fade;
 import com.airwhip.sphinx.anim.Move;
 import com.airwhip.sphinx.anim.Spin;
-import com.airwhip.sphinx.misc.Constants;
+import com.airwhip.sphinx.getters.AccountInformation;
+import com.airwhip.sphinx.getters.ApplicationInformation;
+import com.airwhip.sphinx.getters.BrowserInformation;
+import com.airwhip.sphinx.getters.MusicInformation;
+import com.airwhip.sphinx.getters.SMSInformation;
 import com.airwhip.sphinx.misc.Internet;
 import com.airwhip.sphinx.misc.Names;
-import com.vk.sdk.VKAccessToken;
-import com.vk.sdk.VKCaptchaDialog;
-import com.vk.sdk.VKSdk;
-import com.vk.sdk.VKSdkListener;
-import com.vk.sdk.VKUIHelper;
-import com.vk.sdk.api.VKError;
+import com.airwhip.sphinx.parser.Characteristic;
+import com.airwhip.sphinx.parser.InformationParser;
 
 public class WelcomeActivity extends Activity {
 
@@ -156,32 +154,32 @@ public class WelcomeActivity extends Activity {
                 }
             });
 
-//            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
-//            SMSInformation.get(getApplicationContext());
-//            InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(20);
-//            partOfXml = ApplicationInformation.get(getApplicationContext());
-//            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.APPLICATION);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(40);
-//            partOfXml = BrowserInformation.getHistory(getApplicationContext());
-//            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.HISTORY);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(60);
-//            partOfXml = BrowserInformation.getBookmarks(getApplicationContext());
-//            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.BOOKMARKS);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(80);
-//            partOfXml = MusicInformation.get(getApplicationContext());
-//            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(100);
+            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
+            SMSInformation.get(getApplicationContext());
+            InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(20);
+            partOfXml = ApplicationInformation.get(getApplicationContext());
+            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.APPLICATION);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(40);
+            partOfXml = BrowserInformation.getHistory(getApplicationContext());
+            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.HISTORY);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(60);
+            partOfXml = BrowserInformation.getBookmarks(getApplicationContext());
+            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.BOOKMARKS);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(80);
+            partOfXml = MusicInformation.get(getApplicationContext());
+            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(100);
 
             return null;
         }

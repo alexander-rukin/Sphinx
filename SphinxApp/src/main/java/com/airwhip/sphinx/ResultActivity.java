@@ -15,6 +15,12 @@ import android.widget.TextView;
 import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.CustomizeArrayAdapter;
 import com.airwhip.sphinx.parser.Characteristic;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.widget.LoginButton;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCaptchaDialog;
 import com.vk.sdk.VKScope;
@@ -29,6 +35,7 @@ import java.util.List;
 
 public class ResultActivity extends Activity {
 
+    public static boolean publicatePost = false;
     private final VKSdkListener sdkListener = new VKSdkListener() {
         @Override
         public void onCaptchaError(VKError captchaError) {
@@ -48,7 +55,6 @@ public class ResultActivity extends Activity {
 
         @Override
         public void onReceiveNewToken(VKAccessToken newToken) {
-            Log.d(Constants.DEBUG_TAG, "onReceiveNewToken");
             DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE);
             dlg.show(getFragmentManager(), "");
         }
@@ -58,17 +64,47 @@ public class ResultActivity extends Activity {
             Log.d(Constants.DEBUG_TAG, "onAcceptUserToken");
         }
     };
-
+    private UiLifecycleHelper uiHelper;
+    private LoginButton loginBtn;
     private ListView otherResults;
     private int maxResultIndex = 0;
+    private boolean canFacebookPost = false;
+    private Session.StatusCallback callback = new Session.StatusCallback() {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            if (publicatePost) {
+                if (session.getPermissions().contains("publish_actions")) {
+                    Request request = Request.newStatusUpdateRequest(
+                            session, "ТЕСТ!", new Request.Callback() {
+                                @Override
+                                public void onCompleted(Response response) {
+                                }
+                            }
+                    );
+                    request.executeAsync();
+                }
+                return;
+            }
+            if (state.isOpened() && canFacebookPost) {
+                DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK);
+                dlg.show(getFragmentManager(), "");
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        uiHelper = new UiLifecycleHelper(this, callback);
+        uiHelper.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_result);
 
         VKUIHelper.onCreate(this);
         VKSdk.initialize(sdkListener, Constants.VK_APP_ID);
+
+        loginBtn = (LoginButton) findViewById(R.id.login_button);
 
         otherResults = (ListView) findViewById(R.id.otherResults);
 
@@ -114,13 +150,25 @@ public class ResultActivity extends Activity {
         findViewById(R.id.shareVK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                VKSdk.authorize(VKScope.WALL);
+                if (!VKSdk.isLoggedIn()) {
+                    VKSdk.authorize(VKScope.WALL);
+                } else {
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE);
+                    dlg.show(getFragmentManager(), "");
+                }
             }
         });
         findViewById(R.id.shareFacebook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(Constants.DEBUG_TAG, "FACEBOOK");
+                canFacebookPost = true;
+                publicatePost = false;
+                if (!facebookIsLoggedIn()) {
+                    loginBtn.callOnClick();
+                } else {
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK);
+                    dlg.show(getFragmentManager(), "");
+                }
             }
         });
         findViewById(R.id.shareTwitter).setOnClickListener(new View.OnClickListener() {
@@ -135,17 +183,37 @@ public class ResultActivity extends Activity {
     protected void onResume() {
         super.onResume();
         VKUIHelper.onResume(this);
+        uiHelper.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        uiHelper.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         VKUIHelper.onDestroy(this);
+        uiHelper.onDestroy();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         VKUIHelper.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedState) {
+        super.onSaveInstanceState(savedState);
+        uiHelper.onSaveInstanceState(savedState);
+    }
+
+    private boolean facebookIsLoggedIn() {
+        Session session = Session.getActiveSession();
+        return session != null && session.isOpened();
     }
 
 }
