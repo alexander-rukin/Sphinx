@@ -38,6 +38,17 @@
         <item>Animal lover</item>
         <item>Picabu lover</item>
     </string-array>
+    <string-array name="definitions">
+        <item>What's about your elf?</item>
+        <item>Wanna some beer?</item>
+        <item>You seem to say often: "This is art!"</item>
+        <item>Exams are close!</item>
+        <item>It's time to join another adventure. Nothing to do at home.</item>
+        <item>Nya.</item>
+        <item>Let's rock.</item>
+        <item>Be careful with your pets. They love you.</item>
+        <item>Surely, you are always hanging out there.</item>
+    </string-array>
     <string name="ufo">UFO</string>
 
 </resources>
