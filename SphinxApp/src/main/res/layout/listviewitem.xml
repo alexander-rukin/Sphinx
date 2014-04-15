@@ -44,7 +44,6 @@
         android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="right|center_vertical"
-        android:text="@string/ufo"
         android:textColor="@color/title"
         android:textSize="15sp" />
 

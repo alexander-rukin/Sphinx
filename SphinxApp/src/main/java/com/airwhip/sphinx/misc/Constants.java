@@ -9,6 +9,9 @@ public class Constants {
 
     public static final String VK_APP_ID = "4063561";
 
+    public static final String TWITTER_CONSUMER_KEY = "cMxB047OvKVa5uafvP3rWA";
+    public static final String TWITTER_SECRET_KEY = "49CV639Nknnbrilr5o7vrduOntxyh2llCniuHlQhDk";
+
     public static final String ERROR_TAG = "ERROR_TAG";
     public static final String DEBUG_TAG = "DEBUG_TAG";
 

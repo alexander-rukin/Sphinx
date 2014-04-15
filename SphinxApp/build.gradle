@@ -16,6 +16,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    android {
+        packagingOptions {
+            exclude 'META-INF/LICENSE.txt'
+        }
+    }
+
     signingConfigs {
         debug {
             storeFile file("debug.keystore")

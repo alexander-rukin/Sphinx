@@ -105,7 +105,6 @@ public class ResultActivity extends Activity {
         VKSdk.initialize(sdkListener, Constants.VK_APP_ID);
 
         loginBtn = (LoginButton) findViewById(R.id.login_button);
-
         otherResults = (ListView) findViewById(R.id.otherResults);
 
         for (int i = 0; i < Characteristic.size(); i++) {
@@ -115,7 +114,7 @@ public class ResultActivity extends Activity {
         }
         ((TextView) findViewById(R.id.youAreText)).setText(getResources().getStringArray(R.array.types)[maxResultIndex].toUpperCase());
         ((ImageView) findViewById(R.id.avatar)).setImageResource(Constants.imgs[maxResultIndex]);
-        ((TextView) findViewById(R.id.definitionText)).setText("DEFINITION");
+        ((TextView) findViewById(R.id.definitionText)).setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
         otherResults.setFocusable(false);
 
         List<String> types = new ArrayList<>();
@@ -174,7 +173,7 @@ public class ResultActivity extends Activity {
         findViewById(R.id.shareTwitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(Constants.DEBUG_TAG, "TWITTER");
+
             }
         });
     }
