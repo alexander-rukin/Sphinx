@@ -3,6 +3,8 @@ package com.airwhip.sphinx;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,11 @@ import com.vk.sdk.api.VKError;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.RequestToken;
 
 
 public class ResultActivity extends Activity {
@@ -64,6 +71,8 @@ public class ResultActivity extends Activity {
             Log.d(Constants.DEBUG_TAG, "onAcceptUserToken");
         }
     };
+    RequestToken requestToken;
+    private Twitter twitter;
     private UiLifecycleHelper uiHelper;
     private LoginButton loginBtn;
     private ListView otherResults;
@@ -173,7 +182,7 @@ public class ResultActivity extends Activity {
         findViewById(R.id.shareTwitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new MyAsyncTask().execute();
             }
         });
     }
@@ -213,6 +222,22 @@ public class ResultActivity extends Activity {
     private boolean facebookIsLoggedIn() {
         Session session = Session.getActiveSession();
         return session != null && session.isOpened();
+    }
+
+    private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                twitter = new TwitterFactory().getInstance();
+                twitter.setOAuthConsumer(Constants.TWITTER_CONSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET);
+                requestToken = twitter.getOAuthRequestToken(Constants.CALLBACKURL);
+                String authUrl = requestToken.getAuthenticationURL();
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(authUrl)));
+            } catch (TwitterException ex) {
+                Log.e(Constants.ERROR_TAG, ex.getMessage());
+            }
+            return null;
+        }
     }
 
 }
