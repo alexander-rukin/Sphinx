@@ -187,7 +187,7 @@ public class WelcomeActivity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SwipeActivity.class);
             startActivity(intent);
             finish();
         }

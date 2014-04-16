@@ -122,7 +122,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/smth_text"
+        android:text="@string/gender_definition"
         android:textColor="@color/title"
         android:textSize="15dp" />
 
@@ -145,18 +145,5 @@
         android:text="25"
         android:textColor="@color/title"
         android:textSize="40dp" />
-
-    <TextView
-        android:id="@+id/continueButton"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/button_selector"
-        android:clickable="true"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:text="@string/continue_text"
-        android:textColor="@color/title"
-        android:textSize="25dp" />
 
 </LinearLayout>
