@@ -10,6 +10,7 @@ import com.airwhip.sphinx.misc.Constants;
 public class Characteristic {
 
     private static final int DEFAULT_AGE = 25;
+    private static final int MINIMUM_WEIGHT = 100;
 
     private static StringBuilder xml = new StringBuilder();
 
@@ -83,8 +84,11 @@ public class Characteristic {
     }
 
     public static boolean isUFO() {
-        // TODO check it
-        return false;
+        int sum = 0;
+        for (int i = 0; i < weight.length; i++) {
+            sum += get(i);
+        }
+        return sum < MINIMUM_WEIGHT;
     }
 
     public static int get(int i) {

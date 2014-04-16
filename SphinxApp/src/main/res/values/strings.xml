@@ -51,5 +51,7 @@
         <item>Be careful with your pets. They love you.</item>
         <item>Surely, you are always hanging out there.</item>
     </string-array>
+    <string name="ufo">UFO</string>
+    <string name="ufo_definitions">UFO DEFINITIONS</string>
 
 </resources>

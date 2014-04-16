@@ -50,5 +50,7 @@
         <item>Покорми кота!</item>
         <item>С уверенностью можно сказать, что вы проводите уйму времени на этом сайте. Больше лойсов вам!</item>
     </string-array>
+    <string name="ufo">НЛО</string>
+    <string name="ufo_definitions">НЛО DEFINITIONS</string>
 
 </resources>

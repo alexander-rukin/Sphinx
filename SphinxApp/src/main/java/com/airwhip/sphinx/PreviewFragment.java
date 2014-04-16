@@ -34,7 +34,7 @@ public class PreviewFragment extends Fragment {
         maleValueImage = (ImageView) rootView.findViewById(R.id.maleValueImage);
         femaleValueImage = (ImageView) rootView.findViewById(R.id.femaleValueImage);
 
-        genderDefinition = (TextView) rootView.findViewById(R.id.smthText);
+        genderDefinition = (TextView) rootView.findViewById(R.id.genderDefinition);
 
         ageText = (TextView) rootView.findViewById(R.id.ageText);
 
