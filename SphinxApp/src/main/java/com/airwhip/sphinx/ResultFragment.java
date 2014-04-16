@@ -113,7 +113,7 @@ public class ResultFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent tweetIntent = new Intent(Intent.ACTION_SEND);
-                String message = ""; // TODO generate tweet
+                String message = "sdjfgpjg[sjd[fpgjks]dpfjkop]sdjfg"; // TODO generate tweet
                 tweetIntent.putExtra(Intent.EXTRA_TEXT, message);
                 tweetIntent.setType("text/plain");
 
