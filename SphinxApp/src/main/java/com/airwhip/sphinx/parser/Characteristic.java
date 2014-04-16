@@ -30,6 +30,11 @@ public class Characteristic {
         ageIteration++;
     }
 
+    public static void addAges(int ageValue, int iteration) {
+        age += ageValue;
+        ageIteration += iteration;
+    }
+
     public static int getAge() {
         if (age == 0) {
             return DEFAULT_AGE;

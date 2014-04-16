@@ -23,6 +23,7 @@ public class Constants {
             R.xml.student,
             R.xml.traveler,
             R.xml.anime_addicted,
+            R.xml.sportsman,
             R.xml.music_lover,
             R.xml.animal_lover,
             R.xml.picabu_lover};
@@ -34,6 +35,7 @@ public class Constants {
             R.drawable.student,
             R.drawable.traveler,
             R.drawable.anime_addicted,
+            R.drawable.sportsman,
             R.drawable.music_lover,
             R.drawable.animal_lover,
             R.drawable.picabu_lover};
@@ -45,6 +47,7 @@ public class Constants {
             R.drawable.student_ico,
             R.drawable.traveler_ico,
             R.drawable.anime_addicted_ico,
+            R.drawable.sportsman_ico,
             R.drawable.music_lover_ico,
             R.drawable.animal_lover_ico,
             R.drawable.picabu_lover_ico};
@@ -56,6 +59,7 @@ public class Constants {
             0xFF2d695d,
             0xFF31afbc,
             0xFFD56900,
+            0xFF000000, /*SPORTSMAN*/
             0xFF800909,
             0xFFFFDE00,
             0xFF001427};

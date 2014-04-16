@@ -3,7 +3,6 @@
 
     <string name="app_name">Sphinx</string>
     <string name="app_id">1482375271986982</string>
-
     <string name="start">START</string>
     <string name="no_internet">NO INTERNET</string>
     <string name="check_internet">Check your internet connection\nand touch button again</string>
@@ -19,7 +18,6 @@
     <string name="female">FEMALE</string>
     <string name="continue_text">CONTINUE</string>
     <string name="smth_text">Congratulations, you have been recognized as a <b>%s</b>! We will be so happy if it is truth.</string>
-
     <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
     <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook</string>
     <string name="twitter_dialog_message">Are you sure that you want to continue and post message in Twitter?</string>
@@ -34,6 +32,7 @@
         <item>Student</item>
         <item>Traveler</item>
         <item>Anime addicted</item>
+        <item>Sportsman</item>
         <item>Music lover</item>
         <item>Animal lover</item>
         <item>Picabu lover</item>
@@ -45,6 +44,7 @@
         <item>Exams are coming!</item>
         <item>It is time to join another adventure. Nothing to do at home.</item>
         <item>Nya.</item>
+        <item>Sportsman DEFINITION</item>
         <item>Let it rock.</item>
         <item>Be careful with your pets. They love you.</item>
         <item>Surely, you are always hanging out there.</item>

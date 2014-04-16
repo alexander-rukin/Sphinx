@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 
+import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.misc.Constants;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -75,7 +76,7 @@ public class InformationParser {
             Log.e(Constants.ERROR_TAG, e.getMessage() + " " + type.toString());
         }
 
-        for (int i = 0; i < weight.length; i++) {
+        for (int i = 0; i < weight.length + 3; i++) {
             calculateWeight(i);
         }
     }
@@ -93,9 +94,27 @@ public class InformationParser {
     }
 
     private void calculateWeight(int index) {
-        int xml = Constants.xmls[index];
+        int xml = 0;
+        int len = Constants.xmls.length;
+        if (index < len) {
+            xml = Constants.xmls[index];
+        } else {
+            if (index == len) {
+                xml = R.xml.male;
+            }
+            if (index == len + 1) {
+                xml = R.xml.female;
+            }
+            if (index == len + 2) {
+                xml = R.xml.age;
+            }
+            if (index > len + 2) {
+                Log.wtf(Constants.DEBUG_TAG, "Strange index value: " + index);
+            }
+        }
         double resultWeight = 0;
         double resultMax = 0;
+        int correctEntries = 0;
         boolean[] isUsed = new boolean[storage.size()];
         boolean hasCorrectTag = false;
         try {
@@ -122,6 +141,7 @@ public class InformationParser {
                     case XmlPullParser.TEXT:
                         if (isCorrectTag && currentTag.equals(ITEM_TAG)) {
                             int num = numberOfEntries(xrp.getText(), isUsed);
+                            correctEntries += num;
                             resultWeight += currentWeight * num;
                             resultMax += (MAX - SHIFT < currentWeight ? currentWeight * num : (currentWeight + SHIFT) * num);
                         }
@@ -141,8 +161,23 @@ public class InformationParser {
         }
 
         if (hasCorrectTag) {
-            weight[index] = resultWeight;
-            max[index] = (storage.size() * MAX * PART + resultMax) / 2.;
+            if (index < len) {
+                weight[index] = resultWeight;
+                max[index] = (storage.size() * MAX * PART + resultMax) / 2.;
+            } else {
+                if (index == len) {
+                    Characteristic.addMale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
+                }
+                if (index == len + 1) {
+                    Characteristic.addFemale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
+                }
+                if (index == len + 2) {
+                    Characteristic.addAges((int) resultWeight, correctEntries);
+                }
+                if (index > len + 2) {
+                    Log.wtf(Constants.DEBUG_TAG, "Strange index value: " + index);
+                }
+            }
         }
     }
 
