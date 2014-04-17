@@ -3,11 +3,65 @@
     <account></account>
 
     <application>
-        <weight-array id="23">
+        <weight-array id="25">
+            <item>facebook</item>
+        </weight-array>
+        <weight-array id="31">
+            <item>odnoklassniki</item>
+        </weight-array>
+        <weight-array id="29">
+            <item>vkontakte</item>
+        </weight-array>
+        <weight-array id="27">
+            <item>racing</item>
+        </weight-array>
+        <weight-array id="26">
+            <item>angry</item>
+            <item>ninja</item>
+        </weight-array>
+        <weight-array id="24">
+            <item>gangstar</item>
+            <item>gta</item>
+            <item>crimecity</item>
+            <item>ANMP.GloftGAHM</item>
+            <item>gameloft</item>
+        </weight-array>
+        <weight-array id="18">
+            <item>foursquare</item>
+            <item>metro</item>
+            <item>instagram</item>
+        </weight-array>
+        <weight-array id="7">
+            <item>draw</item>
+        </weight-array>
+        <weight-array id="26">
+            <item>evernote</item>
+        </weight-array>
+        <weight-array id="35">
+            <item>cook</item>
+        </weight-array>
+        <weight-array id="28">
+            <item>maps</item>
+        </weight-array>
+        <weight-array id="33">
+            <item>navigator</item>
+        </weight-array>
+        <weight-array id="14">
+            <item>talking</item>
         </weight-array>
     </application>
 
     <history>
+        <weight-array id="29">
+            <item>vkontakte</item>
+        </weight-array>
+        <weight-array id="38">
+            <item>facebook</item>
+        </weight-array>
+        <weight-array id="34">
+            <item>odnoklassniki</item>
+            <item>ok.ru</item>
+        </weight-array>
     </history>
 
     <music></music>
