@@ -31,7 +31,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/title"
-                android:textSize="35sp" />
+                android:textSize="35dp" />
 
             <ImageView
                 android:id="@+id/avatar"
@@ -48,7 +48,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal"
                 android:textColor="@color/title"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/generalStatistics"
@@ -59,7 +59,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/general_statistics"
                 android:textColor="@color/title"
-                android:textSize="40sp" />
+                android:textSize="40dp" />
 
             <ListView
                 android:id="@+id/otherResults"
@@ -85,7 +85,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/select_social_network"
                 android:textColor="@color/title"
-                android:textSize="24sp" />
+                android:textSize="24dp" />
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
