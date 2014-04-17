@@ -26,7 +26,7 @@
     <string name="accept_dialog">Yes</string>
     <string name="reject_dialog">No</string>
 
-    <string name="swipe_tip">SWIPE TO MOVE</string>
+    <string name="swipe_tip">Swipe for more</string>
 
     <!-- Types of people -->
     <string-array name="types">

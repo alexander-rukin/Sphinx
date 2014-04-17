@@ -5,11 +5,11 @@
     android:gravity="center"
     android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/title" />
+    <!--<ImageView-->
+        <!--android:layout_width="1dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@color/title" />-->
 
     <ScrollView
         android:id="@+id/resultView"
@@ -72,7 +72,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="30dp"

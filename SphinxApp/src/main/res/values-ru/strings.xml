@@ -25,7 +25,7 @@
     <string name="accept_dialog">Да</string>
     <string name="reject_dialog">Нет</string>
 
-    <string name="swipe_tip">ПРОВЕДИТЕ ДЛЯ ПЕРЕМЕЩЕНИЯ</string>
+    <string name="swipe_tip">Пролистайте для большей информации</string>
 
     <!--Types of people-->
     <string-array name="types">
