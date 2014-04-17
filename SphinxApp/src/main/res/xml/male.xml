@@ -4,13 +4,39 @@
 
     <application>
         <weight-array id="100">
+            <item>oranginalplan.weaphones</item>
+            <item>glu.deerhunt</item>
+            <item>CarDisassembly</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>football</item>
+            <item>sports</item>
+        </weight-array>
+        <weight-array id="70">
+            <item>polarbit.rthunder</item>
+            <item>racing</item>
+            <item>boxing</item>
         </weight-array>
     </application>
 
     <history>
         <weight-array id="100">
+            <item>super-mens.ru</item>
+            <item>mujskoi.ru</item>
+            <item>manliness.ru</item>
+            <item>antiwomen.ru</item>
+            <item>men.ru</item>
+            <item>antibaba.org‎</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>футбол</item>
+            <item>football</item>
+            <item>спорт</item>
+            <item>sport</item>
+            <item>хоккей</item>
+            <item>hokey</item>
+            <item>метал</item>
+            <item>metal</item>
         </weight-array>
     </history>
-
-    <music></music>
 </plist>

@@ -3,14 +3,59 @@
     <account></account>
 
     <application>
-        <weight-array id="100">
+        <weight-array id="200">
+            <item>periodcalendar</item>
+            <item>period.tracker</item>
+            <item>lovecycles</item>
+            <item>porknbunny.pcal</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>ion.vkfremium</item>
+            <item>ru.woman</item>
+            <item>recipes</item>
+        </weight-array>
+        <weight-array id="70">
+            <item>com.myfitnesspal.android</item>
+            <item>medhelp.mydiet</item>
+            <item>fatsecret.android</item>
         </weight-array>
     </application>
 
     <history>
         <weight-array id="100">
+            <item>sdama.ru</item>
+            <item>passion.ru</item>
+            <item>fancy-journal.com</item>
+            <item>myjane.ru</item>
+            <item>krasotavnytri.ru</item>
+            <item>amperfect.ru/‎</item>
+            <item>woman.ru</item>
+        </weight-array>
+        <weight-array id="80">
+            <item>прическа</item>
+            <item>hair cut</item>
+            <item>макияж</item>
+            <item>make up</item>
+            <item>мода</item>
+            <item>fashion</item>
+            <item>шопинг</item>
+            <item>shopping</item>
+            <item>косметика</item>
+            <item>cosmetics</item>
+            <item>помада</item>
+            <item>тушь</item>
+            <item>пудра</item>
+            <item>pomade</item>
+            <item>ink</item>
+            <item>powder</item>
+        </weight-array>
+        <weight-array id="50">
+            <item>туфли</item>
+            <item>shoes</item>
+            <item>одежда</item>
+            <item>cloth</item>
+            <item>котики</item>
+            <item>kitty</item>
         </weight-array>
     </history>
-
-    <music></music>
 </plist>
