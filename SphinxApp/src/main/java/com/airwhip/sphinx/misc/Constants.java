@@ -12,6 +12,9 @@ public class Constants {
 //    public static final String CONSUMER_KEY = "cMxB047OvKVa5uafvP3rWA";
 //    public static final String CONSUMER_SECRET = "49CV639Nknnbrilr5o7vrduOntxyh2llCniuHlQhDk";
 
+    public static final String SHARED_PREFERENCE_SWIPE = "swipe_settings";
+    public static final String SHOW_SWIPE = "show_swipe";
+
     public static final String ERROR_TAG = "ERROR_TAG";
     public static final String DEBUG_TAG = "DEBUG_TAG";
 
@@ -58,7 +61,7 @@ public class Constants {
             0xFF2d695d,
             0xFF31afbc,
             0xFFD56900,
-            0xFF000000, /*SPORTSMAN*/
+            0xFF333C7A,
             0xFF800909,
             0xFFFFDE00,
             0xFF001427};

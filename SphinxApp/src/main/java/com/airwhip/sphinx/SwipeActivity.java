@@ -5,10 +5,12 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 
 import com.airwhip.sphinx.misc.Constants;
 import com.facebook.Request;
@@ -80,13 +82,16 @@ public class SwipeActivity extends Activity {
         }
     };
     private UiLifecycleHelper uiHelper;
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
+    private SectionsPagerAdapter sectionsPagerAdapter;
+    private SharedPreferences sharedPreferences;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
+
+        sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_SWIPE, MODE_PRIVATE);
 
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
@@ -94,11 +99,32 @@ public class SwipeActivity extends Activity {
         VKUIHelper.onCreate(this);
         VKSdk.initialize(sdkListener, Constants.VK_APP_ID);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        sectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (!sharedPreferences.getBoolean(Constants.SHOW_SWIPE, true)) {
+                    findViewById(R.id.controlLayout).setVisibility(View.GONE);
+                }
+                if (findViewById(R.id.controlLayout).getVisibility() != View.GONE && position == 1) {
+                    findViewById(R.id.controlLayout).setVisibility(View.GONE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean(Constants.SHOW_SWIPE, false);
+                    editor.commit();
+                }
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
     @Override
