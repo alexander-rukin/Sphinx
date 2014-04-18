@@ -43,7 +43,7 @@
         <TextView
             android:id="@+id/progressText"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/isRightButton"
             android:fontFamily="sans-serif-condensed"
@@ -52,18 +52,37 @@
             android:textColor="@color/title"
             android:textSize="20dp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/isRightButton"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:background="@color/na"
-            android:clickable="true"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="\?"
-            android:textColor="@color/title"
-            android:textSize="25dp" />
+            android:layout_marginRight="5dp"
+            android:button="@drawable/checkbox_selector"
+            android:checked="true"
+            android:visibility="invisible"
+            android:clickable="true" />
+
+        <Button
+            android:id="@+id/questionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/mark_unknown" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/isRightButton"-->
+        <!--android:layout_width="90dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@color/na"-->
+        <!--android:clickable="true"-->
+        <!--android:fontFamily="sans-serif-condensed"-->
+        <!--android:gravity="center"-->
+        <!--android:text="\?"-->
+        <!--android:textColor="@color/title"-->
+        <!--android:textSize="25dp" />-->
 
     </RelativeLayout>
 
