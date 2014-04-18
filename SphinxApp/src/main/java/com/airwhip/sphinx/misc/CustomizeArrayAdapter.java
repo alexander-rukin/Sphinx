@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,7 +64,8 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressBarTriangle = (ImageView) rowView.findViewById(R.id.progressBarTriangle);
             holder.progressText = (TextView) rowView.findViewById(R.id.progressText);
             holder.typeText = (TextView) rowView.findViewById(R.id.typeName);
-            holder.isRightButton = (TextView) rowView.findViewById(R.id.isRightButton);
+            holder.isRightButton = (CheckBox) rowView.findViewById(R.id.isRightButton);
+            holder.questionButton = (Button) rowView.findViewById(R.id.questionButton);
             rowView.setTag(holder);
         } else {
             holder = (ViewHolder) rowView.getTag();
@@ -73,22 +76,23 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         holder.progressBar.getLayoutParams().width = 3 * progress[position];
         holder.progressBar.setBackgroundColor(Constants.colors[position]);
         holder.progressBarTriangle.setBackgroundColor(Constants.colors[position]);
+        holder.questionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.questionButton.setVisibility(View.GONE);
+                holder.isRightButton.setVisibility(View.VISIBLE);
+            }
+        });
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (buttonState[position] == 0) {
                     buttonState[position] = 1;
-                    holder.isRightButton.setBackgroundColor(getContext().getResources().getColor(R.color.accept));
-                    holder.isRightButton.setText(getContext().getString(R.string.yes));
                 } else {
                     if (buttonState[position] == 1) {
                         buttonState[position] = 2;
-                        holder.isRightButton.setBackgroundColor(getContext().getResources().getColor(R.color.reject));
-                        holder.isRightButton.setText(getContext().getString(R.string.no));
                     } else {
                         buttonState[position] = 1;
-                        holder.isRightButton.setBackgroundColor(getContext().getResources().getColor(R.color.accept));
-                        holder.isRightButton.setText(getContext().getString(R.string.yes));
                     }
                 }
                 int count = names.length;
@@ -109,6 +113,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         public ImageView progressBarTriangle;
         public TextView progressText;
         public TextView typeText;
-        public TextView isRightButton;
+        public CheckBox isRightButton;
+        public Button questionButton;
     }
 }
