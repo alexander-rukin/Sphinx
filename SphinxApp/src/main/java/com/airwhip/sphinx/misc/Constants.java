@@ -12,9 +12,6 @@ public class Constants {
 //    public static final String CONSUMER_KEY = "cMxB047OvKVa5uafvP3rWA";
 //    public static final String CONSUMER_SECRET = "49CV639Nknnbrilr5o7vrduOntxyh2llCniuHlQhDk";
 
-    public static final String SHARED_PREFERENCE_SWIPE = "swipe_settings";
-    public static final String SHOW_SWIPE = "show_swipe";
-
     public static final String ERROR_TAG = "ERROR_TAG";
     public static final String DEBUG_TAG = "DEBUG_TAG";
 
@@ -41,18 +38,6 @@ public class Constants {
             R.drawable.music_lover,
             R.drawable.animal_lover,
             R.drawable.picabu_lover};
-
-    public static final int[] icos = {
-            R.drawable.geek_ico,
-            R.drawable.loner_ico,
-            R.drawable.trendy_ico,
-            R.drawable.student_ico,
-            R.drawable.traveler_ico,
-            R.drawable.anime_addicted_ico,
-            R.drawable.sportsman_ico,
-            R.drawable.music_lover_ico,
-            R.drawable.animal_lover_ico,
-            R.drawable.picabu_lover_ico};
 
     public static final int[] colors = {
             0xFF220646,
