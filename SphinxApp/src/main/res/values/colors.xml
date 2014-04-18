@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="background">#655253</color>
-    <color name="title">#F8F9ED</color>
-    <color name="border">#FDB13D</color>
-    <color name="male">#226DC1</color>
-    <color name="female">#730107</color>
+    <color name="background">#FF655253</color>
+    <color name="title">#FFF8F9ED</color>
+    <color name="border">#FFFDB13D</color>
+    <color name="accept">#FF00FF00</color>
+    <color name="reject">#FFFF0000</color>
+    <color name="na">#222222</color>
+    <color name="male">#FF226DC1</color>
+    <color name="female">#FF730107</color>
 
 </resources>

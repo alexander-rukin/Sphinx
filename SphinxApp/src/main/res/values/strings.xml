@@ -9,24 +9,16 @@
     <string name="click_start">Touch button to start</string>
     <string name="general_statistics">GENERAL STATISTICS</string>
     <string name="select_social_network">Share</string>
-    <string name="send">SEND</string>
-    <string name="feedback_title">HELP PROJECT</string>
-    <string name="feedback_text">Select items from the list of statistics which you seemed correct and click send.</string>
-    <string name="gender">YOUR GENDER</string>
-    <string name="age">AGE</string>
     <string name="male">MALE</string>
     <string name="female">FEMALE</string>
-    <string name="continue_text">CONTINUE</string>
     <string name="gender_definition">Congratulations, you have been recognized as a <b>%s</b>! We will be so happy if it is truth.</string>
     <string name="twitter_not_find">Twitter application not found on your device.</string>
 
     <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
     <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook</string>
     <string name="twitter_dialog_message">Are you sure that you want to continue and post message in Twitter?</string>
-    <string name="accept_dialog">Yes</string>
-    <string name="reject_dialog">No</string>
-
-    <string name="swipe_tip">Swipe for more</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!-- Types of people -->
     <string-array name="types">
@@ -53,7 +45,13 @@
         <item>Be careful with your pets. They love you.</item>
         <item>Surely, you are always hanging out there.</item>
     </string-array>
+
     <string name="ufo">UFO</string>
     <string name="ufo_definitions">UFO DEFINITIONS</string>
+
+    <string name="sphinx_think_you_look_like">Sphinx think you look like</string>
+    <string name="feed_back_true">True?</string>
+    <string name="statistic">Statistic</string>
+    <string name="sphinx_was_right">Sphinx was right:</string>
 
 </resources>

@@ -38,8 +38,8 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:padding="10dp"
-            android:text="@string/accept_dialog"
-            android:textColor="@drawable/dialog_button_text_selector"
+            android:text="@string/yes"
+            android:textColor="@drawable/text_selector"
             android:textSize="20sp" />
 
         <ImageView
@@ -57,8 +57,8 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:padding="10dp"
-            android:text="@string/reject_dialog"
-            android:textColor="@drawable/dialog_button_text_selector"
+            android:text="@string/no"
+            android:textColor="@drawable/text_selector"
             android:textSize="20sp" />
 
     </LinearLayout>

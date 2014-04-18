@@ -80,7 +80,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
     private void facebookClick() {
         Session session = Session.getActiveSession();
         if (session.getPermissions().contains("publish_actions")) {
-            SwipeActivity.canPublishPost = true;
+            ResultActivity.canPublishPost = true;
             Request request = Request.newStatusUpdateRequest(
                     session, "ТЕСТ!", new Request.Callback() {
                         @Override
@@ -92,7 +92,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         } else {
             Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(getActivity(), Arrays.asList("publish_actions"));
             session.requestNewPublishPermissions(newPermissionsRequest);
-            SwipeActivity.canPublishPost = true;
+            ResultActivity.canPublishPost = true;
         }
     }
 
