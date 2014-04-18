@@ -8,6 +8,8 @@ import com.airwhip.sphinx.R;
 public class Constants {
 
     public static final String VK_APP_ID = "4063561";
+    public static final int STUDENT_ID = 3;
+    public static final int MIN = 50;
 
 //    public static final String CONSUMER_KEY = "cMxB047OvKVa5uafvP3rWA";
 //    public static final String CONSUMER_SECRET = "49CV639Nknnbrilr5o7vrduOntxyh2llCniuHlQhDk";
@@ -41,14 +43,10 @@ public class Constants {
 
     public static final int[] colors = {
             0xFF220646,
-            0xFFd28780,
             0xFF430808,
-            0xFF2d695d,
             0xFF31afbc,
             0xFFD56900,
             0xFF333C7A,
-            0xFF800909,
-            0xFFFFDE00,
             0xFF001427};
 
     private Constants() {

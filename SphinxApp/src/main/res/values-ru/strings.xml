@@ -51,4 +51,21 @@
     <string name="statistic">Статистика</string>
     <string name="sphinx_was_right">Sphinx был прав:</string>
 
+    <string name="studying">Учишься</string>
+    <string name="not_studying">Не учишься</string>
+    <string name="in_relationship">В отношениях</string>
+    <string name="single">Одинокий</string>
+    <string name="not">Не</string>
+    <string name="man">Мужчина</string>
+    <string name="woman">Женщина</string>
+
+    <string-array name="ages">
+        <item>Возраст &lt; 18</item>
+        <item>Возраст 18 &#8211; 24</item>
+        <item>Возраст 25 &#8211; 33</item>
+        <item>Возраст 34 &#8211; 42</item>
+        <item>Возраст 42 &#8211; 55</item>
+        <item>Возраст &gt; 56</item>
+    </string-array>
+
 </resources>

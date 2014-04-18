@@ -135,12 +135,65 @@ public class ResultActivity extends Activity {
         }
         feedBackList.setFocusable(false);
 
+        int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
+        for (int i = 0; i < sorted.length; i++) {
+            sorted[i] = i;
+        }
+        for (int i = 0; i < sorted.length; i++) {
+            for (int j = i + 1; j < sorted.length; j++) {
+                if (Characteristic.get(sorted[i]) < Characteristic.get(sorted[j])) {
+                    int tmp = sorted[i];
+                    sorted[i] = sorted[j];
+                    sorted[j] = tmp;
+                }
+            }
+        }
+
         List<String> types = new ArrayList<>();
         List<Integer> progress = new ArrayList<>();
-        for (int i = 0; i < Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1); i++) {
-            types.add(getResources().getStringArray(R.array.types)[i]);
-            progress.add(Characteristic.get(i));
+
+        // add study or not
+        if (Characteristic.get(Constants.STUDENT_ID) > Constants.MIN) {
+            types.add(getString(R.string.studying));
+            progress.add(Characteristic.get(Constants.STUDENT_ID));
+        } else {
+            types.add(getString(R.string.not_studying));
+            progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
         }
+        // add in relationship or single
+        if (true) {
+            types.add(getString(R.string.in_relationship));
+            progress.add(Characteristic.get(Constants.STUDENT_ID));
+        } else {
+            types.add(getString(R.string.single));
+            progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
+        }
+        // add two uniq characteristics
+        boolean isStudentTop = false;
+        for (int i = 0; i < 2 + (isStudentTop ? 1 : 0); i++) {
+            if (sorted[i] != Constants.STUDENT_ID) {
+                if (Characteristic.get(sorted[i]) > Constants.MIN) {
+                    types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
+                    progress.add(Characteristic.get(sorted[i]));
+                } else {
+                    types.add(getString(R.string.not) + " " + (getResources().getStringArray(R.array.types)[sorted[i]]).toLowerCase());
+                    progress.add(100 - Characteristic.get(sorted[i]));
+                }
+            } else {
+                isStudentTop = true;
+            }
+        }
+        // add male or female
+        if (Characteristic.getMale() > Constants.MIN) {
+            types.add(getString(R.string.man));
+            progress.add(Characteristic.getMale());
+        } else {
+            types.add(getString(R.string.woman));
+            progress.add(Characteristic.getFemale());
+        }
+        // add age category
+        types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
+        progress.add(50);
 
         ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]), (TextView) findViewById(R.id.sphinxStatistic));
         feedBackList.setAdapter(adapter);

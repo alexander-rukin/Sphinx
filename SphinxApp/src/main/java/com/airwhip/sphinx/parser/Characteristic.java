@@ -1,7 +1,9 @@
 package com.airwhip.sphinx.parser;
 
+import android.content.res.Resources;
 import android.util.Log;
 
+import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.misc.Constants;
 
 /**
@@ -110,5 +112,15 @@ public class Characteristic {
             counter += (i != -1 ? 1 : 0);
         }
         return counter > 10;
+    }
+
+    public static int getAgeCategory() {
+        int curAge = getAge();
+        if (curAge < 18) return 0;
+        if (curAge < 25) return 1;
+        if (curAge < 34) return 2;
+        if (curAge < 42) return 3;
+        if (curAge < 56) return 4;
+        return 5;
     }
 }
