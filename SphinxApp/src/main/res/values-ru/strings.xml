@@ -31,6 +31,18 @@
         <item>Любитель животных</item>
         <item>Пикабушник</item>
     </string-array>
+    <string-array name="types_for_title">
+        <item>гика</item>
+        <item>холостяка</item>
+        <item>модника</item>
+        <item>студента</item>
+        <item>путешественника</item>
+        <item>анимешника</item>
+        <item>спортсмена</item>
+        <item>меломана</item>
+        <item>любителя животных</item>
+        <item>пикабушника</item>
+    </string-array>
     <string-array name="definitions">
         <item>Как твой эльф?</item>
         <item>Пивка?</item>
@@ -44,15 +56,17 @@
         <item>С уверенностью можно сказать, что вы проводите уйму времени на этом сайте. Больше лойсов вам!</item>
     </string-array>
     <string name="ufo">НЛО</string>
-    <string name="ufo_definitions">НЛО DEFINITIONS</string>
+    <string name="ufo_for_title">Экспертная оценка Sphinx не дала результатов</string>
+    <string name="ufo_definitions">Возможно вы замечали нечто странное за собой, странные сны, зонды, круглые и светящиетя объекты. Скорее всего ваш телефон недавно похищали инопланетные существа...</string>
 
-    <string name="sphinx_think_you_look_like">Sphinx распознал вас как</string>
+    <string name="sphinx_think_you_look_like">Sphinx увидел в вас <b>%s</b></string>
     <string name="feed_back_true">Правда?</string>
     <string name="statistic">Статистика</string>
+    <string name="you_are">Вы:</string>
     <string name="sphinx_was_right">Sphinx был прав:</string>
 
-    <string name="studying">Учишься</string>
-    <string name="not_studying">Не учишься</string>
+    <string name="studying">Учитесь</string>
+    <string name="not_studying">Не учитесь</string>
     <string name="in_relationship">В отношениях</string>
     <string name="single">Одинокий</string>
     <string name="not">Не</string>

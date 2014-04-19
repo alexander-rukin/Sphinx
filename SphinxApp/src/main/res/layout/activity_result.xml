@@ -27,35 +27,25 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/typeName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="@string/sphinx_think_you_look_like"
                         android:textColor="@color/title"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:id="@+id/typeName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:text="typeName"
-                        android:textColor="@color/title"
-                        android:textSize="22dp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/typeDefinition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
                         android:text="typeDefinition"
                         android:textColor="@color/title"
-                        android:textSize="16dp" />
+                        android:textSize="14dp" />
 
                 </LinearLayout>
 
@@ -78,9 +68,9 @@
                     android:layout_marginLeft="5dp"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
-                    android:text="@string/statistic"
+                    android:text="@string/you_are"
                     android:textColor="@color/title"
-                    android:textSize="25dp" />
+                    android:textSize="22dp" />
 
                 <TextView
                     android:layout_width="90dp"
@@ -91,7 +81,7 @@
                     android:gravity="center"
                     android:text="@string/feed_back_true"
                     android:textColor="@color/title"
-                    android:textSize="25dp" />
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 
@@ -105,6 +95,7 @@
                 android:id="@+id/feedBackList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:divider="@null"
                 android:dividerHeight="5dp" />
@@ -127,7 +118,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/sphinx_was_right"
                     android:textColor="@color/title"
-                    android:textSize="25dp" />
+                    android:textSize="22dp" />
 
                 <TextView
                     android:id="@+id/sphinxStatistic"
@@ -139,7 +130,7 @@
                     android:gravity="center"
                     android:text="5/10"
                     android:textColor="@color/title"
-                    android:textSize="25dp" />
+                    android:textSize="22dp" />
 
             </RelativeLayout>
 
@@ -151,7 +142,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/select_social_network"
                 android:textColor="@color/title"
-                android:textSize="24dp" />
+                android:textSize="22dp" />
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"

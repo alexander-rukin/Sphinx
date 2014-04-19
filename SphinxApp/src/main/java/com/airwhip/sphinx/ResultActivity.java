@@ -126,11 +126,11 @@ public class ResultActivity extends Activity {
 
         if (Characteristic.isUFO()) {
             typeAvatar.setImageResource(R.drawable.ufo);
-            typeName.setText(R.string.ufo);
+            typeName.setText(getResources().getString(R.string.ufo_for_title));
             typeDefinition.setText(R.string.ufo_definitions);
         } else {
             typeAvatar.setImageResource(Constants.imgs[maxResultIndex]);
-            typeName.setText(getResources().getStringArray(R.array.types)[maxResultIndex].toUpperCase());
+            typeName.setText(String.format(getResources().getString(R.string.sphinx_think_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
             typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
         }
         feedBackList.setFocusable(false);

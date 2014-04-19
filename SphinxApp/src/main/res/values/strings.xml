@@ -32,6 +32,18 @@
         <item>Animal lover</item>
         <item>Picabu lover</item>
     </string-array>
+    <string-array name="types_for_title">
+        <item>geek</item>
+        <item>loner</item>
+        <item>trendy</item>
+        <item>student</item>
+        <item>traveler</item>
+        <item>anime addicted</item>
+        <item>sportsman</item>
+        <item>music lover</item>
+        <item>animal lover</item>
+        <item>picabu lover</item>
+    </string-array>
     <string-array name="definitions">
         <item>What is about your elf?</item>
         <item>Wanna some beer?</item>
@@ -46,11 +58,13 @@
     </string-array>
 
     <string name="ufo">UFO</string>
+    <string name="ufo_for_title">UFO</string>
     <string name="ufo_definitions">UFO DEFINITIONS</string>
 
-    <string name="sphinx_think_you_look_like">Sphinx think you look like</string>
+    <string name="sphinx_think_you_look_like">Sphinx think you look like a <b>%s</b></string>
     <string name="feed_back_true">True?</string>
     <string name="statistic">Statistic</string>
+    <string name="you_are">You are:</string>
     <string name="sphinx_was_right">Sphinx was right:</string>
 
     <string name="studying">Studying</string>

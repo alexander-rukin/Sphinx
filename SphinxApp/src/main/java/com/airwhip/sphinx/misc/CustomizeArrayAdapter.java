@@ -20,7 +20,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
     private Context context;
     private String[] names;
     private Integer[] progress;
-    private int[] buttonState;
+    private boolean[] buttonState;
     private TextView sphinxStatistic;
 
     private int[] sorted;
@@ -30,7 +30,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         this.context = context;
         this.names = names;
         this.progress = progress;
-        this.buttonState = new int[names.length];
+        this.buttonState = new boolean[names.length];
         this.sphinxStatistic = sphinxStatistic;
 
         sphinxStatistic.setText(names.length + "/" + names.length);
@@ -73,7 +73,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
 
         holder.progressText.setText(String.valueOf(progress[position] + "%"));
         holder.typeText.setText(names[position]);
-        holder.progressBar.getLayoutParams().width = 3 * progress[position];
+        holder.progressBar.getLayoutParams().width = 4 * progress[position];
         holder.progressBar.setBackgroundColor(Constants.colors[position]);
         holder.progressBarTriangle.setBackgroundColor(Constants.colors[position]);
         holder.questionButton.setOnClickListener(new View.OnClickListener() {
@@ -86,18 +86,14 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (buttonState[position] == 0) {
-                    buttonState[position] = 1;
+                if (buttonState[position]) {
+                    buttonState[position] = false;
                 } else {
-                    if (buttonState[position] == 1) {
-                        buttonState[position] = 2;
-                    } else {
-                        buttonState[position] = 1;
-                    }
+                    buttonState[position] = true;
                 }
                 int count = names.length;
-                for (int i : buttonState) {
-                    if (i == 2) {
+                for (boolean i : buttonState) {
+                    if (i) {
                         count--;
                     }
                 }
