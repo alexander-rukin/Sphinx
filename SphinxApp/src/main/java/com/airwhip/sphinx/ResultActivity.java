@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +31,7 @@ import com.vk.sdk.VKSdkListener;
 import com.vk.sdk.VKUIHelper;
 import com.vk.sdk.api.VKError;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -244,24 +244,11 @@ public class ResultActivity extends Activity {
         findViewById(R.id.shareTwitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent tweetIntent = new Intent(Intent.ACTION_SEND);
-                String message = "sdjfgpjg[sjd[fpgjks]dpfjkop]sdjfg"; // TODO generate tweet
-                tweetIntent.putExtra(Intent.EXTRA_TEXT, message);
-                tweetIntent.setType("text/plain");
-
-                List<ResolveInfo> resolvedInfoList = getPackageManager().queryIntentActivities(tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
-
-                boolean resolved = false;
-                for (ResolveInfo resolveInfo : resolvedInfoList) {
-                    if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
-                        tweetIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
-                        resolved = true;
-                        break;
-                    }
-                }
-                if (resolved) {
-                    startActivity(tweetIntent);
-                } else {
+                try {
+                    getPackageManager().getApplicationInfo("com.twitter.android", 0);
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.TWITTER);
+                    dlg.show(getFragmentManager(), "");
+                } catch (PackageManager.NameNotFoundException e) {
                     Toast.makeText(ResultActivity.this, R.string.twitter_not_find, Toast.LENGTH_LONG).show();
                 }
             }
@@ -291,6 +278,7 @@ public class ResultActivity extends Activity {
         super.onDestroy();
         VKUIHelper.onDestroy(this);
         uiHelper.onDestroy();
+        new File(Constants.FILE_PATH).delete();
     }
 
     @Override

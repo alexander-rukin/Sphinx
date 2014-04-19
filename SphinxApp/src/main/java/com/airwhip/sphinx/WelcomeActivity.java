@@ -175,11 +175,11 @@ public class WelcomeActivity extends Activity {
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.append(partOfXml);
             publishProgress(80);
-//            partOfXml = MusicInformation.get(getApplicationContext());
-//            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
-//            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-//            Characteristic.append(partOfXml);
-//            publishProgress(100);
+            partOfXml = MusicInformation.get(getApplicationContext());
+            parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
+            Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
+            Characteristic.append(partOfXml);
+            publishProgress(100);
 
             return null;
         }

@@ -1,6 +1,10 @@
 package com.airwhip.sphinx;
 
 import android.app.DialogFragment;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +24,11 @@ import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Whiplash on 14.04.2014.
@@ -59,6 +67,25 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
     }
 
     public void onClick(View v) {
+        View content = getActivity().findViewById(R.id.testSave);
+        try {
+            content.setDrawingCacheEnabled(true);
+            Bitmap bitmap = content.getDrawingCache();
+            File file = new File(Constants.FILE_PATH);
+            {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FileOutputStream stream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 10, stream);
+                stream.close();
+                content.invalidate();
+            }
+        } catch (IOException e) {
+            Log.e(Constants.ERROR_TAG, e.getMessage());
+        } finally {
+            content.setDrawingCacheEnabled(false);
+        }
         if (v.getId() == R.id.acceptDialog) {
             switch (network) {
                 case VKONTAKTE:
@@ -68,6 +95,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                     facebookClick();
                     break;
                 case TWITTER:
+                    twitterClick();
                     break;
                 default:
                     Log.wtf(Constants.ERROR_TAG, "Strange social network");
@@ -133,6 +161,23 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
 //                        });
 //                    }
 //                });
+    }
+
+    private void twitterClick() {
+        Intent tweetIntent = new Intent(Intent.ACTION_SEND);
+        String message = "TEST SPHINX APPLICATION";
+        tweetIntent.putExtra(Intent.EXTRA_TEXT, message);
+        tweetIntent.putExtra(Intent.EXTRA_STREAM, Constants.FILE_URI);
+        tweetIntent.setType("text/plain");
+
+        List<ResolveInfo> resolvedInfoList = getActivity().getPackageManager().queryIntentActivities(tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo : resolvedInfoList) {
+            if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
+                tweetIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+                startActivity(tweetIntent);
+                break;
+            }
+        }
     }
 
     public static enum SocialNetwork {

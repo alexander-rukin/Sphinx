@@ -1,5 +1,7 @@
 package com.airwhip.sphinx.misc;
 
+import android.net.Uri;
+
 import com.airwhip.sphinx.R;
 
 /**
@@ -10,6 +12,9 @@ public class Constants {
     public static final String VK_APP_ID = "4063561";
     public static final int STUDENT_ID = 3;
     public static final int MIN = 50;
+
+    public static final String FILE_PATH = "/sdcard/testimage.png";
+    public static final Uri FILE_URI = Uri.parse("file://" + FILE_PATH);
 
 //    public static final String CONSUMER_KEY = "cMxB047OvKVa5uafvP3rWA";
 //    public static final String CONSUMER_SECRET = "49CV639Nknnbrilr5o7vrduOntxyh2llCniuHlQhDk";
