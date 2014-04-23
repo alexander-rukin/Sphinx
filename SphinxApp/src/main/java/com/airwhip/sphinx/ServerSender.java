@@ -9,11 +9,6 @@ import com.airwhip.sphinx.parser.Characteristic;
 
 public class ServerSender extends IntentService {
 
-    /**
-     * Creates an IntentService.  Invoked by your subclass's constructor.
-     *
-     * @param name Used to name the worker thread, important only for debugging.
-     */
     public ServerSender() {
         super("SERVER_SENDER");
     }
@@ -26,7 +21,7 @@ public class ServerSender extends IntentService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Log.d(Constants.DEBUG_TAG, "" + Characteristic.getMale());
+        Log.d(Constants.DEBUG_TAG, Characteristic.getXml().toString());
         stopSelf();
         Log.d(Constants.DEBUG_TAG, "STOP_SELF");
     }
