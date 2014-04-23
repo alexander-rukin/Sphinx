@@ -275,10 +275,12 @@ public class ResultActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        Log.d(Constants.DEBUG_TAG, "TRY_START");
+        startService(new Intent(this, ServerSender.class));
         VKUIHelper.onDestroy(this);
         uiHelper.onDestroy();
         new File(Constants.FILE_PATH).delete();
+        super.onDestroy();
     }
 
     @Override
