@@ -18,6 +18,7 @@
     <string name="twitter_dialog_message">Are you sure that you want to continue and post message in Twitter?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="something_went_wrong">Something went wrong &#8230;</string>
 
     <!-- Types of people -->
     <string-array name="types">

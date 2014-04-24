@@ -58,7 +58,7 @@ public class ResultActivity extends Activity {
 
         @Override
         public void onReceiveNewToken(VKAccessToken newToken) {
-            DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE);
+            DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE, ResultActivity.this);
             dlg.show(getFragmentManager(), "");
         }
 
@@ -85,7 +85,7 @@ public class ResultActivity extends Activity {
                 return;
             }
             if (state.isOpened() && canFacebookPost) {
-                DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK);
+                DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK, ResultActivity.this);
                 dlg.show(getFragmentManager(), "");
             }
         }
@@ -221,9 +221,9 @@ public class ResultActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (!VKSdk.isLoggedIn()) {
-                    VKSdk.authorize(VKScope.WALL);
+                    VKSdk.authorize(VKScope.WALL, VKScope.PHOTOS);
                 } else {
-                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE);
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.VKONTAKTE, ResultActivity.this);
                     dlg.show(getFragmentManager(), "");
                 }
             }
@@ -236,7 +236,7 @@ public class ResultActivity extends Activity {
                 if (!facebookIsLoggedIn()) {
                     loginBtn.callOnClick();
                 } else {
-                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK);
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK, ResultActivity.this);
                     dlg.show(getFragmentManager(), "");
                 }
             }
@@ -246,7 +246,7 @@ public class ResultActivity extends Activity {
             public void onClick(View v) {
                 try {
                     getPackageManager().getApplicationInfo("com.twitter.android", 0);
-                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.TWITTER);
+                    DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.TWITTER, ResultActivity.this);
                     dlg.show(getFragmentManager(), "");
                 } catch (PackageManager.NameNotFoundException e) {
                     Toast.makeText(ResultActivity.this, R.string.twitter_not_find, Toast.LENGTH_LONG).show();

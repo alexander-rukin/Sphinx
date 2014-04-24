@@ -1,10 +1,12 @@
 package com.airwhip.sphinx;
 
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airwhip.sphinx.misc.Constants;
 import com.facebook.Request;
@@ -20,9 +23,13 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
+import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
+import com.vk.sdk.api.model.VKApiPhoto;
+import com.vk.sdk.api.model.VKAttachments;
+import com.vk.sdk.api.model.VKPhotoArray;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,11 +42,14 @@ import java.util.List;
  */
 public class SocialNetworkDialog extends DialogFragment implements OnClickListener {
 
+    private static final String POST_MESSAGE = "SPHINX APPLICATION TEST";
     private SocialNetwork network;
+    private Context context;
 
-    public SocialNetworkDialog(SocialNetwork network) {
+    public SocialNetworkDialog(SocialNetwork network, Context context) {
         super();
         this.network = network;
+        this.context = context;
     }
 
     @Override
@@ -89,7 +99,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         if (v.getId() == R.id.acceptDialog) {
             switch (network) {
                 case VKONTAKTE:
-                    vkClick();
+                    new VKAsyncTask(context).execute();
                     break;
                 case FACEBOOK:
                     facebookClick();
@@ -124,49 +134,9 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         }
     }
 
-    private void vkClick() {
-        VKRequest request = VKApi.users().get();
-        request.executeWithListener(new VKRequest.VKRequestListener() {
-            @Override
-            public void onComplete(VKResponse response) {
-                super.onComplete(response);
-                try {
-                    int userId = response.json.getJSONArray("response").getJSONObject(0).getInt("id");
-                    VKRequest request = VKApi.wall().post(VKParameters.from(VKApiConst.OWNER_ID, String.valueOf(userId), VKApiConst.MESSAGE, "ТЕСТ!"));
-                    request.executeWithListener(new VKRequest.VKRequestListener() {
-                        @Override
-                        public void onComplete(VKResponse response) {
-                            super.onComplete(response);
-                        }
-                    });
-                } catch (Exception e) {
-                    Log.d(Constants.ERROR_TAG, "WAT??");
-                }
-            }
-        });
-
-//                VKRequest image = VKApi.uploadWallPhotoRequest(new VKUploadImage(BitmapFactory.decodeResource(getResources(), R.drawable.anime_addicted), VKImageParameters.jpgImage(0.9f)), 26284681, 0);
-//                image.executeWithListener(new VKRequest.VKRequestListener() {
-//                    @Override
-//                    public void onComplete(VKResponse response) {
-//                        super.onComplete(response);
-//                        VKAttachments attachments = new VKAttachments();
-//                        VKApiPhoto photoModel = ((VKPhotoArray) response.parsedModel).get(0);
-//                        attachments.add(photoModel);
-//                        VKRequest request = VKApi.wall().post(VKParameters.from(VKApiConst.OWNER_ID, "26284681", VKApiConst.MESSAGE, "ТЕСТ!", VKApiConst.ATTACHMENTS, attachments));
-//                        request.executeWithListener(new VKRequest.VKRequestListener() {
-//                            @Override
-//                            public void onComplete(VKResponse response) {
-//                            }
-//                        });
-//                    }
-//                });
-    }
-
     private void twitterClick() {
         Intent tweetIntent = new Intent(Intent.ACTION_SEND);
-        String message = "TEST SPHINX APPLICATION";
-        tweetIntent.putExtra(Intent.EXTRA_TEXT, message);
+        tweetIntent.putExtra(Intent.EXTRA_TEXT, POST_MESSAGE);
         tweetIntent.putExtra(Intent.EXTRA_STREAM, Constants.FILE_URI);
         tweetIntent.setType("text/plain");
 
@@ -182,5 +152,64 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
 
     public static enum SocialNetwork {
         VKONTAKTE, FACEBOOK, TWITTER
+    }
+
+    private class VKAsyncTask extends AsyncTask<Void, Void, Void> {
+        Context context;
+
+        public VKAsyncTask(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            VKRequest request = VKApi.users().get();
+            request.executeWithListener(new VKRequest.VKRequestListener() {
+                @Override
+                public void onComplete(VKResponse response) {
+                    super.onComplete(response);
+                    try {
+                        final int userId = response.json.getJSONArray("response").getJSONObject(0).getInt("id");
+                        VKRequest image = VKApi.uploadWallPhotoRequest(new File(Constants.FILE_PATH), userId, 0);
+                        image.executeWithListener(new VKRequest.VKRequestListener() {
+                            @Override
+                            public void onComplete(VKResponse response) {
+                                super.onComplete(response);
+                                VKAttachments attachment = new VKAttachments();
+                                VKApiPhoto photoModel = ((VKPhotoArray) response.parsedModel).get(0);
+                                attachment.add(photoModel);
+                                VKRequest request = VKApi.wall().post(VKParameters.from(VKApiConst.OWNER_ID, userId, VKApiConst.MESSAGE, POST_MESSAGE, VKApiConst.ATTACHMENTS, attachment));
+                                request.executeWithListener(new VKRequest.VKRequestListener() {
+                                    @Override
+                                    public void onComplete(VKResponse response) {
+                                        super.onComplete(response);
+                                    }
+
+                                    @Override
+                                    public void onError(VKError error) {
+                                        Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onError(VKError error) {
+                                Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    } catch (Exception e) {
+                        Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
+                        Log.d(Constants.ERROR_TAG, e.getMessage());
+                    }
+                }
+
+                @Override
+                public void onError(VKError error) {
+                    Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
+                }
+            });
+
+            return null;
+        }
     }
 }

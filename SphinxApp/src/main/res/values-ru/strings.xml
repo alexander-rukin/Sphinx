@@ -17,6 +17,7 @@
     <string name="twitter_dialog_message">Уверены что хотите продолжить и разместить пост в Twitter?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="something_went_wrong">Что-то пошло не так &#8230;</string>
 
     <!--Types of people-->
     <string-array name="types">
