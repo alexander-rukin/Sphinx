@@ -72,15 +72,20 @@ public class ResultActivity extends Activity {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
             if (canPublishPost) {
-                if (session.getPermissions().contains("publish_actions")) {
-                    Request request = Request.newStatusUpdateRequest(
-                            session, "ТЕСТ!", new Request.Callback() {
-                                @Override
-                                public void onCompleted(Response response) {
-                                }
-                            }
-                    );
+                try {
+                    Request request = Request.newUploadPhotoRequest(session, new File(Constants.FILE_PATH), new Request.Callback() {
+                        @Override
+                        public void onCompleted(Response response) {
+                            Log.d(Constants.DEBUG_TAG, "POST");
+                        }
+                    });
+                    Bundle params = request.getParameters();
+                    params.putString("message", "SPHINX APPLICATION TEST");
+                    request.setParameters(params);
                     request.executeAsync();
+                } catch (Exception e) {
+                    Log.e(Constants.ERROR_TAG, e.getMessage());
+                    Toast.makeText(ResultActivity.this, ResultActivity.this.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
                 }
                 return;
             }

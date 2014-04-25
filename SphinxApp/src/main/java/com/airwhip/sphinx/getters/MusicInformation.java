@@ -50,7 +50,7 @@ public class MusicInformation {
 
     private static final String OAUTH_KEY = "&api_key=aa3caf28fe64c9efa190bdd0d253a707&format=json";
 
-    private static final int FANS_PER_ARTIST = 5;
+    private static final int FANS_PER_ARTIST = 1;
 
     public static StringBuilder get(Context context) {
         StringBuilder result = new StringBuilder(MAIN_TAG_BEGIN);

@@ -115,25 +115,6 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         dismiss();
     }
 
-    private void facebookClick() {
-        Session session = Session.getActiveSession();
-        if (session.getPermissions().contains("publish_actions")) {
-            ResultActivity.canPublishPost = true;
-            Request request = Request.newStatusUpdateRequest(
-                    session, "ТЕСТ!", new Request.Callback() {
-                        @Override
-                        public void onCompleted(Response response) {
-                        }
-                    }
-            );
-            request.executeAsync();
-        } else {
-            Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(getActivity(), Arrays.asList("publish_actions"));
-            session.requestNewPublishPermissions(newPermissionsRequest);
-            ResultActivity.canPublishPost = true;
-        }
-    }
-
     private void twitterClick() {
         Intent tweetIntent = new Intent(Intent.ACTION_SEND);
         tweetIntent.putExtra(Intent.EXTRA_TEXT, POST_MESSAGE);
@@ -147,6 +128,31 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                 startActivity(tweetIntent);
                 break;
             }
+        }
+    }
+
+    private void facebookClick() {
+        try {
+            Session session = Session.getActiveSession();
+            if (session.getPermissions().contains("publish_actions")) {
+                Request request = Request.newUploadPhotoRequest(session, new File(Constants.FILE_PATH), new Request.Callback() {
+                    @Override
+                    public void onCompleted(Response response) {
+                        Log.d(Constants.DEBUG_TAG, "POST");
+                    }
+                });
+                Bundle params = request.getParameters();
+                params.putString("message", POST_MESSAGE);
+                request.setParameters(params);
+                request.executeAsync();
+            } else {
+                Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(getActivity(), Arrays.asList("publish_actions"));
+                session.requestNewPublishPermissions(newPermissionsRequest);
+                ResultActivity.canPublishPost = true;
+            }
+        } catch (Exception e) {
+            Log.e(Constants.ERROR_TAG, e.getMessage());
+            Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
         }
     }
 
