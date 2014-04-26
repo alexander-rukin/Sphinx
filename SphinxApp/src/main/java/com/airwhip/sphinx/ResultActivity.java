@@ -184,7 +184,7 @@ public class ResultActivity extends Activity {
         // add two uniq characteristics
         int incorrectField = 0;
         for (int i = 0; i < 2 + incorrectField; i++) {
-            if (sorted[i] != Constants.STUDENT_ID || sorted[i] != Constants.LONER_ID) {
+            if (sorted[i] != Constants.STUDENT_ID && sorted[i] != Constants.LONER_ID) {
                 if (Characteristic.get(sorted[i]) > Constants.MIN) {
                     types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
                     progress.add(Characteristic.get(sorted[i]));
@@ -207,6 +207,8 @@ public class ResultActivity extends Activity {
         // add age category
         types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
         progress.add(-1);
+
+        Characteristic.fillFeedBackCategory(types.toArray(new String[types.size()]));
 
         ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]), (TextView) findViewById(R.id.sphinxStatistic));
         feedBackList.setAdapter(adapter);

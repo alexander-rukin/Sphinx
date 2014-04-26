@@ -69,6 +69,7 @@ public class WelcomeActivity extends Activity {
         circle.setOnClickListener(new StartButtonClick(ProgramState.START));
 
         names = new Names(this);
+        Characteristic.setUserID(Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
     }
 
     private enum ProgramState {
@@ -171,10 +172,7 @@ public class WelcomeActivity extends Activity {
                 }
             });
 
-            StringBuilder partOfXml = new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
-            partOfXml.append("<user id=\"" + Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + "\">\n");
-            Characteristic.append(partOfXml);
-            partOfXml = AccountInformation.get(getApplicationContext());
+            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
             SMSInformation.get(getApplicationContext());
             InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
@@ -200,7 +198,6 @@ public class WelcomeActivity extends Activity {
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.append(partOfXml);
             publishProgress(100);
-            Characteristic.append(new StringBuilder("</user>"));
 
             return null;
         }

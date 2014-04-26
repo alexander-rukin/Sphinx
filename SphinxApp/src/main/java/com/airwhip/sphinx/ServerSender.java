@@ -29,7 +29,9 @@ public class ServerSender extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.d(Constants.DEBUG_TAG, "START_SERVICE");
 
-//        postRequest();
+        Characteristic.generate();
+        Log.d(Constants.DEBUG_TAG, "GENERATE_XML");
+        postRequest();
         stopSelf();
 
         Log.d(Constants.DEBUG_TAG, "STOP_SELF");
@@ -44,6 +46,7 @@ public class ServerSender extends IntentService {
             httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
             HttpResponse resp = httpclient.execute(httppost);
             Log.d(Constants.DEBUG_TAG, EntityUtils.toString(resp.getEntity(), "UTF-8"));
+            Characteristic.clear();
         } catch (Exception e) {
             Log.e(Constants.ERROR_TAG, "EXCEPTION " + e.getMessage());
         }

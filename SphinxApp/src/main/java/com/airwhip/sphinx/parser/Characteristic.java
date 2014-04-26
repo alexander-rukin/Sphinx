@@ -1,9 +1,7 @@
 package com.airwhip.sphinx.parser;
 
-import android.content.res.Resources;
 import android.util.Log;
 
-import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.misc.Constants;
 
 /**
@@ -13,9 +11,10 @@ public class Characteristic {
 
     private static final int DEFAULT_AGE = 25;
     private static final int MINIMUM_WEIGHT = 100;
-
+    public static int[] feedBackResult = new int[6];
     private static StringBuilder xml = new StringBuilder();
-
+    private static String userID = "";
+    private static String[] feedBackCategory;
     private static double[] weight = new double[Constants.xmls.length];
     private static double[] max = new double[Constants.xmls.length];
 
@@ -26,6 +25,24 @@ public class Characteristic {
     private static int ageIteration = 0;
 
     private Characteristic() {
+    }
+
+    public static void clear() {
+        xml = new StringBuilder();
+        weight = new double[Constants.xmls.length];
+        max = new double[Constants.xmls.length];
+        maleWeight = 0.;
+        femaleWeight = 0.;
+        age = 0.;
+        ageIteration = 0;
+    }
+
+    public static void fillFeedBackCategory(String[] categoryes) {
+        feedBackCategory = categoryes;
+    }
+
+    public static void setUserID(String id) {
+        userID = id;
     }
 
     public static void addAge(int ageValue) {
@@ -83,6 +100,21 @@ public class Characteristic {
 
     public static void append(StringBuilder newXml) {
         xml.append(newXml);
+    }
+
+    public static void generate() {
+        StringBuilder newXML = new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+        newXML.append("<user id=\"" + userID + "\">\n");
+
+        newXML.append("<result>\n");
+        for (int i = 0; i < feedBackCategory.length; i++) {
+            newXML.append("\t<item name=\"" + feedBackCategory[i] + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\">\n");
+        }
+        newXML.append("</result>\n");
+
+        newXML.append(xml);
+        newXML.append(new StringBuilder("</user>"));
+        xml = newXML;
     }
 
     public static boolean isUFO() {

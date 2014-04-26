@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.R;
+import com.airwhip.sphinx.parser.Characteristic;
 
 /**
  * Created by Whiplash on 30.03.14.
@@ -20,7 +21,6 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
     private Context context;
     private String[] names;
     private Integer[] progress;
-    private boolean[] buttonState;
     private TextView sphinxStatistic;
 
     private int[] sorted;
@@ -30,7 +30,6 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         this.context = context;
         this.names = names;
         this.progress = progress;
-        this.buttonState = new boolean[names.length];
         this.sphinxStatistic = sphinxStatistic;
 
         sphinxStatistic.setText(names.length + "/" + names.length);
@@ -92,14 +91,14 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (buttonState[position]) {
-                    buttonState[position] = false;
+                if (Characteristic.feedBackResult[position] == 1) {
+                    Characteristic.feedBackResult[position] = 0;
                 } else {
-                    buttonState[position] = true;
+                    Characteristic.feedBackResult[position] = 1;
                 }
                 int count = names.length;
-                for (boolean i : buttonState) {
-                    if (i) {
+                for (int i : Characteristic.feedBackResult) {
+                    if (i == 1) {
                         count--;
                     }
                 }
