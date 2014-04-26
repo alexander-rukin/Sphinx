@@ -1,196 +1,220 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical">
+    android:scrollbars="none">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <LinearLayout
-                android:id="@+id/testSave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="250dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                <TextView
+                    android:id="@+id/typeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="left"
+                    android:text="@string/sphinx_think_you_look_like"
+                    android:textColor="@color/title"
+                    android:textSize="18dp" />
 
-                    <TextView
-                        android:id="@+id/typeName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif"
-                        android:gravity="left"
-                        android:text="@string/sphinx_think_you_look_like"
-                        android:textColor="@color/title"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/typeDefinition"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="left"
-                        android:text="typeDefinition"
-                        android:textColor="@color/title"
-                        android:textSize="14dp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/typeAvatar"
-                    android:layout_width="0dp"
-                    android:layout_height="250dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/traveler" />
+                <TextView
+                    android:id="@+id/typeDefinition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="left"
+                    android:text="typeDefinition"
+                    android:textColor="@color/title"
+                    android:textSize="14dp" />
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center_vertical"
-                    android:text="@string/you_are"
-                    android:textColor="@color/title"
-                    android:textSize="22dp" />
-
-                <TextView
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:clickable="true"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="@string/feed_back_true"
-                    android:textColor="@color/title"
-                    android:textSize="20dp" />
-
-            </RelativeLayout>
-
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_margin="5dp"
-                android:background="@color/title" />
-
-            <ListView
-                android:id="@+id/feedBackList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:divider="@null"
-                android:dividerHeight="5dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_margin="5dp"
-                android:background="@color/title" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center_vertical"
-                    android:text="@string/sphinx_was_right"
-                    android:textColor="@color/title"
-                    android:textSize="22dp" />
-
-                <TextView
-                    android:id="@+id/sphinxStatistic"
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:clickable="true"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="5/10"
-                    android:textColor="@color/title"
-                    android:textSize="22dp" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:text="@string/select_social_network"
-                android:textColor="@color/title"
-                android:textSize="22dp" />
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/background"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/shareVK"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    android:background="@null"
-                    android:clickable="true"
-                    android:src="@drawable/vk_selector" />
-
-                <ImageView
-                    android:id="@+id/shareFacebook"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    android:background="@null"
-                    android:clickable="true"
-                    android:src="@drawable/facebook_selector" />
-
-                <ImageView
-                    android:id="@+id/shareTwitter"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    android:background="@null"
-                    android:clickable="true"
-                    android:src="@drawable/twitter_selector" />
-
-            </LinearLayout>
-
-            <com.facebook.widget.LoginButton
-                android:id="@+id/login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_gravity="center_horizontal"
-                android:visibility="invisible" />
+                android:id="@+id/typeAvatar"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_weight="1"
+                android:src="@drawable/traveler" />
 
         </LinearLayout>
 
-    </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"
+                android:text="@string/you_are"
+                android:textColor="@color/title"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/feed_back_true"
+                android:textColor="@color/title"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="@color/title" />
+
+        <ListView
+            android:id="@+id/feedBackList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:divider="@null"
+            android:dividerHeight="5dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="@color/title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"
+                android:text="@string/sphinx_was_right"
+                android:textColor="@color/title"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/sphinxStatistic"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="5/10"
+                android:textColor="@color/title"
+                android:textSize="22dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/postForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_button"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/postText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:text="@string/ufo_definitions"
+                android:textColor="@color/title"
+                android:textSize="14dp" />
 
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/postAvatar"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="2"
+                android:padding="5dp"
+                android:src="@drawable/traveler" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal"
+            android:text="@string/select_social_network"
+            android:textColor="@color/title"
+            android:textSize="22dp" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/background"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/shareVK"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@null"
+                android:clickable="true"
+                android:src="@drawable/vk_selector" />
+
+            <ImageView
+                android:id="@+id/shareFacebook"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@null"
+                android:clickable="true"
+                android:src="@drawable/facebook_selector" />
+
+            <ImageView
+                android:id="@+id/shareTwitter"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@null"
+                android:clickable="true"
+                android:src="@drawable/twitter_selector" />
+
+        </LinearLayout>
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</ScrollView>

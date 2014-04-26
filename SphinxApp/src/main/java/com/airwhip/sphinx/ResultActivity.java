@@ -100,6 +100,8 @@ public class ResultActivity extends Activity {
     private ImageView typeAvatar;
     private TextView typeName;
     private TextView typeDefinition;
+    private TextView postText;
+    private ImageView postAvatar;
 
     private LoginButton loginBtn;
     private ListView feedBackList;
@@ -120,6 +122,8 @@ public class ResultActivity extends Activity {
         typeAvatar = (ImageView) findViewById(R.id.typeAvatar);
         typeName = (TextView) findViewById(R.id.typeName);
         typeDefinition = (TextView) findViewById(R.id.typeDefinition);
+        postText = (TextView) findViewById(R.id.postText);
+        postAvatar = (ImageView) findViewById(R.id.postAvatar);
         feedBackList = (ListView) findViewById(R.id.feedBackList);
         loginBtn = (LoginButton) findViewById(R.id.login_button);
 
@@ -131,12 +135,16 @@ public class ResultActivity extends Activity {
 
         if (Characteristic.isUFO()) {
             typeAvatar.setImageResource(R.drawable.ufo);
-            typeName.setText(getResources().getString(R.string.ufo_for_title));
+            typeName.setText(R.string.ufo_for_title);
             typeDefinition.setText(R.string.ufo_definitions);
+            postText.setText(R.string.ufo_definitions);
+            postAvatar.setImageResource(R.drawable.ufo);
         } else {
             typeAvatar.setImageResource(Constants.imgs[maxResultIndex]);
             typeName.setText(String.format(getResources().getString(R.string.sphinx_think_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
             typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
+            postText.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
+            postAvatar.setImageResource(Constants.imgs[maxResultIndex]);
         }
         feedBackList.setFocusable(false);
 

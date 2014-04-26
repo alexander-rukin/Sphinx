@@ -77,7 +77,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
     }
 
     public void onClick(View v) {
-        View content = getActivity().findViewById(R.id.testSave);
+        View content = getActivity().findViewById(R.id.postForm);
         try {
             content.setDrawingCacheEnabled(true);
             Bitmap bitmap = content.getDrawingCache();

@@ -7,7 +7,6 @@ import android.util.Log;
 import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.parser.Characteristic;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -44,9 +43,7 @@ public class ServerSender extends IntentService {
             params.add(new BasicNameValuePair("text", Characteristic.getXml().toString()));
             httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
             HttpResponse resp = httpclient.execute(httppost);
-            HttpEntity ent = resp.getEntity();
-            String responseString = EntityUtils.toString(ent, "UTF-8");
-            Log.d(Constants.DEBUG_TAG, responseString);
+            Log.d(Constants.DEBUG_TAG, EntityUtils.toString(resp.getEntity(), "UTF-8"));
         } catch (Exception e) {
             Log.e(Constants.ERROR_TAG, "EXCEPTION " + e.getMessage());
         }
