@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
@@ -19,10 +20,25 @@ import com.airwhip.sphinx.getters.ApplicationInformation;
 import com.airwhip.sphinx.getters.BrowserInformation;
 import com.airwhip.sphinx.getters.MusicInformation;
 import com.airwhip.sphinx.getters.SMSInformation;
+import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.Internet;
 import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.parser.Characteristic;
 import com.airwhip.sphinx.parser.InformationParser;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WelcomeActivity extends Activity {
 
