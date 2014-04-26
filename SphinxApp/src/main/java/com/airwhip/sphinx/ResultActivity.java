@@ -182,9 +182,9 @@ public class ResultActivity extends Activity {
             progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
         }
         // add two uniq characteristics
-        boolean isStudentTop = false;
-        for (int i = 0; i < 2 + (isStudentTop ? 1 : 0); i++) {
-            if (sorted[i] != Constants.STUDENT_ID) {
+        int incorrectField = 0;
+        for (int i = 0; i < 2 + incorrectField; i++) {
+            if (sorted[i] != Constants.STUDENT_ID || sorted[i] != Constants.LONER_ID) {
                 if (Characteristic.get(sorted[i]) > Constants.MIN) {
                     types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
                     progress.add(Characteristic.get(sorted[i]));
@@ -193,7 +193,7 @@ public class ResultActivity extends Activity {
                     progress.add(100 - Characteristic.get(sorted[i]));
                 }
             } else {
-                isStudentTop = true;
+                incorrectField++;
             }
         }
         // add male or female
