@@ -29,7 +29,7 @@ public class ServerSender extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.d(Constants.DEBUG_TAG, "START_SERVICE");
 
-        postRequest();
+//        postRequest();
         stopSelf();
 
         Log.d(Constants.DEBUG_TAG, "STOP_SELF");

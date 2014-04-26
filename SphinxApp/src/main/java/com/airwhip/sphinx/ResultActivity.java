@@ -206,7 +206,7 @@ public class ResultActivity extends Activity {
         }
         // add age category
         types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
-        progress.add(50);
+        progress.add(-1);
 
         ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]), (TextView) findViewById(R.id.sphinxStatistic));
         feedBackList.setAdapter(adapter);

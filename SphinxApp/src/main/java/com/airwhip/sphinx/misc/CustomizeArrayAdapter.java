@@ -71,11 +71,17 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) rowView.getTag();
         }
 
-        holder.progressText.setText(String.valueOf(progress[position] + "%"));
         holder.typeText.setText(names[position]);
-        holder.progressBar.getLayoutParams().width = 4 * progress[position];
-        holder.progressBar.setBackgroundColor(Constants.colors[position]);
-        holder.progressBarTriangle.setBackgroundColor(Constants.colors[position]);
+        if (progress[position] != -1) {
+            holder.progressBar.getLayoutParams().width = 4 * progress[position];
+            holder.progressText.setText(String.valueOf(progress[position] + "%"));
+            holder.progressBar.setBackgroundColor(Constants.colors[position]);
+            holder.progressBarTriangle.setBackgroundColor(Constants.colors[position]);
+        } else {
+            holder.progressText.setVisibility(View.GONE);
+            holder.progressBar.setVisibility(View.GONE);
+            holder.progressBarTriangle.setVisibility(View.GONE);
+        }
         holder.questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
