@@ -1,8 +1,13 @@
 package com.airwhip.sphinx.parser;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.misc.Constants;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Whiplash on 17.03.14.
@@ -102,13 +107,48 @@ public class Characteristic {
         xml.append(newXml);
     }
 
-    public static void generate() {
+    public static void generate(Context context) {
+        String not = context.getString(R.string.not);
+        String[] ids = {context.getString(R.string.man),
+                context.getString(R.string.woman),
+                context.getString(R.string.in_relationship),
+                context.getString(R.string.single),
+                context.getString(R.string.studying),
+                context.getString(R.string.not_studying),
+                context.getResources().getStringArray(R.array.ages)[0],
+                context.getResources().getStringArray(R.array.ages)[1],
+                context.getResources().getStringArray(R.array.ages)[2],
+                context.getResources().getStringArray(R.array.ages)[3],
+                context.getResources().getStringArray(R.array.ages)[4],
+                context.getResources().getStringArray(R.array.ages)[5],
+                context.getResources().getStringArray(R.array.types)[0],
+                not + " " + context.getResources().getStringArray(R.array.types)[0].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[1],
+                not + " " + context.getResources().getStringArray(R.array.types)[1].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[2],
+                not + " " + context.getResources().getStringArray(R.array.types)[2].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[3],
+                not + " " + context.getResources().getStringArray(R.array.types)[3].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[4],
+                not + " " + context.getResources().getStringArray(R.array.types)[4].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[5],
+                not + " " + context.getResources().getStringArray(R.array.types)[5].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[6],
+                not + " " + context.getResources().getStringArray(R.array.types)[6].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[7],
+                not + " " + context.getResources().getStringArray(R.array.types)[7].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[8],
+                not + " " + context.getResources().getStringArray(R.array.types)[8].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[9],
+                not + " " + context.getResources().getStringArray(R.array.types)[9].toLowerCase()};
+        List<String> idList = Arrays.asList(ids);
+
         StringBuilder newXML = new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
         newXML.append("<user id=\"" + userID + "\">\n");
 
         newXML.append("<result>\n");
         for (int i = 0; i < feedBackCategory.length; i++) {
-            newXML.append("\t<item name=\"" + feedBackCategory[i] + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\">\n");
+            newXML.append("\t<item name=\"" + idList.indexOf(feedBackCategory[i]) + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\">\n");
         }
         newXML.append("</result>\n");
 

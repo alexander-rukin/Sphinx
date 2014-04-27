@@ -47,19 +47,24 @@
         android:textColor="@color/title"
         android:textSize="18dp" />
 
-    <Switch
+    <CheckBox
         android:id="@+id/isRightButton"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:button="@drawable/checkbox_selector"
+        android:checked="true"
+        android:clickable="true"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/questionButton"
+        android:layout_width="75dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textOff="NO"
-        android:textOn="YES"
-        android:textSize="18dp"
-        android:thumb="@drawable/switch_selector"
-        android:track="@drawable/switch_background_selector" />
+        android:background="@drawable/mark_unknown" />
 
 </RelativeLayout>

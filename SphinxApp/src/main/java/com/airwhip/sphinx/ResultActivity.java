@@ -3,6 +3,7 @@ package com.airwhip.sphinx;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DialogFragment;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -292,9 +293,14 @@ public class ResultActivity extends Activity {
     @Override
     protected void onDestroy() {
         Log.d(Constants.DEBUG_TAG, "TRY_START");
-        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-        am.
-        //startService(new Intent(this, ServerSender.class));
+
+//        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        Intent intent = new Intent(this, Alarm.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+//        am.cancel(pendingIntent);
+//        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
+
+        startService(new Intent(this, ServerSender.class));
         VKUIHelper.onDestroy(this);
         uiHelper.onDestroy();
         new File(Constants.FILE_PATH).delete();

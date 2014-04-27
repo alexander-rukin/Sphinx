@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.R;
@@ -63,8 +63,8 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressBarTriangle = (ImageView) rowView.findViewById(R.id.progressBarTriangle);
             holder.progressText = (TextView) rowView.findViewById(R.id.progressText);
             holder.typeText = (TextView) rowView.findViewById(R.id.typeName);
-            holder.isRightButton = (Switch) rowView.findViewById(R.id.isRightButton);
-//            holder.questionButton = (Button) rowView.findViewById(R.id.questionButton);
+            holder.isRightButton = (CheckBox) rowView.findViewById(R.id.isRightButton);
+            holder.questionButton = (Button) rowView.findViewById(R.id.questionButton);
             rowView.setTag(holder);
         } else {
             holder = (ViewHolder) rowView.getTag();
@@ -82,10 +82,10 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressBarTriangle.setVisibility(View.GONE);
         }
         holder.isRightButton.setChecked(true);
-        holder.isRightButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View v) {
+                if (Characteristic.feedBackResult[position] == 1) {
                     Characteristic.feedBackResult[position] = 0;
                 } else {
                     Characteristic.feedBackResult[position] = 1;
@@ -100,13 +100,13 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
                 sphinxStatistic.setText(count + "/" + names.length);
             }
         });
-//        holder.questionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                holder.questionButton.setVisibility(View.GONE);
-//                holder.isRightButton.setVisibility(View.VISIBLE);
-//            }
-//        });
+        holder.questionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.questionButton.setVisibility(View.GONE);
+                holder.isRightButton.setVisibility(View.VISIBLE);
+            }
+        });
 
         return rowView;
     }
@@ -116,7 +116,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         public ImageView progressBarTriangle;
         public TextView progressText;
         public TextView typeText;
-        public Switch isRightButton;
-//        public Button questionButton;
+        public CheckBox isRightButton;
+        public Button questionButton;
     }
 }

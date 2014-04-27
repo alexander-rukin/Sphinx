@@ -29,7 +29,7 @@ public class ServerSender extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.d(Constants.DEBUG_TAG, "START_SERVICE");
 
-        Characteristic.generate();
+        Characteristic.generate(getApplicationContext());
         Log.d(Constants.DEBUG_TAG, "GENERATE_XML");
         postRequest();
         stopSelf();
