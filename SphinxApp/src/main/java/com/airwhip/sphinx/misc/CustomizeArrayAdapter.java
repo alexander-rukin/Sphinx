@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.R;
@@ -63,8 +63,8 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressBarTriangle = (ImageView) rowView.findViewById(R.id.progressBarTriangle);
             holder.progressText = (TextView) rowView.findViewById(R.id.progressText);
             holder.typeText = (TextView) rowView.findViewById(R.id.typeName);
-            holder.isRightButton = (CheckBox) rowView.findViewById(R.id.isRightButton);
-            holder.questionButton = (Button) rowView.findViewById(R.id.questionButton);
+            holder.isRightButton = (Switch) rowView.findViewById(R.id.isRightButton);
+//            holder.questionButton = (Button) rowView.findViewById(R.id.questionButton);
             rowView.setTag(holder);
         } else {
             holder = (ViewHolder) rowView.getTag();
@@ -81,21 +81,16 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressBar.setVisibility(View.GONE);
             holder.progressBarTriangle.setVisibility(View.GONE);
         }
-        holder.questionButton.setOnClickListener(new View.OnClickListener() {
+        holder.isRightButton.setChecked(true);
+        holder.isRightButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                holder.questionButton.setVisibility(View.GONE);
-                holder.isRightButton.setVisibility(View.VISIBLE);
-            }
-        });
-        holder.isRightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Characteristic.feedBackResult[position] == 1) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
                     Characteristic.feedBackResult[position] = 0;
                 } else {
                     Characteristic.feedBackResult[position] = 1;
                 }
+
                 int count = names.length;
                 for (int i : Characteristic.feedBackResult) {
                     if (i == 1) {
@@ -105,6 +100,13 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
                 sphinxStatistic.setText(count + "/" + names.length);
             }
         });
+//        holder.questionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                holder.questionButton.setVisibility(View.GONE);
+//                holder.isRightButton.setVisibility(View.VISIBLE);
+//            }
+//        });
 
         return rowView;
     }
@@ -114,7 +116,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         public ImageView progressBarTriangle;
         public TextView progressText;
         public TextView typeText;
-        public CheckBox isRightButton;
-        public Button questionButton;
+        public Switch isRightButton;
+//        public Button questionButton;
     }
 }

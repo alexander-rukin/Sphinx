@@ -1,6 +1,7 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -291,7 +292,9 @@ public class ResultActivity extends Activity {
     @Override
     protected void onDestroy() {
         Log.d(Constants.DEBUG_TAG, "TRY_START");
-        startService(new Intent(this, ServerSender.class));
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        am.
+        //startService(new Intent(this, ServerSender.class));
         VKUIHelper.onDestroy(this);
         uiHelper.onDestroy();
         new File(Constants.FILE_PATH).delete();
