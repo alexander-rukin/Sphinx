@@ -1,9 +1,7 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.DialogFragment;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -199,7 +197,7 @@ public class ResultActivity extends Activity {
             }
         }
         // add male or female
-        if (Characteristic.getMale() > Constants.MIN) {
+        if (Characteristic.isMale()) {
             types.add(getString(R.string.man));
             progress.add(Characteristic.getMale());
         } else {

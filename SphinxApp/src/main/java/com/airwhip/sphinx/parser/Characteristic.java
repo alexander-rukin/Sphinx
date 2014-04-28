@@ -41,8 +41,8 @@ public class Characteristic {
         ageIteration = 0;
     }
 
-    public static void fillFeedBackCategory(String[] categoryes) {
-        feedBackCategory = categoryes;
+    public static void fillFeedBackCategory(String[] categories) {
+        feedBackCategory = categories;
     }
 
     public static void setUserID(String id) {
