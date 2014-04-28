@@ -15,7 +15,6 @@ import java.util.List;
 public class Characteristic {
 
     private static final int DEFAULT_AGE = 25;
-    private static final int MINIMUM_WEIGHT = 100;
     public static int[] feedBackResult = new int[6];
     private static StringBuilder xml = new StringBuilder();
     private static String userID = "";
@@ -123,12 +122,8 @@ public class Characteristic {
                 context.getResources().getStringArray(R.array.ages)[5],
                 context.getResources().getStringArray(R.array.types)[0],
                 not + " " + context.getResources().getStringArray(R.array.types)[0].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[1],
-                not + " " + context.getResources().getStringArray(R.array.types)[1].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[2],
                 not + " " + context.getResources().getStringArray(R.array.types)[2].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[3],
-                not + " " + context.getResources().getStringArray(R.array.types)[3].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[4],
                 not + " " + context.getResources().getStringArray(R.array.types)[4].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[5],
@@ -162,7 +157,7 @@ public class Characteristic {
         for (int i = 0; i < weight.length; i++) {
             sum += get(i);
         }
-        return sum < MINIMUM_WEIGHT;
+        return sum < weight.length * 10;
     }
 
     public static int get(int i) {
