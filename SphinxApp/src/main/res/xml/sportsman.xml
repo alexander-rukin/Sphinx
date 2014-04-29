@@ -4,11 +4,63 @@
 
     <application>
         <weight-array id="100">
+            <item>com.northpark</item>
+            <item>com.runtastic</item>
+            <item>com.eurosport</item>
+        </weight-array>
+        <weight-array id="70">
+            <item>digifit.virtuagym</item>
+            <item>com.skyhealth</item>
+            <item>com.caynax</item>
+            <item>com.myfitnesspal</item>
+        </weight-array>
+        <weight-array id="50">
+            <item>sport</item>
+            <item>fitness</item>
+            <item>training</item>
+            <item>activities</item>
+            <item>gym</item>
         </weight-array>
     </application>
 
     <history>
         <weight-array id="100">
+            <item>спорт</item>
+            <item>sport</item>
+            <item>футбол</item>
+            <item>football</item>
+            <item>баскетбол</item>
+            <item>basketball</item>
+            <item>бейсбол</item>
+            <item>baseball</item>
+            <item>хокке</item>
+            <item>hockey</item>
+            <item>плавани</item>
+            <item>swimming</item>
+            <item>счет</item>
+            <item>score</item>
+            <item>матч</item>
+            <item>match</item>
+        </weight-array>
+        <weight-array id="60">
+            <item>play</item>
+            <item>тело</item>
+            <item>body</item>
+            <item>тренировк</item>
+            <item>trainings</item>
+            <item>фитнес</item>
+            <item>fitness</item>
+            <item>упражнени</item>
+            <item>activities</item>
+            <item>зал</item>
+            <item>gym</item>
+            <item>workout</item>
+            <item>бег</item>
+            <item>running</item>
+            <item>трусц</item>
+            <item>jogging</item>
+            <item>рекорды</item>
+            <item>world records</item>
         </weight-array>
     </history>
 
