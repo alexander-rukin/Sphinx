@@ -143,7 +143,7 @@ public class Characteristic {
 
         newXML.append("<result>\n");
         for (int i = 0; i < feedBackCategory.length; i++) {
-            newXML.append("\t<item name=\"" + idList.indexOf(feedBackCategory[i]) + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\">\n");
+            newXML.append("\t<item name=\"" + idList.indexOf(feedBackCategory[i]) + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\"/>\n");
         }
         newXML.append("</result>\n");
 

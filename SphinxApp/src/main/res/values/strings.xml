@@ -46,9 +46,9 @@
         <item>picabu lover</item>
     </string-array>
     <string-array name="definitions">
-        <item>&quot;What is about your elf?&quot;, &quot;Shave your mustaches!&quot;, &quot;Wash your hair!&quot;, &quot;Geeks will happen in the best regulated families!&quot;. You do not like hearing this all the time, right? Do not worry, because you are great defender of Azeroth!</item>
+        <item>\"What is about your elf?\", \"Shave your mustaches!\", \"Wash your hair!\", \"Geeks will happen in the best regulated families!\". You do not like hearing this all the time, right? Do not worry, because you are great defender of Azeroth!</item>
         <item>Wanna some beer? Oh, how nice to live alone. Only this eternal cleaning… Bhee… It seems to be a time to find housewife. Think about this!</item>
-        <item>You seem to say often: &quot;This is art!&quot; Do not be in mainstream. Show others your individuality. Do not look at haters, because haters gonna hate.</item>
+        <item>You seem to say often: \"This is art!\" Do not be in mainstream. Show others your individuality. Do not look at haters, because haters gonna hate.</item>
         <item>Exams are coming!</item>
         <item>It is time to join another adventure. Nothing to do at home.</item>
         <item>Nya.</item>
@@ -60,7 +60,7 @@
 
     <string name="ufo">UFO</string>
     <string name="ufo_for_title">UFO</string>
-    <string name="ufo_definitions">Perhaps you've noticed something strange, strange dreams, probes and lighting flying objects. Most likely your phone recently was abducted by alien beings…</string>
+    <string name="ufo_definitions">Perhaps you have noticed something strange, strange dreams, probes and lighting flying objects. Most likely your phone recently was abducted by alien beings…</string>
 
     <string name="sphinx_think_you_look_like">Sphinx think you look like a <b>%s</b></string>
     <string name="feed_back_true">True?</string>
