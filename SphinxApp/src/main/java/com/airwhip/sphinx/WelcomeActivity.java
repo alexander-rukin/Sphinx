@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
@@ -20,25 +19,10 @@ import com.airwhip.sphinx.getters.ApplicationInformation;
 import com.airwhip.sphinx.getters.BrowserInformation;
 import com.airwhip.sphinx.getters.MusicInformation;
 import com.airwhip.sphinx.getters.SMSInformation;
-import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.Internet;
 import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.parser.Characteristic;
 import com.airwhip.sphinx.parser.InformationParser;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WelcomeActivity extends Activity {
 
@@ -69,7 +53,8 @@ public class WelcomeActivity extends Activity {
         circle.setOnClickListener(new StartButtonClick(ProgramState.START));
 
         names = new Names(this);
-        Characteristic.setUserID(Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
+        Characteristic.initDataBase(this);
+        Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
     }
 
     private enum ProgramState {
@@ -176,27 +161,27 @@ public class WelcomeActivity extends Activity {
             SMSInformation.get(getApplicationContext());
             InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
+            Characteristic.updateDataBase("ACCOUNT", partOfXml.toString());
             publishProgress(20);
             partOfXml = ApplicationInformation.get(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.APPLICATION);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
+            Characteristic.updateDataBase("APPLICATION", partOfXml.toString());
             publishProgress(40);
             partOfXml = BrowserInformation.getHistory(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.HISTORY);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
+            Characteristic.updateDataBase("HISTORY", partOfXml.toString());
             publishProgress(60);
             partOfXml = BrowserInformation.getBookmarks(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.BOOKMARKS);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
+            Characteristic.updateDataBase("BOOKMARKS", partOfXml.toString());
             publishProgress(80);
             partOfXml = MusicInformation.get(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
-            Characteristic.append(partOfXml);
+            Characteristic.updateDataBase("MUSIC", partOfXml.toString());
             publishProgress(100);
 
             return null;

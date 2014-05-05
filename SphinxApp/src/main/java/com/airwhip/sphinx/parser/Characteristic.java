@@ -1,10 +1,14 @@
 package com.airwhip.sphinx.parser;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.misc.Constants;
+import com.airwhip.sphinx.misc.DBHelper;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,10 +19,13 @@ import java.util.List;
 public class Characteristic {
 
     private static final int DEFAULT_AGE = 25;
+
     public static int[] feedBackResult = new int[6];
-    private static StringBuilder xml = new StringBuilder();
-    private static String userID = "";
-    private static String[] feedBackCategory;
+    private static int[] feedBackCategory = new int[6];
+
+    private static DBHelper dbHelper;
+    private static SQLiteDatabase sqLiteDatabase;
+
     private static double[] weight = new double[Constants.xmls.length];
     private static double[] max = new double[Constants.xmls.length];
 
@@ -31,8 +38,39 @@ public class Characteristic {
     private Characteristic() {
     }
 
+    public static void initDataBase(Context context) {
+        dbHelper = new DBHelper(context);
+        sqLiteDatabase = dbHelper.getWritableDatabase();
+    }
+
+    public static void closeDataBase() {
+        sqLiteDatabase.close();
+        dbHelper.close();
+    }
+
+    public static void updateDataBase(String key, String value) {
+        ContentValues cv = new ContentValues();
+        cv.put(DBHelper.TEXT_RESULT, value);
+
+        Cursor cursor = sqLiteDatabase.query(DBHelper.TABLE_NAME, new String[]{DBHelper.TEXT_TYPE, DBHelper.TEXT_RESULT}, DBHelper.TEXT_TYPE + "=" + "\'" + key + "\'", null, null, null, null);
+        if (cursor.moveToFirst()) {
+            sqLiteDatabase.update(DBHelper.TABLE_NAME, cv, DBHelper.TEXT_TYPE + "=" + "\'" + key + "\'", null);
+        } else {
+            cv.put(DBHelper.TEXT_TYPE, key);
+            sqLiteDatabase.insert(DBHelper.TABLE_NAME, null, cv);
+        }
+        cursor.close();
+    }
+
+    public static String getValueFromDataBase(String key) {
+        Cursor cursor = sqLiteDatabase.query(DBHelper.TABLE_NAME, new String[]{DBHelper.TEXT_TYPE, DBHelper.TEXT_RESULT}, DBHelper.TEXT_TYPE + "=" + "\'" + key + "\'", null, null, null, null);
+        cursor.moveToNext();
+        String result = cursor.getString(cursor.getColumnIndex(DBHelper.TEXT_RESULT));
+        cursor.close();
+        return result;
+    }
+
     public static void clear() {
-        xml = new StringBuilder();
         weight = new double[Constants.xmls.length];
         max = new double[Constants.xmls.length];
         maleWeight = 0.;
@@ -41,17 +79,40 @@ public class Characteristic {
         ageIteration = 0;
     }
 
-    public static void fillFeedBackCategory(String[] categories) {
-        feedBackCategory = categories;
-    }
-
-    public static void setUserID(String id) {
-        userID = id;
-    }
-
-    public static void addAge(int ageValue) {
-        age += ageValue;
-        ageIteration++;
+    public static void fillFeedBackCategory(Context context, String[] categories) {
+        String not = context.getString(R.string.not);
+        String[] ids = {context.getString(R.string.man),
+                context.getString(R.string.woman),
+                context.getString(R.string.in_relationship),
+                context.getString(R.string.single),
+                context.getString(R.string.studying),
+                context.getString(R.string.not_studying),
+                context.getResources().getStringArray(R.array.ages)[0],
+                context.getResources().getStringArray(R.array.ages)[1],
+                context.getResources().getStringArray(R.array.ages)[2],
+                context.getResources().getStringArray(R.array.ages)[3],
+                context.getResources().getStringArray(R.array.ages)[4],
+                context.getResources().getStringArray(R.array.ages)[5],
+                context.getResources().getStringArray(R.array.types)[0],
+                not + " " + context.getResources().getStringArray(R.array.types)[0].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[2],
+                not + " " + context.getResources().getStringArray(R.array.types)[2].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[4],
+                not + " " + context.getResources().getStringArray(R.array.types)[4].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[5],
+                not + " " + context.getResources().getStringArray(R.array.types)[5].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[6],
+                not + " " + context.getResources().getStringArray(R.array.types)[6].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[7],
+                not + " " + context.getResources().getStringArray(R.array.types)[7].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[8],
+                not + " " + context.getResources().getStringArray(R.array.types)[8].toLowerCase(),
+                context.getResources().getStringArray(R.array.types)[9],
+                not + " " + context.getResources().getStringArray(R.array.types)[9].toLowerCase()};
+        List<String> idList = Arrays.asList(ids);
+        for (int i = 0; i < feedBackCategory.length; i++) {
+            feedBackCategory[i] = idList.indexOf(categories[i]);
+        }
     }
 
     public static void addAges(int ageValue, int iteration) {
@@ -102,54 +163,28 @@ public class Characteristic {
         femaleWeight += value;
     }
 
-    public static void append(StringBuilder newXml) {
-        xml.append(newXml);
+    public static void generateResult(Context context) {
+        StringBuilder xml = new StringBuilder();
+        xml.append("<result>\n");
+        for (int i = 0; i < feedBackCategory.length; i++) {
+            xml.append("\t<item name=\"" + feedBackCategory[i] + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\"/>\n");
+        }
+        xml.append("</result>\n");
+
+        updateDataBase("RESULT", xml.toString());
     }
 
-    public static void generate(Context context) {
-        String not = context.getString(R.string.not);
-        String[] ids = {context.getString(R.string.man),
-                context.getString(R.string.woman),
-                context.getString(R.string.in_relationship),
-                context.getString(R.string.single),
-                context.getString(R.string.studying),
-                context.getString(R.string.not_studying),
-                context.getResources().getStringArray(R.array.ages)[0],
-                context.getResources().getStringArray(R.array.ages)[1],
-                context.getResources().getStringArray(R.array.ages)[2],
-                context.getResources().getStringArray(R.array.ages)[3],
-                context.getResources().getStringArray(R.array.ages)[4],
-                context.getResources().getStringArray(R.array.ages)[5],
-                context.getResources().getStringArray(R.array.types)[0],
-                not + " " + context.getResources().getStringArray(R.array.types)[0].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[2],
-                not + " " + context.getResources().getStringArray(R.array.types)[2].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[4],
-                not + " " + context.getResources().getStringArray(R.array.types)[4].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[5],
-                not + " " + context.getResources().getStringArray(R.array.types)[5].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[6],
-                not + " " + context.getResources().getStringArray(R.array.types)[6].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[7],
-                not + " " + context.getResources().getStringArray(R.array.types)[7].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[8],
-                not + " " + context.getResources().getStringArray(R.array.types)[8].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[9],
-                not + " " + context.getResources().getStringArray(R.array.types)[9].toLowerCase()};
-        List<String> idList = Arrays.asList(ids);
-
-        StringBuilder newXML = new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
-        newXML.append("<user id=\"" + userID + "\">\n");
-
-        newXML.append("<result>\n");
-        for (int i = 0; i < feedBackCategory.length; i++) {
-            newXML.append("\t<item name=\"" + idList.indexOf(feedBackCategory[i]) + "\" is_correct=\"" + (feedBackResult[i] ^ 1) + "\"/>\n");
-        }
-        newXML.append("</result>\n");
-
-        newXML.append(xml);
-        newXML.append(new StringBuilder("</user>"));
-        xml = newXML;
+    public static StringBuilder generate() {
+        StringBuilder xml = new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+        xml.append("<user id=\"" + getValueFromDataBase("USER_ID") + "\">\n");
+        xml.append(getValueFromDataBase("RESULT"));
+        xml.append(getValueFromDataBase("ACCOUNT"));
+        xml.append(getValueFromDataBase("APPLICATION"));
+        xml.append(getValueFromDataBase("HISTORY"));
+        xml.append(getValueFromDataBase("BOOKMARKS"));
+        xml.append(getValueFromDataBase("MUSIC"));
+        xml.append(new StringBuilder("</user>"));
+        return xml;
     }
 
     public static boolean isUFO() {
@@ -164,16 +199,14 @@ public class Characteristic {
         return max[i] != 0 ? Math.min((int) (100. * weight[i] / max[i]), 100) : 0;
     }
 
-    public static StringBuilder getXml() {
-        return xml;
-    }
-
     public static int size() {
         return weight.length;
     }
 
     public static boolean containsPikabu() {
         int counter = 0;
+        StringBuilder xml = new StringBuilder(getValueFromDataBase("HISTORY"));
+        xml.append(getValueFromDataBase("BOOKMARKS"));
         for (int i = 0; i != -1; ) {
             i = xml.indexOf("pikabu", i + 1);
             counter += (i != -1 ? 1 : 0);

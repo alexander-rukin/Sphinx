@@ -28,13 +28,9 @@ public class ServerSender extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(Constants.DEBUG_TAG, "START_SERVICE");
-
-        Characteristic.generate(getApplicationContext());
-        Log.d(Constants.DEBUG_TAG, "GENERATE_XML");
+        Characteristic.initDataBase(this);
         postRequest();
         stopSelf();
-
-        Log.d(Constants.DEBUG_TAG, "STOP_SELF");
     }
 
     private void postRequest() {
@@ -42,7 +38,7 @@ public class ServerSender extends IntentService {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost("http://sphinx-app.com/request/post.php");
             List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("text", Characteristic.getXml().toString()));
+            params.add(new BasicNameValuePair("text", Characteristic.generate().toString()));
             httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
             HttpResponse resp = httpclient.execute(httppost);
             Log.d(Constants.DEBUG_TAG, EntityUtils.toString(resp.getEntity(), "UTF-8"));
