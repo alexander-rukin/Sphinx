@@ -41,6 +41,7 @@ import java.util.List;
 public class ResultActivity extends Activity {
 
     public static boolean canPublishPost = false;
+    public static int maxResultIndex;
     private final VKSdkListener sdkListener = new VKSdkListener() {
         @Override
         public void onCaptchaError(VKError captchaError) {
@@ -82,7 +83,7 @@ public class ResultActivity extends Activity {
                         }
                     });
                     Bundle params = request.getParameters();
-                    params.putString("message", "SPHINX APPLICATION TEST");
+                    params.putString("message", getString(R.string.who_are_you) + "\n" + "www.sphinx-app.com");
                     request.setParameters(params);
                     request.executeAsync();
                 } catch (Exception e) {
@@ -98,17 +99,13 @@ public class ResultActivity extends Activity {
         }
     };
     private UiLifecycleHelper uiHelper;
-
     private ImageView typeAvatar;
     private TextView typeName;
     private TextView typeDefinition;
     private TextView postText;
     private ImageView postAvatar;
-
     private LoginButton loginBtn;
     private ListView feedBackList;
-
-    private int maxResultIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,9 +140,8 @@ public class ResultActivity extends Activity {
             postAvatar.setImageResource(R.drawable.ufo);
         } else {
             typeAvatar.setImageResource(Constants.imgs[maxResultIndex]);
-            typeName.setText(String.format(getResources().getString(R.string.sphinx_think_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
+            typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
             typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
-            postText.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
             postAvatar.setImageResource(Constants.imgs[maxResultIndex]);
         }
         feedBackList.setFocusable(false);
@@ -187,13 +183,8 @@ public class ResultActivity extends Activity {
         int incorrectField = 0;
         for (int i = 0; i < 2 + incorrectField; i++) {
             if (sorted[i] != Constants.STUDENT_ID && sorted[i] != Constants.LONER_ID) {
-                if (Characteristic.get(sorted[i]) > Constants.MIN) {
-                    types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
-                    progress.add(Characteristic.get(sorted[i]));
-                } else {
-                    types.add(getString(R.string.not) + " " + (getResources().getStringArray(R.array.types)[sorted[i]]).toLowerCase());
-                    progress.add(100 - Characteristic.get(sorted[i]));
-                }
+                types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
+                progress.add(Characteristic.get(sorted[i]));
             } else {
                 incorrectField++;
             }
@@ -213,7 +204,8 @@ public class ResultActivity extends Activity {
         Characteristic.fillFeedBackCategory(this, types.toArray(new String[types.size()]));
         Characteristic.generateResult(this);
 
-        ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]), (TextView) findViewById(R.id.sphinxStatistic));
+        ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]),
+                (TextView) findViewById(R.id.sphinxStatistic), (TextView) findViewById(R.id.postText));
         feedBackList.setAdapter(adapter);
 
         // --------fixed bug: ListView in ScrollView--------
@@ -292,8 +284,14 @@ public class ResultActivity extends Activity {
 
     @Override
     protected void onPause() {
-        super.onPause();
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(this, Alarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        am.cancel(pendingIntent);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
+
         uiHelper.onPause();
+        super.onPause();
     }
 
     @Override

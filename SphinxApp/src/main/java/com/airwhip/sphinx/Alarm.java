@@ -14,7 +14,6 @@ public class Alarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(Constants.DEBUG_TAG, "WAKE UP!");
         context.startService(new Intent(context, ServerSender.class));
     }
 }

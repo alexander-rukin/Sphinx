@@ -28,7 +28,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif"
                     android:gravity="left"
-                    android:text="@string/sphinx_think_you_look_like"
+                    android:text="@string/sphinx_thinks_you_look_like"
                     android:textColor="@color/title"
                     android:textSize="18dp" />
 

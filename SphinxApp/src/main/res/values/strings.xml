@@ -58,11 +58,44 @@
         <item>Surely, you are always hanging out there. We hope your posts will always be in hot. We wish you boobs, cats and candies.</item>
     </string-array>
 
+    <string name="sphinx_thinks_that_i_smone">Sphinx thinks that I am <b>%s</b></string>
+    <string-array name="post_array">
+        <item>0</item>
+        <item>1</item>
+        <item>in a relationship</item>
+        <item>single</item>
+        <item>studying</item>
+        <item>not studying</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>computer</item>
+        <item>trendy stuffs</item>
+        <item>journeys</item>
+        <item>anime</item>
+        <item>sport</item>
+        <item>music</item>
+        <item>pets</item>
+        <item>picabu</item>
+    </string-array>
+    <string-array name="age_array">
+        <item>year</item>
+        <item>year</item>
+    </string-array>
+    <string name="i_can_not_image_my_life_without_smth">I can not image my life without <b>%s</b></string>
+    <string name="i_like_smth">i like <b>%s</b></string>
+    <string name="and_smth">and <b>%s</b></string>
+    <string name="sphinx_was_right_at">Sphinx was right at</string>
+    <string name="who_are_you">Who are you?</string>
+
     <string name="ufo">UFO</string>
     <string name="ufo_for_title">UFO</string>
     <string name="ufo_definitions">Perhaps you have noticed something strange, strange dreams, probes and lighting flying objects. Most likely your phone recently was abducted by alien beings…</string>
 
-    <string name="sphinx_think_you_look_like">Sphinx think you look like a <b>%s</b></string>
+    <string name="sphinx_thinks_you_look_like">Sphinx thinks you look like a <b>%s</b></string>
     <string name="feed_back_true">True?</string>
     <string name="statistic">Statistic</string>
     <string name="you_are">You are:</string>

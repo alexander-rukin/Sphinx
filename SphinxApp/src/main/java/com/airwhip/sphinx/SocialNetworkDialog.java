@@ -42,7 +42,7 @@ import java.util.List;
  */
 public class SocialNetworkDialog extends DialogFragment implements OnClickListener {
 
-    private static final String POST_MESSAGE = "SPHINX APPLICATION TEST";
+    public static String POST_MESSAGE;
     private SocialNetwork network;
     private Context context;
 
@@ -50,6 +50,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         super();
         this.network = network;
         this.context = context;
+        POST_MESSAGE = context.getResources().getString(R.string.who_are_you) + "\n" + "www.sphinx-app.com";
     }
 
     @Override

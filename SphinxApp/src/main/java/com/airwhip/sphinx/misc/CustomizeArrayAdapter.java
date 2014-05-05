@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airwhip.sphinx.R;
+import com.airwhip.sphinx.ResultActivity;
 import com.airwhip.sphinx.parser.Characteristic;
 
 /**
@@ -22,17 +23,20 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
     private String[] names;
     private Integer[] progress;
     private TextView sphinxStatistic;
+    private TextView postText;
 
     private int[] sorted;
 
-    public CustomizeArrayAdapter(Context context, String[] names, Integer[] progress, TextView sphinxStatistic) {
+    public CustomizeArrayAdapter(Context context, String[] names, Integer[] progress, TextView sphinxStatistic, TextView postText) {
         super(context, R.layout.listviewitem, names);
         this.context = context;
         this.names = names;
         this.progress = progress;
         this.sphinxStatistic = sphinxStatistic;
+        this.postText = postText;
 
         sphinxStatistic.setText(names.length + "/" + names.length);
+        generatePostMessage(100);
 
         sorted = new int[progress.length];
         for (int i = 0; i < sorted.length; i++) {
@@ -99,6 +103,8 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
                 }
                 sphinxStatistic.setText(count + "/" + names.length);
                 Characteristic.generateResult(context);
+                generatePostMessage(names.length != count ? count * 17 : 100);
+
             }
         });
         holder.questionButton.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +117,41 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         });
 
         return rowView;
+    }
+
+    private void generatePostMessage(int percent) {
+        if (!Characteristic.isUFO()) {
+            StringBuilder postMessage = new StringBuilder();
+            postMessage.append(String.format(context.getResources().getString(R.string.sphinx_thinks_that_i_smone),
+                    context.getResources().getStringArray(R.array.types)[ResultActivity.maxResultIndex].toLowerCase()) + " ");
+            postMessage.append(Characteristic.getAge() + " " + context.getResources().getStringArray(R.array.age_array)[Characteristic.getAge() % 10 == 1 ? 0 : 1] + ", ");
+            postMessage.append(context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[1]] + ", ");
+
+            if (progress[2] > Constants.MIN) {
+                postMessage.append(String.format(context.getResources().getString(R.string.i_can_not_image_my_life_without_smth),
+                        context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[2]]));
+                if (progress[3] > Constants.MIN) {
+                    postMessage.append(" " + String.format(context.getResources().getString(R.string.and_smth),
+                            context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[3]]));
+                } else {
+                    postMessage.append(", " + String.format(context.getResources().getString(R.string.i_like_smth),
+                            context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[3]]));
+                }
+            } else {
+                postMessage.append(String.format(context.getResources().getString(R.string.i_like_smth),
+                        context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[2]]));
+                if (progress[3] > Constants.MIN) {
+                    postMessage.append(", " + String.format(context.getResources().getString(R.string.i_like_smth),
+                            context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[3]]));
+                } else {
+                    postMessage.append(" " + String.format(context.getResources().getString(R.string.and_smth),
+                            context.getResources().getStringArray(R.array.post_array)[Characteristic.feedBackCategory[3]]));
+                }
+            }
+            postMessage.append(".\n\n" + context.getResources().getString(R.string.sphinx_was_right_at) + " " + percent + "%");
+
+            postText.setText(postMessage.toString());
+        }
     }
 
     private class ViewHolder {

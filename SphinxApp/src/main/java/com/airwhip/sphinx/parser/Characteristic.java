@@ -21,7 +21,7 @@ public class Characteristic {
     private static final int DEFAULT_AGE = 25;
 
     public static int[] feedBackResult = new int[6];
-    private static int[] feedBackCategory = new int[6];
+    public static int[] feedBackCategory = new int[6];
 
     private static DBHelper dbHelper;
     private static SQLiteDatabase sqLiteDatabase;
@@ -80,7 +80,6 @@ public class Characteristic {
     }
 
     public static void fillFeedBackCategory(Context context, String[] categories) {
-        String not = context.getString(R.string.not);
         String[] ids = {context.getString(R.string.man),
                 context.getString(R.string.woman),
                 context.getString(R.string.in_relationship),
@@ -94,21 +93,13 @@ public class Characteristic {
                 context.getResources().getStringArray(R.array.ages)[4],
                 context.getResources().getStringArray(R.array.ages)[5],
                 context.getResources().getStringArray(R.array.types)[0],
-                not + " " + context.getResources().getStringArray(R.array.types)[0].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[2],
-                not + " " + context.getResources().getStringArray(R.array.types)[2].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[4],
-                not + " " + context.getResources().getStringArray(R.array.types)[4].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[5],
-                not + " " + context.getResources().getStringArray(R.array.types)[5].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[6],
-                not + " " + context.getResources().getStringArray(R.array.types)[6].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[7],
-                not + " " + context.getResources().getStringArray(R.array.types)[7].toLowerCase(),
                 context.getResources().getStringArray(R.array.types)[8],
-                not + " " + context.getResources().getStringArray(R.array.types)[8].toLowerCase(),
-                context.getResources().getStringArray(R.array.types)[9],
-                not + " " + context.getResources().getStringArray(R.array.types)[9].toLowerCase()};
+                context.getResources().getStringArray(R.array.types)[9]};
         List<String> idList = Arrays.asList(ids);
         for (int i = 0; i < feedBackCategory.length; i++) {
             feedBackCategory[i] = idList.indexOf(categories[i]);
