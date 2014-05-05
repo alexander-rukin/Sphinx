@@ -43,11 +43,6 @@ public class Characteristic {
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
-    public static void closeDataBase() {
-        sqLiteDatabase.close();
-        dbHelper.close();
-    }
-
     public static void updateDataBase(String key, String value) {
         ContentValues cv = new ContentValues();
         cv.put(DBHelper.TEXT_RESULT, value);
@@ -68,15 +63,6 @@ public class Characteristic {
         String result = cursor.getString(cursor.getColumnIndex(DBHelper.TEXT_RESULT));
         cursor.close();
         return result;
-    }
-
-    public static void clear() {
-        weight = new double[Constants.xmls.length];
-        max = new double[Constants.xmls.length];
-        maleWeight = 0.;
-        femaleWeight = 0.;
-        age = 0.;
-        ageIteration = 0;
     }
 
     public static void fillFeedBackCategory(Context context, String[] categories) {

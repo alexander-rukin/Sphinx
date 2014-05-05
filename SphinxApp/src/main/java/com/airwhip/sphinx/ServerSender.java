@@ -42,7 +42,7 @@ public class ServerSender extends IntentService {
             httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
             HttpResponse resp = httpclient.execute(httppost);
             Log.d(Constants.DEBUG_TAG, EntityUtils.toString(resp.getEntity(), "UTF-8"));
-            Characteristic.clear();
+//            Characteristic.clear();
         } catch (Exception e) {
             Log.e(Constants.ERROR_TAG, "EXCEPTION " + e.getMessage());
         }

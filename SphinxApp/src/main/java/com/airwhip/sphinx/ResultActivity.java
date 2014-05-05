@@ -279,7 +279,7 @@ public class ResultActivity extends Activity {
         Intent intent = new Intent(this, Alarm.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         am.cancel(pendingIntent);
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pendingIntent);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
     }
 
     @Override
