@@ -88,7 +88,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                     file.createNewFile();
                 }
                 FileOutputStream stream = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 10, stream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 stream.close();
                 content.invalidate();
             }
