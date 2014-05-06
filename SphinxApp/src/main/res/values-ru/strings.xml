@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Sphinx</string>
+    <string name="app_id">1482375271986982</string>
     <string name="start">СТАРТ</string>
     <string name="no_internet">НЕТ ИНТЕРНЕТА</string>
     <string name="check_internet">Проверьте ваше интернет соединение\nи коснитесь кнопки снова</string>
