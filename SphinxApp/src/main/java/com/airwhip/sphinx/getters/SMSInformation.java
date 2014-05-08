@@ -1,16 +1,27 @@
 package com.airwhip.sphinx.getters;
 
 import android.content.Context;
+import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 import android.util.Pair;
 
+import com.airwhip.sphinx.R;
 import com.airwhip.sphinx.WelcomeActivity;
+import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.parser.Characteristic;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -20,9 +31,42 @@ public class SMSInformation {
     private final static Uri SENT = Uri.parse("content://sms/sent");
     private final static Uri INBOX = Uri.parse("content://sms/inbox");
 
+    private final static Map<String, Integer> wordToAge = new HashMap<>();
+
+    private static final String WEIGHT_ARRAY_TAG = "weight-array";
+    private static final String ITEM_TAG = "item";
+
     private final static String PRONOUN = "я_ты_вы_он_она_оно_мы_вы_они";
 
     public static void get(Context context) {
+        try {
+            XmlResourceParser xrp = context.getResources().getXml(R.xml.age_sms);
+            int eventType = xrp.getEventType();
+            String currentTag = "";
+            int currentWeight = 0;
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        currentTag = xrp.getName();
+                        if (currentTag.equals(WEIGHT_ARRAY_TAG)) {
+                            currentWeight = xrp.getAttributeIntValue(0, 0);
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        if (currentTag.equals(ITEM_TAG)) {
+                            wordToAge.put(xrp.getText(), currentWeight);
+                        }
+                        break;
+                    case XmlPullParser.END_TAG:
+                        currentTag = "";
+                        break;
+                }
+                eventType = xrp.next();
+            }
+        } catch (XmlPullParserException | IOException | NullPointerException e) {
+            Log.e(Constants.ERROR_TAG, e.getMessage());
+        }
+
         Pair<Double, Double> sent = analyzeMessages(getSMS(context, SENT), "я");
         Pair<Double, Double> inbox = analyzeMessages(getSMS(context, INBOX), "ты");
 
@@ -35,14 +79,39 @@ public class SMSInformation {
 
     private static List<String> getSMS(Context context, Uri uri) {
         List<String> list = new ArrayList<>();
+        List<Integer> dates = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
 
         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
         if (cursor != null) {
             for (boolean hasData = cursor.moveToFirst(); hasData; hasData = cursor.moveToNext()) {
-                final String body = cursor.getString(cursor.getColumnIndexOrThrow("body"));
-                list.add(body);
+                list.add(cursor.getString(cursor.getColumnIndexOrThrow("body")));
+                if (uri.equals(SENT)) {
+                    calendar.setTimeInMillis(Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow("date"))));
+                    dates.add(calendar.get(Calendar.YEAR));
+                }
             }
             cursor.close();
+        }
+
+        if (uri.equals(SENT)) {
+            int curYear = Calendar.getInstance().get(Calendar.YEAR);
+            for (int i = 0; i < list.size(); i++) {
+                String message = list.get(i);
+
+                int messageAge = 0;
+                int messageEntries = 0;
+                for (String word : wordToAge.keySet()) {
+                    if (message.contains(word)) {
+                        messageAge += wordToAge.get(word);
+                        messageEntries++;
+                    }
+                }
+
+                if (messageEntries != 0 && messageAge / messageEntries > 0) {
+                    Characteristic.addAges(messageAge / messageEntries + (curYear - dates.get(i)), 1);
+                }
+            }
         }
 
         return list;
