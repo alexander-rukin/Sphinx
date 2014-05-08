@@ -30,7 +30,7 @@ public class Constants {
             R.xml.sportsman,
             R.xml.music_lover,
             R.xml.animal_lover,
-            R.xml.picabu_lover};
+            R.xml.pikabu_lover};
 
     public static final int[] imgs = {
             R.drawable.geek,
@@ -42,7 +42,7 @@ public class Constants {
             R.drawable.sportsman,
             R.drawable.music_lover,
             R.drawable.animal_lover,
-            R.drawable.picabu_lover};
+            R.drawable.pikabu_lover};
 
     public static final int[] colors = {
             0xFF220646,

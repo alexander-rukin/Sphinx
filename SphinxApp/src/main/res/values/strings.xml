@@ -31,7 +31,7 @@
         <item>Sportsman</item>
         <item>Music lover</item>
         <item>Animal lover</item>
-        <item>Picabu lover</item>
+        <item>Pikabu lover</item>
     </string-array>
     <string-array name="types_for_title">
         <item>geek</item>
@@ -43,7 +43,7 @@
         <item>sportsman</item>
         <item>music lover</item>
         <item>animal lover</item>
-        <item>picabu lover</item>
+        <item>pikabu lover</item>
     </string-array>
     <string-array name="definitions">
         <item>\"What is about your elf?\", \"Shave your mustaches!\", \"Wash your hair!\", \"Geeks will happen in the best regulated families!\". You do not like hearing this all the time, right? Do not worry, because you are great defender of Azeroth!</item>
@@ -79,7 +79,7 @@
         <item>sport</item>
         <item>music</item>
         <item>pets</item>
-        <item>picabu</item>
+        <item>pikabu</item>
     </string-array>
     <string-array name="age_array">
         <item>year</item>
