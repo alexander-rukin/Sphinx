@@ -32,6 +32,11 @@ public class SMSInformation {
     private final static Uri INBOX = Uri.parse("content://sms/inbox");
 
     private final static Map<String, Integer> wordToAge = new HashMap<>();
+    private final static Map<String, Integer> wordToRelationship = new HashMap<>();
+
+    private static final double MAX = 100.;
+    private static final double SHIFT = MAX * 0.05;
+    private static final double PART = .1;
 
     private static final String WEIGHT_ARRAY_TAG = "weight-array";
     private static final String ITEM_TAG = "item";
@@ -63,6 +68,30 @@ public class SMSInformation {
                 }
                 eventType = xrp.next();
             }
+
+            xrp = context.getResources().getXml(R.xml.relationship_sms);
+            eventType = xrp.getEventType();
+            currentTag = "";
+            currentWeight = 0;
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        currentTag = xrp.getName();
+                        if (currentTag.equals(WEIGHT_ARRAY_TAG)) {
+                            currentWeight = xrp.getAttributeIntValue(0, 0);
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        if (currentTag.equals(ITEM_TAG)) {
+                            wordToRelationship.put(xrp.getText(), currentWeight);
+                        }
+                        break;
+                    case XmlPullParser.END_TAG:
+                        currentTag = "";
+                        break;
+                }
+                eventType = xrp.next();
+            }
         } catch (XmlPullParserException | IOException | NullPointerException e) {
             Log.e(Constants.ERROR_TAG, e.getMessage());
         }
@@ -75,6 +104,9 @@ public class SMSInformation {
 
         Characteristic.addMale(maleCounter / (maleCounter + femaleCounter));
         Characteristic.addFemale(1. - maleCounter / (maleCounter + femaleCounter));
+
+        wordToAge.clear();
+        wordToRelationship.clear();
     }
 
     private static List<String> getSMS(Context context, Uri uri) {
@@ -119,8 +151,25 @@ public class SMSInformation {
 
     private static Pair<Double, Double> analyzeMessages(List<String> messages, String pronoun) {
         double maleCount = 0., femaleCount = 0.;
+        double messageRelationship = 0.;
+        double maxRelationship = 0.;
 
         for (String message : messages) {
+
+            double weightRelationship = 0.;
+            int relationshipEntries = 0;
+            for (String word : wordToRelationship.keySet()) {
+                if (message.contains(word)) {
+                    weightRelationship += wordToRelationship.get(word);
+                    relationshipEntries++;
+                }
+            }
+            if (relationshipEntries != 0) {
+                weightRelationship /= relationshipEntries;
+            }
+            messageRelationship += weightRelationship;
+            maxRelationship += (MAX - SHIFT < weightRelationship ? weightRelationship : weightRelationship + SHIFT);
+
             StringTokenizer messageParser = new StringTokenizer(message, ".!?");
             while (messageParser.hasMoreTokens()) {
                 List<String[]> subSentences = new ArrayList<>();
@@ -187,6 +236,9 @@ public class SMSInformation {
                 }
             }
         }
+
+        maxRelationship = (messages.size() * MAX * PART + maxRelationship) / 2.;
+        Characteristic.addRelationship(messageRelationship, maxRelationship);
 
         return new Pair<>(maleCount, femaleCount);
     }

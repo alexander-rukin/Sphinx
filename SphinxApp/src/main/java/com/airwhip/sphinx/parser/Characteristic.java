@@ -29,6 +29,9 @@ public class Characteristic {
     private static double[] weight = new double[Constants.xmls.length];
     private static double[] max = new double[Constants.xmls.length];
 
+    private static double relationshipWeight = 0.;
+    private static double relationshipMaxWeight = 0.;
+
     private static double maleWeight = 0.;
     private static double femaleWeight = 0.;
 
@@ -138,6 +141,15 @@ public class Characteristic {
 
     public static void addFemale(double value) {
         femaleWeight += value;
+    }
+
+    public static void addRelationship(double value, double maxValue) {
+        relationshipWeight += value;
+        relationshipMaxWeight += maxValue;
+    }
+
+    public static int getRelationship() {
+        return relationshipWeight != 0. ? Math.min((int) (100. * relationshipWeight / relationshipMaxWeight), 100) : 0;
     }
 
     public static void generateResult(Context context) {
