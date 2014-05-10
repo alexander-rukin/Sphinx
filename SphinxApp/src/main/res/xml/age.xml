@@ -52,6 +52,9 @@
     </application>
 
     <history>
+        <weight-array id="24">
+            <item>pikabu</item>
+        </weight-array>
         <weight-array id="29">
             <item>vkontakte</item>
         </weight-array>

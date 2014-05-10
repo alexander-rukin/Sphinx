@@ -172,12 +172,12 @@ public class ResultActivity extends Activity {
             progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
         }
         // add in relationship or single
-        if (true) {
+        if (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3 > Constants.MIN) {
             types.add(getString(R.string.in_relationship));
-            progress.add(Characteristic.get(Constants.STUDENT_ID));
+            progress.add((int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
         } else {
             types.add(getString(R.string.single));
-            progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
+            progress.add(100 - (int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
         }
         // add two uniq characteristics
         int incorrectField = 0;
@@ -279,7 +279,7 @@ public class ResultActivity extends Activity {
         Intent intent = new Intent(this, Alarm.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         am.cancel(pendingIntent);
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pendingIntent);
     }
 
     @Override

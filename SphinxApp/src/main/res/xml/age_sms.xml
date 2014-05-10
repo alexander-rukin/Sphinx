@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <weight-array id="24">
+        <item>work</item>
+        <item>job</item>
+        <item>работа</item>
+        <item>project</item>
+        <item>проект</item>
+    </weight-array>
+
+    <weight-array id="22">
+        <item>bar</item>
+        <item>бар</item>
+        <item>club</item>
+        <item>клуб</item>
+    </weight-array>
+
+    <weight-array id="20">
+        <item>тусить</item>
+        <item>бухать</item>
+        <item>blooze</item>
+        <item>hangout</item>
+    </weight-array>
+
+    <weight-array id="18">
+        <item>парень</item>
+        <item>девушка</item>
+        <item>boyfriend</item>
+        <item>girlfriend</item>
+        <item>пары</item>
+        <item>пара</item>
+        <item>препод</item>
+        <item>декан</item>
+        <item>dean</item>
+        <item>деканат</item>
+        <item>deanery</item>
+        <item>универ</item>
+        <item>university</item>
+        <item>univer</item>
+        <item>университет</item>
+        <item>сессия</item>
+        <item>exam</item>
+        <item>exams</item>
+        <item>экзамен</item>
+        <item>экзамены</item>
+        <item>лектор</item>
+        <item>лекци</item>
+        <item>lecture</item>
+        <item>ага</item>
+        <item>грац</item>
+        <item>угу</item>
+        <item>ок</item>
+        <item>учебник</item>
+    </weight-array>
+
+    <weight-array id="16">
+        <item>dude</item>
+        <item>чувак</item>
+        <item>tweet</item>
+        <item>facebook</item>
+        <item>foursquare</item>
+        <item>crap</item>
+        <item>хд</item>
+        <item>xd</item>
+        <item>=)</item>
+        <item>:)</item>
+        <item>=(</item>
+        <item>:(</item>
+        <item>^^</item>
+        <item>:d</item>
+        <item>:p</item>
+        <item>:р</item>
+        <item>ср</item>
+        <item>кр</item>
+        <item>у мя</item>
+        <item>дз</item>
+        <item>приветик</item>
+        <item>делишки</item>
+        <item>кароч</item>
+        <item>ваще</item>
+        <item>кул</item>
+        <item>класс</item>
+        <item>щас</item>
+        <item>че</item>
+        <item>и чо</item>
+        <item>плиз</item>
+        <item>галим</item>
+        <item>ава</item>
+        <item>лайк</item>
+        <item>лойс</item>
+        <item>мля</item>
+        <item>тя</item>
+        <item>спер</item>
+        <item>лан</item>
+        <item>пашет</item>
+        <item>хнык</item>
+        <item>пнх</item>
+        <item>хз</item>
+        <item>хрень</item>
+        <item>нету</item>
+        <item>ихне</item>
+        <item>ихний</item>
+        <item>имхо</item>
+        <item>оч </item>
+        <item>yeah</item>
+        <item>мну</item>
+        <item>ппц</item>
+    </weight-array>
+
+    <weight-array id="15">
+        <item>паря</item>
+        <item>guy</item>
+        <item>пидор</item>
+        <item>fug</item>
+        <item>dota</item>
+        <item>дота</item>
+        <item>гарена</item>
+        <item>го</item>
+        <item>вов</item>
+        <item>wow</item>
+        <item>линейка</item>
+        <item>lineage</item>
+        <item>л2</item>
+        <item>сига</item>
+        <item>училка</item>
+        <item>teacher</item>
+        <item>столовка</item>
+        <item>школ</item>
+        <item>толкан</item>
+        <item>school</item>
+        <item>eatery</item>
+        <item>btw</item>
+        <item>gl hf</item>
+        <item>gg wp</item>
+        <item>@</item>
+        <item>c u</item>
+        <item>w\\</item>
+    </weight-array>
+</plist>
