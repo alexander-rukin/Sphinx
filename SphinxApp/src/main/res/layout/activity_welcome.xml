@@ -68,6 +68,14 @@
             android:textColor="@color/title"
             android:textSize="20sp" />
 
+        <ImageView
+            android:id="@+id/tabletImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0"
+            android:src="@drawable/start_button_tablet" />
+
     </FrameLayout>
 
 </LinearLayout>

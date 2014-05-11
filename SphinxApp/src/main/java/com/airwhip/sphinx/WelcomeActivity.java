@@ -1,10 +1,12 @@
 package com.airwhip.sphinx;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
@@ -47,14 +49,21 @@ public class WelcomeActivity extends Activity {
         startText = (TextView) findViewById(R.id.startText);
         tipText = (TextView) findViewById(R.id.tipText);
 
-        plugImage = (ImageView) findViewById(R.id.plugImage);
-        socketImage = (ImageView) findViewById(R.id.socketImage);
+        TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (manager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
+            findViewById(R.id.tabletImage).setAlpha(1);
+            tipText.setText(getString(R.string.do_not_support_tablets));
+            startText.setAlpha(0);
+        } else {
+            plugImage = (ImageView) findViewById(R.id.plugImage);
+            socketImage = (ImageView) findViewById(R.id.socketImage);
 
-        circle.setOnClickListener(new StartButtonClick(ProgramState.START));
+            circle.setOnClickListener(new StartButtonClick(ProgramState.START));
 
-        names = new Names(this);
-        Characteristic.initDataBase(this);
-        Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
+            names = new Names(this);
+            Characteristic.initDataBase(this);
+            Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
+        }
     }
 
     private enum ProgramState {
