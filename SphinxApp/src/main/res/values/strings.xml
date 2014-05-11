@@ -59,6 +59,7 @@
         <item>Surely, you are always hanging out there. We hope your posts will always be in hot. We wish you boobs, cats and candies.</item>
     </string-array>
 
+    <string name="sphinx_thinks_that_i_ufo">Sphinx thinks that my phone was stolen by UFO.</string>
     <string name="sphinx_thinks_that_i_smone">Sphinx thinks that I am <b>%s</b></string>
     <string-array name="post_array">
         <item>0</item>

@@ -136,96 +136,102 @@ public class ResultActivity extends Activity {
             typeAvatar.setImageResource(R.drawable.ufo);
             typeName.setText(R.string.ufo_for_title);
             typeDefinition.setText(R.string.ufo_definitions);
-            postText.setText(R.string.ufo_definitions);
+
+            findViewById(R.id.hide1).setVisibility(View.GONE);
+            findViewById(R.id.hide2).setVisibility(View.GONE);
+            feedBackList.setVisibility(View.GONE);
+            findViewById(R.id.hide3).setVisibility(View.GONE);
+
+            postText.setText(R.string.sphinx_thinks_that_i_ufo);
             postAvatar.setImageResource(R.drawable.ufo);
         } else {
             typeAvatar.setImageResource(Constants.imgs[maxResultIndex]);
             typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
             typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
             postAvatar.setImageResource(Constants.imgs[maxResultIndex]);
-        }
-        feedBackList.setFocusable(false);
+            feedBackList.setFocusable(false);
 
-        int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
-        for (int i = 0; i < sorted.length; i++) {
-            sorted[i] = i;
-        }
-        for (int i = 0; i < sorted.length; i++) {
-            for (int j = i + 1; j < sorted.length; j++) {
-                if (Characteristic.get(sorted[i]) < Characteristic.get(sorted[j])) {
-                    int tmp = sorted[i];
-                    sorted[i] = sorted[j];
-                    sorted[j] = tmp;
+            int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
+            for (int i = 0; i < sorted.length; i++) {
+                sorted[i] = i;
+            }
+            for (int i = 0; i < sorted.length; i++) {
+                for (int j = i + 1; j < sorted.length; j++) {
+                    if (Characteristic.get(sorted[i]) < Characteristic.get(sorted[j])) {
+                        int tmp = sorted[i];
+                        sorted[i] = sorted[j];
+                        sorted[j] = tmp;
+                    }
                 }
             }
-        }
 
-        List<String> types = new ArrayList<>();
-        List<Integer> progress = new ArrayList<>();
+            List<String> types = new ArrayList<>();
+            List<Integer> progress = new ArrayList<>();
 
-        // add study or not
-        if (Characteristic.get(Constants.STUDENT_ID) > Constants.MIN) {
-            types.add(getString(R.string.studying));
-            progress.add(Characteristic.get(Constants.STUDENT_ID));
-        } else {
-            types.add(getString(R.string.not_studying));
-            progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
-        }
-        // add in relationship or single
-        if (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3 > Constants.MIN) {
-            types.add(getString(R.string.in_relationship));
-            progress.add((int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
-        } else {
-            types.add(getString(R.string.single));
-            progress.add(100 - (int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
-        }
-        // add two uniq characteristics
-        int incorrectField = 0;
-        for (int i = 0; i < 2 + incorrectField; i++) {
-            if (sorted[i] != Constants.STUDENT_ID && sorted[i] != Constants.LONER_ID) {
-                types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
-                progress.add(Characteristic.get(sorted[i]));
+            // add study or not
+            if (Characteristic.get(Constants.STUDENT_ID) > Constants.MIN) {
+                types.add(getString(R.string.studying));
+                progress.add(Characteristic.get(Constants.STUDENT_ID));
             } else {
-                incorrectField++;
+                types.add(getString(R.string.not_studying));
+                progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
             }
-        }
-        // add male or female
-        if (Characteristic.isMale()) {
-            types.add(getString(R.string.man));
-            progress.add(Characteristic.getMale());
-        } else {
-            types.add(getString(R.string.woman));
-            progress.add(Characteristic.getFemale());
-        }
-        // add age category
-        types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
-        progress.add(-1);
-
-        Characteristic.fillFeedBackCategory(this, types.toArray(new String[types.size()]));
-        Characteristic.generateResult(this);
-
-        ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]),
-                (TextView) findViewById(R.id.sphinxStatistic), (TextView) findViewById(R.id.postText));
-        feedBackList.setAdapter(adapter);
-
-        // --------fixed bug: ListView in ScrollView--------
-        int totalHeight = feedBackList.getPaddingTop() + feedBackList.getPaddingBottom();
-        for (int i = 0; i < adapter.getCount(); i++) {
-            View item = adapter.getView(i, null, feedBackList);
-            if (item != null) {
-                if (item instanceof ViewGroup) {
-                    item.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            // add in relationship or single
+            if (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3 > Constants.MIN) {
+                types.add(getString(R.string.in_relationship));
+                progress.add((int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
+            } else {
+                types.add(getString(R.string.single));
+                progress.add(100 - (int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
+            }
+            // add two uniq characteristics
+            int incorrectField = 0;
+            for (int i = 0; i < 2 + incorrectField; i++) {
+                if (sorted[i] != Constants.STUDENT_ID && sorted[i] != Constants.LONER_ID) {
+                    types.add(getResources().getStringArray(R.array.types)[sorted[i]]);
+                    progress.add(Characteristic.get(sorted[i]));
+                } else {
+                    incorrectField++;
                 }
-                item.measure(0, 0);
-                totalHeight += item.getMeasuredHeight();
             }
+            // add male or female
+            if (Characteristic.isMale()) {
+                types.add(getString(R.string.man));
+                progress.add(Characteristic.getMale());
+            } else {
+                types.add(getString(R.string.woman));
+                progress.add(Characteristic.getFemale());
+            }
+            // add age category
+            types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
+            progress.add(-1);
+
+            Characteristic.fillFeedBackCategory(this, types.toArray(new String[types.size()]));
+            Characteristic.generateResult(this);
+
+            ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]),
+                    (TextView) findViewById(R.id.sphinxStatistic), (TextView) findViewById(R.id.postText));
+            feedBackList.setAdapter(adapter);
+
+            // --------fixed bug: ListView in ScrollView--------
+            int totalHeight = feedBackList.getPaddingTop() + feedBackList.getPaddingBottom();
+            for (int i = 0; i < adapter.getCount(); i++) {
+                View item = adapter.getView(i, null, feedBackList);
+                if (item != null) {
+                    if (item instanceof ViewGroup) {
+                        item.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    }
+                    item.measure(0, 0);
+                    totalHeight += item.getMeasuredHeight();
+                }
+            }
+            ViewGroup.LayoutParams params = feedBackList.getLayoutParams();
+            if (params != null) {
+                params.height = totalHeight + (feedBackList.getDividerHeight() * (adapter.getCount() - 1));
+                feedBackList.setLayoutParams(params);
+            }
+            // -----------------------------------------------------
         }
-        ViewGroup.LayoutParams params = feedBackList.getLayoutParams();
-        if (params != null) {
-            params.height = totalHeight + (feedBackList.getDividerHeight() * (adapter.getCount() - 1));
-            feedBackList.setLayoutParams(params);
-        }
-        // -----------------------------------------------------
 
         findViewById(R.id.shareVK).setOnClickListener(new View.OnClickListener() {
             @Override
