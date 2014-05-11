@@ -155,6 +155,7 @@ public class SMSInformation {
         double maxRelationship = 0.;
 
         for (String message : messages) {
+            message = message.toLowerCase();
 
             double weightRelationship = 0.;
             int relationshipEntries = 0;
@@ -168,7 +169,7 @@ public class SMSInformation {
                 weightRelationship /= relationshipEntries;
             }
             messageRelationship += weightRelationship;
-            maxRelationship += (MAX - SHIFT < weightRelationship ? weightRelationship : weightRelationship + SHIFT);
+            maxRelationship += (weightRelationship != 0 ? weightRelationship : SHIFT);
 
             StringTokenizer messageParser = new StringTokenizer(message, ".!?");
             while (messageParser.hasMoreTokens()) {
@@ -237,9 +238,7 @@ public class SMSInformation {
             }
         }
 
-        maxRelationship = (messages.size() * MAX * PART + maxRelationship) / 2.;
         Characteristic.addRelationship(messageRelationship, maxRelationship);
-
         return new Pair<>(maleCount, femaleCount);
     }
 

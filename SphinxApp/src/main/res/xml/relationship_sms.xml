@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
 
+    <weight-array id="200">
+        <item>я беременна</item>
+        <item>pregnant</item>
+    </weight-array>
+
     <weight-array id="100">
         <item>любим</item>
         <item>darling</item>
+        <item>милый</item>
+        <item>люблю тебя</item>
+        <item>love you</item>
+        <item>малыш</item>
+        <item>любимый ливчик</item>
+        <item>любимый лифчик</item>
+        <item>возбужден</item>
+        <item>boner</item>
+        <item>приласка</item>
+        <item>caress</item>
+        <item>извращен</item>
+        <item>родной</item>
+        <item>родная</item>
+        <item>прекрасный вечер</item>
+        <item>wonderful night</item>
+        <item>beautiful night</item>
+        <item>забери детей</item>
+        <item>я хочу тебя</item>
+        <item>i want you</item>
+    </weight-array>
+
+    <weight-array id="80">
+        <item>baby</item>
+        <item>детка</item>
+        <item>бэйба</item>
+        <item>прогуляемся</item>
+        <item>прогулятся</item>
+        <item>подгузник</item>
+        <item>diaper</item>
     </weight-array>
 
     <weight-array id="70">
+        <item>dear</item>
         <item>honey</item>
+        <item>киска</item>
+        <item>чмоки</item>
+        <item>зайчик</item>
+        <item>кролик</item>
+        <item>мышка</item>
+        <item>солнышко</item>
+    </weight-array>
+
+    <weight-array id="60">
+        <item>доверие</item>
+        <item>reliance</item>
+        <item>спокойной ночи</item>
+        <item>good night</item>
+        <item>gn</item>
+        <item>сладких снов</item>
+    </weight-array>
+
+    <weight-array id="20">
+        <item>купи</item>
+        <item>buy</item>
     </weight-array>
 
 </plist>
