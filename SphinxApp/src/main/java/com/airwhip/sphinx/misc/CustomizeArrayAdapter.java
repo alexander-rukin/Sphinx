@@ -76,7 +76,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
 
         holder.typeText.setText(names[position]);
         if (progress[position] != -1) {
-            holder.progressBar.getLayoutParams().width = 4 * progress[position];
+            holder.progressBar.getLayoutParams().width = context.getResources().getInteger(R.integer.progress_bar_wight) * progress[position];
             holder.progressText.setText(String.valueOf(progress[position] + "%"));
             holder.progressBar.setBackgroundColor(Constants.colors[position]);
             holder.progressBarTriangle.setBackgroundColor(Constants.colors[position]);
