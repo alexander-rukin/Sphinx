@@ -8,9 +8,6 @@
     <string name="check_internet">Check your internet connection\nand touch button again</string>
     <string name="click_start">Touch button to start</string>
     <string name="select_social_network">Share</string>
-    <string name="male">MALE</string>
-    <string name="female">FEMALE</string>
-    <string name="gender_definition">Congratulations, you have been recognized as a <b>%s</b>! We will be so happy if it is truth.</string>
     <string name="twitter_not_find">Twitter application not found on your device.</string>
     <string name="do_not_support_tablets">Unfortunately we do not support tablets</string>
 
@@ -21,7 +18,6 @@
     <string name="no">No</string>
     <string name="something_went_wrong">Something went wrong &#8230;</string>
 
-    <!-- Types of people -->
     <string-array name="types">
         <item>Geek</item>
         <item>Loner</item>

@@ -139,7 +139,6 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                 Request request = Request.newUploadPhotoRequest(session, new File(Constants.FILE_PATH), new Request.Callback() {
                     @Override
                     public void onCompleted(Response response) {
-                        Log.d(Constants.DEBUG_TAG, "POST");
                     }
                 });
                 Bundle params = request.getParameters();
@@ -206,7 +205,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
                         });
                     } catch (Exception e) {
                         Toast.makeText(context, context.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
-                        Log.d(Constants.ERROR_TAG, e.getMessage());
+                        Log.e(Constants.ERROR_TAG, e.getMessage());
                     }
                 }
 

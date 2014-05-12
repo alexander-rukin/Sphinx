@@ -46,17 +46,15 @@ public class ResultActivity extends Activity {
         @Override
         public void onCaptchaError(VKError captchaError) {
             new VKCaptchaDialog(captchaError).show();
-            Log.d(Constants.DEBUG_TAG, "onCaptchaError");
         }
 
         @Override
         public void onTokenExpired(VKAccessToken expiredToken) {
-            Log.d(Constants.DEBUG_TAG, "onTokenExpired");
         }
 
         @Override
         public void onAccessDenied(VKError authorizationError) {
-            Log.d(Constants.DEBUG_TAG, "onAccessDenied");
+            Toast.makeText(ResultActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -67,7 +65,6 @@ public class ResultActivity extends Activity {
 
         @Override
         public void onAcceptUserToken(VKAccessToken token) {
-            Log.d(Constants.DEBUG_TAG, "onAcceptUserToken");
         }
     };
     private boolean canFacebookPost = false;
@@ -79,7 +76,6 @@ public class ResultActivity extends Activity {
                     Request request = Request.newUploadPhotoRequest(session, new File(Constants.FILE_PATH), new Request.Callback() {
                         @Override
                         public void onCompleted(Response response) {
-                            Log.d(Constants.DEBUG_TAG, "POST");
                         }
                     });
                     Bundle params = request.getParameters();

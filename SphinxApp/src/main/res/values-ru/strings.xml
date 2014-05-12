@@ -8,9 +8,6 @@
     <string name="check_internet">Проверьте ваше интернет соединение\nи коснитесь кнопки снова</string>
     <string name="click_start">Коснитесь кнопки чтобы начать</string>
     <string name="select_social_network">Поделиться</string>
-    <string name="male">МУЖСКОЙ</string>
-    <string name="female">ЖЕНСКИЙ</string>
-    <string name="gender_definition">Поздравляем, ваш пол был определен как <b>%s</b>! Нам было бы очень приятно, если это окажется правдой.</string>
     <string name="twitter_not_find">На вашем устройстве не найдено приложение Twitter.</string>
     <string name="do_not_support_tablets">К сожалению мы пока не поддерживаем планшеты</string>
 
@@ -21,7 +18,6 @@
     <string name="no">Нет</string>
     <string name="something_went_wrong">Что-то пошло не так &#8230;</string>
 
-    <!--Types of people-->
     <string-array name="types">
         <item>Гик</item>
         <item>Холостяк</item>
