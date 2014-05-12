@@ -1,12 +1,9 @@
 package com.airwhip.sphinx.misc;
 
 import android.content.Context;
-import android.graphics.Point;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -28,6 +25,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
     private TextView sphinxStatistic;
     private TextView postText;
 
+    private int[] feedBackArray;
     private int[] sorted;
 
     public CustomizeArrayAdapter(Context context, String[] names, Integer[] progress, TextView sphinxStatistic, TextView postText) {
@@ -37,6 +35,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         this.progress = progress;
         this.sphinxStatistic = sphinxStatistic;
         this.postText = postText;
+        this.feedBackArray = new int[progress.length];
 
         sphinxStatistic.setText(names.length + "/" + names.length);
         generatePostMessage(100);
@@ -92,15 +91,16 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Characteristic.feedBackResult[position] == 1) {
-                    Characteristic.feedBackResult[position] = 0;
+                if (feedBackArray[position] == 1) {
+                    feedBackArray[position] = 0;
                 } else {
-                    Characteristic.feedBackResult[position] = 1;
+                    feedBackArray[position] = 1;
                 }
 
                 int count = names.length;
-                for (int i : Characteristic.feedBackResult) {
-                    if (i == 1) {
+                for (int i = 0; i < feedBackArray.length; i++) {
+                    Characteristic.feedBackResult[i] = feedBackArray[i];
+                    if (feedBackArray[i] == 1) {
                         count--;
                     }
                 }
