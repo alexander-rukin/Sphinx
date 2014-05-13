@@ -11,7 +11,7 @@ import com.airwhip.sphinx.misc.XmlHelper;
  * Created by Whiplash on 07.03.14.
  */
 public class BrowserInformation {
-    private static final Uri[] URI = {Uri.parse("content://com.android.chrome.browser/bookmarks"), Browser.BOOKMARKS_URI};
+    private static final Uri[] URI = {Uri.parse("content://com.android.chrome.browser/bookmarks"), Uri.parse("content://com.yandex.browser/bookmarks"), Browser.BOOKMARKS_URI};
 
     private static final String HISTORY = Browser.BookmarkColumns.BOOKMARK + " = 0";
     private static final String BOOKMARK = Browser.BookmarkColumns.BOOKMARK + " = 1";
