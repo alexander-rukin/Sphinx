@@ -193,8 +193,10 @@ public class ResultActivity extends Activity {
                 }
             }
             // add male or female
-//            if () {
-//            } else {
+            if (Characteristic.getMale() == 50) {
+                types.add(getString(R.string.gender_is_not_defined));
+                progress.add(-1);
+            } else {
                 if (Characteristic.getMale() > Constants.MIN) {
                     types.add(getString(R.string.man));
                     progress.add(Characteristic.getMale());
@@ -202,7 +204,7 @@ public class ResultActivity extends Activity {
                     types.add(getString(R.string.woman));
                     progress.add(Characteristic.getFemale());
                 }
-//            }
+            }
             // add age category
             types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
             progress.add(-1);

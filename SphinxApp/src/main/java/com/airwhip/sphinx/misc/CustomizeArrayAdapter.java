@@ -36,8 +36,20 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         this.postText = postText;
         this.feedBackArray = new int[progress.length];
 
-        sphinxStatistic.setText(names.length + "/" + names.length);
-        generatePostMessage(100);
+        for (int i = 0; i < progress.length; i++) {
+            if (progress[i] == -1 && names[i].equals(context.getString(R.string.gender_is_not_defined))) {
+                feedBackArray[i] ^= 1;
+                break;
+            }
+        }
+        int count = names.length;
+        for (int i = 0; i < feedBackArray.length; i++) {
+            Characteristic.feedBackResult[i] = feedBackArray[i];
+            count -= feedBackArray[i];
+        }
+        sphinxStatistic.setText(count + "/" + names.length);
+        Characteristic.generateResult();
+        generatePostMessage(names.length != count ? count * 17 : 100);
     }
 
     @Override
@@ -70,6 +82,11 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             holder.progressText.setVisibility(View.GONE);
             holder.progressBar.setVisibility(View.GONE);
             holder.progressBarTriangle.setVisibility(View.GONE);
+            if (names[position].equals(context.getString(R.string.gender_is_not_defined))) {
+                feedBackArray[position] ^= 1;
+                holder.isRightButton.setVisibility(View.GONE);
+                holder.questionButton.setVisibility(View.GONE);
+            }
         }
         holder.isRightButton.setChecked(true);
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +149,11 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
 
             postText.setText(postMessage.toString());
         }
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return false;
     }
 
     private class ViewHolder {
