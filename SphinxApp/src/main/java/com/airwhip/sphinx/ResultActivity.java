@@ -204,7 +204,7 @@ public class ResultActivity extends Activity {
             progress.add(-1);
 
             Characteristic.fillFeedBackCategory(this, types.toArray(new String[types.size()]));
-            Characteristic.generateResult(this);
+            Characteristic.generateResult();
 
             ArrayAdapter<String> adapter = new CustomizeArrayAdapter(this, types.toArray(new String[types.size()]), progress.toArray(new Integer[progress.size()]),
                     (TextView) findViewById(R.id.sphinxStatistic), (TextView) findViewById(R.id.postText));

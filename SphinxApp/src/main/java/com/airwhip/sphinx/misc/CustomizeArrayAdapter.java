@@ -105,7 +105,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
                     }
                 }
                 sphinxStatistic.setText(count + "/" + names.length);
-                Characteristic.generateResult(context);
+                Characteristic.generateResult();
                 generatePostMessage(names.length != count ? count * 17 : 100);
 
             }
@@ -115,7 +115,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
             public void onClick(View view) {
                 holder.questionButton.setVisibility(View.GONE);
                 holder.isRightButton.setVisibility(View.VISIBLE);
-                Characteristic.generateResult(context);
+                Characteristic.generateResult();
             }
         });
 

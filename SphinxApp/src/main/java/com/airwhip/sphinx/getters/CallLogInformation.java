@@ -25,7 +25,7 @@ public class CallLogInformation {
     public static void get(Context context) {
         Set<String> storage = new HashSet<>();
         try {
-            XmlResourceParser xrp = context.getResources().getXml(R.xml.age_sms);
+            XmlResourceParser xrp = context.getResources().getXml(R.xml.call_log);
             int eventType = xrp.getEventType();
             String currentTag = "";
             while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -53,7 +53,7 @@ public class CallLogInformation {
             for (boolean hasData = cursor.moveToFirst(); hasData; hasData = cursor.moveToNext()) {
                 try {
                     for (String name : storage) {
-                        if (name.contains(cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.CACHED_NAME)).toLowerCase())) {
+                        if (cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.CACHED_NAME)).toLowerCase().contains(name)) {
                             Characteristic.addRelationship(1000, 0);
                         }
                     }

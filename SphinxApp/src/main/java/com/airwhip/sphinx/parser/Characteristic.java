@@ -152,7 +152,7 @@ public class Characteristic {
         return relationshipWeight != 0. ? Math.min((int) (100. * relationshipWeight / relationshipMaxWeight), 100) : 0;
     }
 
-    public static void generateResult(Context context) {
+    public static void generateResult() {
         StringBuilder xml = new StringBuilder();
         xml.append("<result>\n");
         for (int i = 0; i < feedBackCategory.length; i++) {
