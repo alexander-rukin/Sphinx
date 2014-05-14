@@ -36,7 +36,6 @@ public class SMSInformation {
 
     private static final double MAX = 100.;
     private static final double SHIFT = MAX * 0.05;
-    private static final double PART = .1;
 
     private static final String WEIGHT_ARRAY_TAG = "weight-array";
     private static final String ITEM_TAG = "item";

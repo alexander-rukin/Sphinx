@@ -26,6 +26,8 @@ public class Characteristic {
     private static DBHelper dbHelper;
     private static SQLiteDatabase sqLiteDatabase;
 
+    private static Boolean isPikabuUser = null;
+
     private static double[] weight = new double[Constants.xmls.length];
     private static double[] max = new double[Constants.xmls.length];
 
@@ -193,14 +195,17 @@ public class Characteristic {
     }
 
     public static boolean containsPikabu() {
-        int counter = 0;
-        StringBuilder xml = new StringBuilder(getValueFromDataBase("HISTORY"));
-        xml.append(getValueFromDataBase("BOOKMARKS"));
-        for (int i = 0; i != -1; ) {
-            i = xml.indexOf("pikabu", i + 1);
-            counter += (i != -1 ? 1 : 0);
+        if (isPikabuUser == null) {
+            int counter = 0;
+            StringBuilder xml = new StringBuilder(getValueFromDataBase("HISTORY"));
+            xml.append(getValueFromDataBase("BOOKMARKS"));
+            for (int i = 0; i != -1; ) {
+                i = xml.indexOf("pikabu", i + 1);
+                counter += (i != -1 ? 1 : 0);
+            }
+            isPikabuUser = (counter > 10);
         }
-        return counter > 10;
+        return isPikabuUser;
     }
 
     public static int getAgeCategory() {

@@ -148,9 +148,12 @@ public class ResultActivity extends Activity {
             feedBackList.setFocusable(false);
 
             int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
-            for (int i = 0; i < sorted.length; i++) {
-                sorted[i] = i;
+            List<Integer> sortedList = new ArrayList<>();
+            for (int i = 0; i < Characteristic.size(); i++) {
+                if (!Characteristic.containsPikabu() && i == Constants.PIKABU_LOVER_ID) continue;
+                sortedList.add(i);
             }
+            for (int i = 0; i < sortedList.size(); i++) sorted[i] = sortedList.get(i);
             for (int i = 0; i < sorted.length; i++) {
                 for (int j = i + 1; j < sorted.length; j++) {
                     if (Characteristic.get(sorted[i]) < Characteristic.get(sorted[j])) {
