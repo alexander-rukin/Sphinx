@@ -8,13 +8,7 @@ import android.net.NetworkInfo;
  * Created by Whiplash on 17.03.14.
  */
 public class Internet {
-    private static Internet ourInstance = new Internet();
-
     private Internet() {
-    }
-
-    public static Internet getInstance() {
-        return ourInstance;
     }
 
     public static boolean checkInternetConnection(Context context) {

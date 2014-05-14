@@ -14,7 +14,7 @@ public class Constants {
     public static final int STUDENT_ID = 3;
     public static final int MIN = 50;
 
-    public static final String FILE_PATH = "/sdcard/testimage.png";
+    public static final String FILE_PATH = "/sdcard/sphinx_post.png";
     public static final Uri FILE_URI = Uri.parse("file://" + FILE_PATH);
 
     public static final String ERROR_TAG = "ERROR_TAG";

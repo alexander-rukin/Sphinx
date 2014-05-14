@@ -26,7 +26,6 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
     private TextView postText;
 
     private int[] feedBackArray;
-    private int[] sorted;
 
     public CustomizeArrayAdapter(Context context, String[] names, Integer[] progress, TextView sphinxStatistic, TextView postText) {
         super(context, R.layout.listviewitem, names);
@@ -39,21 +38,6 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
 
         sphinxStatistic.setText(names.length + "/" + names.length);
         generatePostMessage(100);
-
-        sorted = new int[progress.length];
-        for (int i = 0; i < sorted.length; i++) {
-            sorted[i] = i;
-        }
-
-        for (int i = 0; i < progress.length; i++) {
-            for (int j = i + 1; j < progress.length; j++) {
-                if (progress[sorted[i]] < progress[sorted[j]]) {
-                    int tmp = sorted[i];
-                    sorted[i] = sorted[j];
-                    sorted[j] = tmp;
-                }
-            }
-        }
     }
 
     @Override
@@ -91,18 +75,11 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         holder.isRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (feedBackArray[position] == 1) {
-                    feedBackArray[position] = 0;
-                } else {
-                    feedBackArray[position] = 1;
-                }
-
+                feedBackArray[position] ^= 1;
                 int count = names.length;
                 for (int i = 0; i < feedBackArray.length; i++) {
                     Characteristic.feedBackResult[i] = feedBackArray[i];
-                    if (feedBackArray[i] == 1) {
-                        count--;
-                    }
+                    count -= feedBackArray[i];
                 }
                 sphinxStatistic.setText(count + "/" + names.length);
                 Characteristic.generateResult();
