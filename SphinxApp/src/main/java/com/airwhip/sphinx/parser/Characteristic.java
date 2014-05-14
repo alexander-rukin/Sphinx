@@ -123,10 +123,6 @@ public class Characteristic {
         return 100 - (int) (100 * maleWeight / (maleWeight + femaleWeight));
     }
 
-    public static boolean isMale() {
-        return maleWeight > femaleWeight;
-    }
-
     public static void addAll(double[] values, double[] maxValues) {
         if (values.length != weight.length) {
             Log.e(Constants.ERROR_TAG, "INCORRECT ARRAY SIZE");

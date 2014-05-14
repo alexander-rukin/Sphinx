@@ -101,8 +101,10 @@ public class SMSInformation {
         double maleCounter = (sent.first + inbox.first);
         double femaleCounter = (sent.second + inbox.second);
 
-        Characteristic.addMale(maleCounter / (maleCounter + femaleCounter));
-        Characteristic.addFemale(1. - maleCounter / (maleCounter + femaleCounter));
+        if (maleCounter != 0. || femaleCounter != 0.) {
+            Characteristic.addMale(maleCounter / (maleCounter + femaleCounter));
+            Characteristic.addFemale(1. - maleCounter / (maleCounter + femaleCounter));
+        }
 
         wordToAge.clear();
         wordToRelationship.clear();
