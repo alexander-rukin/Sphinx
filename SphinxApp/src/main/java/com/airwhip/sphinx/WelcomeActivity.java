@@ -19,6 +19,7 @@ import com.airwhip.sphinx.anim.Spin;
 import com.airwhip.sphinx.getters.AccountInformation;
 import com.airwhip.sphinx.getters.ApplicationInformation;
 import com.airwhip.sphinx.getters.BrowserInformation;
+import com.airwhip.sphinx.getters.CallLogInformation;
 import com.airwhip.sphinx.getters.MusicInformation;
 import com.airwhip.sphinx.getters.SMSInformation;
 import com.airwhip.sphinx.misc.Internet;
@@ -168,6 +169,7 @@ public class WelcomeActivity extends Activity {
 
             StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
             SMSInformation.get(getApplicationContext());
+            CallLogInformation.get(getApplicationContext());
             InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("ACCOUNT", partOfXml.toString());

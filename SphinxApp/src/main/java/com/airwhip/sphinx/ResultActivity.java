@@ -173,12 +173,13 @@ public class ResultActivity extends Activity {
                 progress.add(100 - Characteristic.get(Constants.STUDENT_ID));
             }
             // add in relationship or single
-            if (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3 > Constants.MIN) {
+            int relationshipValue = (int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3);
+            if (relationshipValue > Constants.MIN) {
                 types.add(getString(R.string.in_relationship));
-                progress.add((int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
+                progress.add(relationshipValue);
             } else {
                 types.add(getString(R.string.single));
-                progress.add(100 - (int) (Characteristic.getRelationship() * .7 + (100 - Characteristic.get(Constants.LONER_ID)) * .3));
+                progress.add(100 - relationshipValue);
             }
             // add two uniq characteristics
             int incorrectField = 0;
