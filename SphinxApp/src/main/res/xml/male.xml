@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
-    <account></account>
+    <account>
+        <weight-array id="70">
+            <item>yandex-team</item>
+        </weight-array>
+    </account>
 
     <application>
         <weight-array id="100">
             <item>oranginalplan.weaphones</item>
             <item>glu.deerhunt</item>
             <item>CarDisassembly</item>
-        </weight-array>
-        <weight-array id="80">
+            <item>com.runtastic</item>
+            <item>car</item>
             <item>football</item>
             <item>sports</item>
-        </weight-array>
-        <weight-array id="70">
+            <item>com.northpark</item>
+            <item>com.eurosport</item>
             <item>polarbit.rthunder</item>
             <item>racing</item>
             <item>boxing</item>
@@ -21,6 +25,36 @@
 
     <history>
         <weight-array id="100">
+            <item>секс</item>
+            <item>sex</item>
+            <item>порн</item>
+            <item>porn</item>
+            <item>наркотики</item>
+            <item>drugs</item>
+            <item>рок-н-ролл</item>
+            <item>rock'n'roll</item>
+            <item>брит</item>
+            <item>эротик</item>
+            <item>erot</item>
+            <item>водк</item>
+            <item>алкогол</item>
+            <item>alcohol</item>
+            <item>computer</item>
+            <item>компьют</item>
+            <item>ремонт</item>
+            <item>сантехн</item>
+            <item>ремонт</item>
+            <item>auto</item>
+            <item>avto</item>
+            <item>авто</item>
+            <item>машин</item>
+            <item>обслуж</item>
+            <item>service</item>
+            <item>сиськи</item>
+            <item>boobs</item>
+            <item>doggie</item>
+            <item>расзврат</item>
+            <item>пошлости</item>
             <item>super-mens.ru</item>
             <item>mujskoi.ru</item>
             <item>manliness.ru</item>
@@ -29,6 +63,8 @@
             <item>antibaba.org‎</item>
         </weight-array>
         <weight-array id="80">
+            <item>спорт</item>
+            <item>sport</item>
             <item>футбол</item>
             <item>football</item>
             <item>спорт</item>

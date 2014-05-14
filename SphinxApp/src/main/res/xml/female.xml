@@ -13,8 +13,6 @@
             <item>ion.vkfremium</item>
             <item>ru.woman</item>
             <item>recipes</item>
-        </weight-array>
-        <weight-array id="70">
             <item>com.myfitnesspal.android</item>
             <item>medhelp.mydiet</item>
             <item>fatsecret.android</item>
@@ -22,7 +20,33 @@
     </application>
 
     <history>
+        <weight-array id="300">
+            <item>50 оттенков серого</item>
+            <item>50 отенков серого</item>
+        </weight-array>
         <weight-array id="100">
+            <item>мебель</item>
+            <item>furniture</item>
+            <item>рецепт</item>
+            <item>готовк</item>
+            <item>салон</item>
+            <item>сэлфи</item>
+            <item>selfie</item>
+            <item>статьи</item>
+            <item>книг</item>
+            <item>диет</item>
+            <item>фитнес</item>
+            <item>уроки</item>
+            <item>минет</item>
+            <item>миньет</item>
+            <item>туфли</item>
+            <item>shoes</item>
+            <item>одежда</item>
+            <item>cloth</item>
+            <item>гламур</item>
+            <item>менструа</item>
+            <item>цикл</item>
+            <item>тампон</item>
             <item>sdama.ru</item>
             <item>passion.ru</item>
             <item>fancy-journal.com</item>
@@ -32,6 +56,10 @@
             <item>woman.ru</item>
         </weight-array>
         <weight-array id="80">
+            <item>собачк</item>
+            <item>коти</item>
+            <item>kitty</item>
+            <item>мышк</item>
             <item>прическа</item>
             <item>hair cut</item>
             <item>макияж</item>
@@ -48,14 +76,6 @@
             <item>pomade</item>
             <item>ink</item>
             <item>powder</item>
-        </weight-array>
-        <weight-array id="50">
-            <item>туфли</item>
-            <item>shoes</item>
-            <item>одежда</item>
-            <item>cloth</item>
-            <item>котики</item>
-            <item>kitty</item>
         </weight-array>
     </history>
 </plist>

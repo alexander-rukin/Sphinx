@@ -52,8 +52,10 @@ public class CallLogInformation {
         if (cursor != null) {
             for (boolean hasData = cursor.moveToFirst(); hasData; hasData = cursor.moveToNext()) {
                 try {
-                    if (storage.contains(cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.CACHED_NAME)).toLowerCase())) {
-                        Characteristic.addRelationship(1000, 0);
+                    for (String name : storage) {
+                        if (name.contains(cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.CACHED_NAME)).toLowerCase())) {
+                            Characteristic.addRelationship(1000, 0);
+                        }
                     }
                 } catch (Exception e) {
                     Log.e(Constants.ERROR_TAG, "Call name is null");
