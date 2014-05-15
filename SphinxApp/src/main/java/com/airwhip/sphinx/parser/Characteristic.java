@@ -93,7 +93,11 @@ public class Characteristic {
                 context.getResources().getStringArray(R.array.types)[9]};
         List<String> idList = Arrays.asList(ids);
         for (int i = 0; i < feedBackCategory.length; i++) {
-            feedBackCategory[i] = idList.indexOf(categories[i]);
+            if (categories[i].equals(context.getString(R.string.gender_is_not_defined))) {
+                feedBackCategory[i] = -1;
+            } else {
+                feedBackCategory[i] = idList.indexOf(categories[i]);
+            }
         }
     }
 
@@ -121,10 +125,6 @@ public class Characteristic {
             return 50;
         }
         return 100 - (int) (100 * maleWeight / (maleWeight + femaleWeight));
-    }
-
-    public static boolean isMale() {
-        return maleWeight > femaleWeight;
     }
 
     public static void addAll(double[] values, double[] maxValues) {

@@ -15,6 +15,8 @@ public class Constants {
     public static final int PIKABU_LOVER_ID = 9;
     public static final int MIN = 50;
 
+    public static final String APP_SITE = "www.sphinx-app.com";
+
     public static final String FILE_PATH = "/sdcard/sphinx_post.png";
     public static final Uri FILE_URI = Uri.parse("file://" + FILE_PATH);
 

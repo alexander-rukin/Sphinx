@@ -18,6 +18,7 @@
     <string name="no">Нет</string>
     <string name="something_went_wrong">Что-то пошло не так &#8230;</string>
 
+    <string name="gender_is_not_defined">Пол не определен</string>
     <string-array name="types">
         <item>Гик</item>
         <item>Холостяк</item>

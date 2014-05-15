@@ -79,7 +79,7 @@ public class ResultActivity extends Activity {
                         }
                     });
                     Bundle params = request.getParameters();
-                    params.putString("message", getString(R.string.who_are_you) + "\n" + "www.sphinx-app.com");
+                    params.putString("message", getString(R.string.who_are_you) + "\n" + Constants.APP_SITE);
                     request.setParameters(params);
                     request.executeAsync();
                 } catch (Exception e) {
@@ -123,9 +123,7 @@ public class ResultActivity extends Activity {
         loginBtn = (LoginButton) findViewById(R.id.login_button);
 
         for (int i = 0; i < Characteristic.size(); i++) {
-            if (Characteristic.get(i) > Characteristic.get(maxResultIndex)) {
-                maxResultIndex = i;
-            }
+            if (Characteristic.get(i) > Characteristic.get(maxResultIndex)) maxResultIndex = i;
         }
 
         if (Characteristic.isUFO()) {
@@ -195,12 +193,17 @@ public class ResultActivity extends Activity {
                 }
             }
             // add male or female
-            if (Characteristic.isMale()) {
-                types.add(getString(R.string.man));
-                progress.add(Characteristic.getMale());
+            if (Characteristic.getMale() == 50) {
+                types.add(getString(R.string.gender_is_not_defined));
+                progress.add(-1);
             } else {
-                types.add(getString(R.string.woman));
-                progress.add(Characteristic.getFemale());
+                if (Characteristic.getMale() > Constants.MIN) {
+                    types.add(getString(R.string.man));
+                    progress.add(Characteristic.getMale());
+                } else {
+                    types.add(getString(R.string.woman));
+                    progress.add(Characteristic.getFemale());
+                }
             }
             // add age category
             types.add(getResources().getStringArray(R.array.ages)[Characteristic.getAgeCategory()]);
@@ -310,7 +313,6 @@ public class ResultActivity extends Activity {
 
         VKUIHelper.onDestroy(this);
         uiHelper.onDestroy();
-        new File(Constants.FILE_PATH).delete();
         super.onDestroy();
     }
 
