@@ -35,17 +35,17 @@ public class Constants {
             R.xml.animal_lover,
             R.xml.pikabu_lover};
 
-    public static final int[] imgs = {
-            R.drawable.geek,
-            R.drawable.loner,
-            R.drawable.trendy,
-            R.drawable.student,
-            R.drawable.traveler,
-            R.drawable.anime_addicted,
-            R.drawable.sportsman,
-            R.drawable.music_lover,
-            R.drawable.animal_lover,
-            R.drawable.pikabu_lover};
+    public static final int[][] imgs = {
+            {R.drawable.geek, R.drawable.geek_w},
+            {R.drawable.loner, R.drawable.loner_w},
+            {R.drawable.trendy, R.drawable.trendy_w},
+            {R.drawable.student, R.drawable.student_w},
+            {R.drawable.traveler, R.drawable.traveler_w},
+            {R.drawable.anime_addicted, R.drawable.anime_addicted_w},
+            {R.drawable.sportsman, R.drawable.sportsman_w},
+            {R.drawable.music_lover, R.drawable.music_lover_w},
+            {R.drawable.animal_lover, R.drawable.animal_lover_w},
+            {R.drawable.pikabu_lover, R.drawable.pikabu_lover_w}};
 
     public static final int[] colors = {
             0xFF220646,

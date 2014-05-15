@@ -139,10 +139,15 @@ public class ResultActivity extends Activity {
             postText.setText(R.string.sphinx_thinks_that_i_ufo);
             postAvatar.setImageResource(R.drawable.ufo);
         } else {
-            typeAvatar.setImageResource(Constants.imgs[maxResultIndex]);
+            if (Characteristic.getMale() != 50) {
+                typeAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
+                postAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
+            } else {
+                // TODO set Conchita
+            }
+
             typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
             typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
-            postAvatar.setImageResource(Constants.imgs[maxResultIndex]);
             feedBackList.setFocusable(false);
 
             int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
