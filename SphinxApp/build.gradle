@@ -26,11 +26,20 @@ android {
         debug {
             storeFile file("debug.keystore")
         }
+        release {
+            storeFile file("release.keystore")
+            storePassword "sphinx2014"
+            keyAlias "sphinxreleasekey"
+            keyPassword "comairwhipsphinx2014"
+        }
     }
 
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
         }
     }
 }
