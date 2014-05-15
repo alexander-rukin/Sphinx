@@ -143,7 +143,8 @@ public class ResultActivity extends Activity {
                 typeAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
                 postAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
             } else {
-                // TODO set Conchita
+                typeAvatar.setImageResource(R.drawable.conchita);
+                postAvatar.setImageResource(R.drawable.conchita);
             }
 
             typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
