@@ -54,7 +54,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/no_internet"
             android:textColor="@color/title"
-            android:textSize="50sp" />
+            android:textSize="45sp" />
 
         <TextView
             android:id="@+id/tipText"

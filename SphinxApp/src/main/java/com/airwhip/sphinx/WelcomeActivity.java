@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -88,6 +89,7 @@ public class WelcomeActivity extends Activity {
         public void onAnimationEnd(Animation animation) {
             switch (state) {
                 case START:
+                    tipText.setText(" ");
                     circle.setOnClickListener(null);
                     new ImageLoader().execute();
                     break;
@@ -118,6 +120,10 @@ public class WelcomeActivity extends Activity {
         @Override
         public void onClick(View v) {
             Animation fadeOut = new Fade(startText, 0f);
+            if (Build.VERSION.SDK_INT <= 15) {
+                fadeOut = new Fade(startText, 1f);
+                startText.setText(" ");
+            }
             switch (state) {
                 case START:
                     if (Internet.checkInternetConnection(getApplicationContext())) {
@@ -134,9 +140,8 @@ public class WelcomeActivity extends Activity {
                         plugImage.startAnimation(new Fade(plugImage, 0f));
                         socketImage.startAnimation(new Fade(socketImage, 0f));
                         findViewById(R.id.noInternetText).startAnimation(new Fade(findViewById(R.id.noInternetText), 0f));
-                        tipText.startAnimation(new Fade(tipText, 0f));
                         fadeOut.setAnimationListener(new StartButtonAnimation(ProgramState.START));
-                        circle.startAnimation(fadeOut);
+                        tipText.startAnimation(fadeOut);
                     } else {
                         plugImage.startAnimation(new Move(-17, 17, false));
                         socketImage.startAnimation(new Move(17, -17, false));
