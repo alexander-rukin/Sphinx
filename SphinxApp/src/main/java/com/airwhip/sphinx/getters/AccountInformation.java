@@ -47,6 +47,17 @@ public class AccountInformation {
                         if (!isMaleName && isFemaleName) {
                             Characteristic.addFemale(1000);
                         }
+
+                        for (String i : Names.getRussianWords(name)) {
+                            isMaleName = Names.isMale(i);
+                            isFemaleName = Names.isFemale(i);
+                            if (isMaleName && !isFemaleName) {
+                                Characteristic.addMale(1000);
+                            }
+                            if (!isMaleName && isFemaleName) {
+                                Characteristic.addFemale(1000);
+                            }
+                        }
                     }
                 }
             }

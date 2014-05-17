@@ -60,6 +60,10 @@ public class WelcomeActivity extends Activity {
             Characteristic.initDataBase(this);
             Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
         }
+
+//        for (String i : Names.getRussianWords("khruschev")) {
+//            Log.d(Constants.DEBUG_TAG, i);
+//        }
     }
 
     private enum ProgramState {
