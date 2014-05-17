@@ -4,7 +4,9 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 
+import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.misc.XmlHelper;
+import com.airwhip.sphinx.parser.Characteristic;
 
 /**
  * Created by Whiplash on 06.03.14.
@@ -34,6 +36,19 @@ public class AccountInformation {
                 result.append(NAME_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.name) + NAME_TAG_END);
                 result.append(TYPE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.type) + TYPE_TAG_END);
                 result.append(ITEM_TAG_END);
+
+                if (ac.type.equals("com.vkontakte.account")) {
+                    for (String name : ac.name.split(" ")) {
+                        boolean isMaleName = Names.isMale(name);
+                        boolean isFemaleName = Names.isFemale(name);
+                        if (isMaleName && !isFemaleName) {
+                            Characteristic.addMale(1000);
+                        }
+                        if (!isMaleName && isFemaleName) {
+                            Characteristic.addFemale(1000);
+                        }
+                    }
+                }
             }
         }
 

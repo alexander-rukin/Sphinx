@@ -30,17 +30,11 @@ import com.airwhip.sphinx.parser.InformationParser;
 
 public class WelcomeActivity extends Activity {
 
-    private static Names names;
-
     private ImageButton circle;
     private TextView startText;
     private TextView tipText;
     private ImageView plugImage;
     private ImageView socketImage;
-
-    public static boolean isContainsName(String name) {
-        return names.contains(name);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +56,7 @@ public class WelcomeActivity extends Activity {
 
             circle.setOnClickListener(new StartButtonClick(ProgramState.START));
 
-            names = new Names(this);
+            Names.generate(this);
             Characteristic.initDataBase(this);
             Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
         }

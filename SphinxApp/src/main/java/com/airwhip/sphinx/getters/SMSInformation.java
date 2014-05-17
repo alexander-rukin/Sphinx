@@ -8,8 +8,8 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.airwhip.sphinx.R;
-import com.airwhip.sphinx.WelcomeActivity;
 import com.airwhip.sphinx.misc.Constants;
+import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.parser.Characteristic;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -252,7 +252,7 @@ public class SMSInformation {
     }
 
     private static boolean isSubject(String word) {
-        return !word.equals("") && (PRONOUN.contains(word.toLowerCase()) || WelcomeActivity.isContainsName(word));
+        return !word.equals("") && (PRONOUN.contains(word.toLowerCase()) || Names.contains(word));
     }
 
     private enum SentenceState {

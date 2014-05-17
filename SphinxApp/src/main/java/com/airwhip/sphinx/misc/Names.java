@@ -10,9 +10,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,15 +19,21 @@ import java.util.Set;
  */
 public class Names {
 
-    private Set<String> names;
-    private Set<List<String>> derivativeOfName;
+    private static Set<String> maleNames;
+    private static Set<String> femaleNames;
 
-    public Names(Context context) {
-        names = new HashSet<>();
-        derivativeOfName = new HashSet<>();
+    private static Map<String, String> transliteToRus;
+
+    private Names() {
+    }
+
+    public static void generate(Context context) {
+        maleNames = new HashSet<>();
+        femaleNames = new HashSet<>();
 
         try {
-            parseXml(context.getResources().getXml(R.xml.names));
+            parseXml(context.getResources().getXml(R.xml.names_m), maleNames);
+            parseXml(context.getResources().getXml(R.xml.names_w), femaleNames);
         } catch (XmlPullParserException e) {
             Log.e(Constants.ERROR_TAG, "Parsing failed because of XmlPullParserException");
         } catch (IOException e) {
@@ -36,50 +41,39 @@ public class Names {
         }
     }
 
-    private void parseXml(XmlResourceParser parser) throws XmlPullParserException, IOException {
+    private static void parseXml(XmlResourceParser parser, Set<String> set) throws XmlPullParserException, IOException {
         int eventType = parser.getEventType();
         String curTag = "";
-        List<String> derivativeOfNameList = new ArrayList<>();
         while (eventType != XmlPullParser.END_DOCUMENT) {
             switch (eventType) {
                 case XmlPullParser.START_TAG:
                     curTag = parser.getName();
                     break;
                 case XmlPullParser.TEXT:
-                    String tagValue = parser.getText();
-                    if (curTag.equals("key")) {
-                        curTag = "";
-                        names.add(tagValue);
-                        derivativeOfNameList = new ArrayList<>();
-                        derivativeOfNameList.add(tagValue);
-                        derivativeOfName.add(derivativeOfNameList);
-                        break;
+                    if (curTag.equals("key") || curTag.equals("string")) {
+                        set.add(parser.getText());
                     }
-                    if (curTag.equals("string")) {
-                        curTag = "";
-                        names.add(tagValue);
-                        derivativeOfNameList.add(tagValue);
-                    }
+                    break;
+                case XmlPullParser.END_TAG:
+                    curTag = "";
+                    break;
+                default:
                     break;
             }
             eventType = parser.next();
         }
     }
 
-    public boolean contains(String name) {
-        return names.contains(name.toLowerCase());
+    public static boolean contains(String name) {
+        return maleNames.contains(name.toLowerCase()) || femaleNames.contains(name.toLowerCase());
     }
 
-    public List<String> getDerivativeOfName(String name) {
-        if (contains(name)) {
-            String nameLowerCase = name.toLowerCase();
-            for (List<String> list : derivativeOfName) {
-                if (list.contains(nameLowerCase)) {
-                    return list;
-                }
-            }
-        }
-        return null;
+    public static boolean isMale(String name) {
+        return maleNames.contains(name.toLowerCase());
+    }
+
+    public static boolean isFemale(String name) {
+        return femaleNames.contains(name.toLowerCase());
     }
 
 }
