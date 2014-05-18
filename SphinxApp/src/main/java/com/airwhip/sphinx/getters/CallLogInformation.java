@@ -54,7 +54,7 @@ public class CallLogInformation {
                 try {
                     for (String name : storage) {
                         if (cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.CACHED_NAME)).toLowerCase().contains(name)) {
-                            Characteristic.addRelationship(1000, 0);
+                            Characteristic.addRelationship(Constants.BIG_WEIGHT, 0);
                         }
                     }
                 } catch (Exception e) {

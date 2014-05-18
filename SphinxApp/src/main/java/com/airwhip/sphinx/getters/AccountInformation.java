@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 
+import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.misc.XmlHelper;
 import com.airwhip.sphinx.parser.Characteristic;
@@ -37,16 +38,16 @@ public class AccountInformation {
                 result.append(TYPE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.type) + TYPE_TAG_END);
                 result.append(ITEM_TAG_END);
 
-                if (ac.type.equals("com.vkontakte.account")) {
+                if (ac.type.equals("com.vkontakte.account") || ac.type.equals("com.tripadvisor.tripadvisor")) {
                     for (String name : ac.name.split(" ")) {
                         for (String translit : Names.getRussianWords(name)) {
                             boolean isMaleName = Names.isMale(translit);
                             boolean isFemaleName = Names.isFemale(translit);
                             if (isMaleName && !isFemaleName) {
-                                Characteristic.addMale(1000);
+                                Characteristic.addMale(Constants.BIG_WEIGHT);
                             }
                             if (!isMaleName && isFemaleName) {
-                                Characteristic.addFemale(1000);
+                                Characteristic.addFemale(Constants.BIG_WEIGHT);
                             }
                         }
                     }

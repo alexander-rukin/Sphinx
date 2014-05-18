@@ -12,7 +12,7 @@
     <string name="do_not_support_tablets">Unfortunately we do not support tablets</string>
 
     <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
-    <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook</string>
+    <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook?</string>
     <string name="twitter_dialog_message">Are you sure that you want to continue and post message in Twitter?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -57,7 +57,7 @@
     </string-array>
 
     <string name="sphinx_thinks_that_i_ufo">Sphinx thinks that my phone was stolen by UFO.</string>
-    <string name="sphinx_thinks_that_i_smone">Sphinx thinks that I am <b>%s</b></string>
+    <string name="sphinx_thinks_that_i_smone">Sphinx thinks that I am a <b>%s</b>,</string>
     <string-array name="post_array">
         <item>0</item>
         <item>1</item>
@@ -81,8 +81,8 @@
         <item>pikabu</item>
     </string-array>
     <string-array name="age_array">
-        <item>year</item>
-        <item>year</item>
+        <item>years old</item>
+        <item>years old</item>
     </string-array>
     <string name="i_can_not_image_my_life_without_smth">I can not image my life without <b>%s</b></string>
     <string name="i_like_smth">i like <b>%s</b></string>

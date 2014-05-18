@@ -14,6 +14,7 @@ public class Constants {
     public static final int STUDENT_ID = 3;
     public static final int PIKABU_LOVER_ID = 9;
     public static final int MIN = 50;
+    public static final int BIG_WEIGHT = 1000;
 
     public static final String APP_SITE = "www.sphinx-app.com";
 
