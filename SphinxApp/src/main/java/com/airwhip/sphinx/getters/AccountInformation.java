@@ -39,18 +39,9 @@ public class AccountInformation {
 
                 if (ac.type.equals("com.vkontakte.account")) {
                     for (String name : ac.name.split(" ")) {
-                        boolean isMaleName = Names.isMale(name);
-                        boolean isFemaleName = Names.isFemale(name);
-                        if (isMaleName && !isFemaleName) {
-                            Characteristic.addMale(1000);
-                        }
-                        if (!isMaleName && isFemaleName) {
-                            Characteristic.addFemale(1000);
-                        }
-
-                        for (String i : Names.getRussianWords(name)) {
-                            isMaleName = Names.isMale(i);
-                            isFemaleName = Names.isFemale(i);
+                        for (String translit : Names.getRussianWords(name)) {
+                            boolean isMaleName = Names.isMale(translit);
+                            boolean isFemaleName = Names.isFemale(translit);
                             if (isMaleName && !isFemaleName) {
                                 Characteristic.addMale(1000);
                             }

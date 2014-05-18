@@ -18,7 +18,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/start"
             android:textColor="@color/title"
-            android:textSize="80sp" />
+            android:textSize="80dp" />
 
         <ImageButton
             android:id="@+id/circle"
@@ -54,7 +54,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/no_internet"
             android:textColor="@color/title"
-            android:textSize="45sp" />
+            android:textSize="45dp" />
 
         <TextView
             android:id="@+id/tipText"
@@ -66,7 +66,7 @@
             android:gravity="center"
             android:text="@string/click_start"
             android:textColor="@color/title"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/tabletImage"
