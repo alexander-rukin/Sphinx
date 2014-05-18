@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
@@ -24,7 +23,6 @@ import com.airwhip.sphinx.getters.BrowserInformation;
 import com.airwhip.sphinx.getters.CallLogInformation;
 import com.airwhip.sphinx.getters.MusicInformation;
 import com.airwhip.sphinx.getters.SMSInformation;
-import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.Internet;
 import com.airwhip.sphinx.misc.Names;
 import com.airwhip.sphinx.parser.Characteristic;
@@ -62,10 +60,6 @@ public class WelcomeActivity extends Activity {
             Characteristic.initDataBase(this);
             Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
         }
-
-//        for (String i : Names.getRussianWords("dmitry")) {
-//            Log.d(Constants.DEBUG_TAG, i);
-//        }
     }
 
     private enum ProgramState {
