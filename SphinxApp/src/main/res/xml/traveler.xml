@@ -9,6 +9,7 @@
             <item>wizz</item>
             <item>cheap</item>
             <item>flight</item>
+            <item>com.anywayanyday</item>
         </weight-array>
         <weight-array id="50">
             <item>maps</item>
@@ -23,14 +24,20 @@
             <item>tickets</item>
             <item>заказ</item>
             <item>билет</item>
-            <item>путешестви</item>
+            <item>путешеств</item>
             <item>wizz</item>
+            <item>awad</item>
+            <item>anywayanyday</item>
             <item>cheap</item>
             <item>flight</item>
             <item>перелет</item>
             <item>полет</item>
             <item>дешов</item>
             <item>дешев</item>
+            <item>бичевка</item>
+            <item>снаряжени</item>
+            <item>трос</item>
+            <item>рюкзак</item>
         </weight-array>
         <weight-array id="70">
             <item>самолет</item>

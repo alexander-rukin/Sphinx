@@ -40,6 +40,9 @@
             <item>моделир</item>
             <item>изуч</item>
             <item>плотност</item>
+            <item>сходимост</item>
+            <item>распределен</item>
+            <item>классифи</item>
         </weight-array>
         <weight-array id="20">
             <item>google.</item>

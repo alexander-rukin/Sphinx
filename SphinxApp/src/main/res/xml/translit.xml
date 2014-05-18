@@ -6,6 +6,7 @@
     <item ru="г">g</item>
     <item ru="д">d</item>
     <item ru="е">e</item>
+    <item ru="ей">ey</item>
     <item ru="ё">yo</item>
     <item ru="ё">jo</item>
     <item ru="ж">zh</item>
@@ -46,4 +47,15 @@
     <item ru="дж">j</item>
     <item ru="к">q</item>
     <item ru="и">ee</item>
+    <item ru="ия">ia</item>
+    <item ru="гий">gy</item>
+    <item ru="дий">dy</item>
+    <item ru="лий">ly</item>
+    <item ru="мий">my</item>
+    <item ru="ний">ny</item>
+    <item ru="рий">ry</item>
+    <item ru="сий">sy</item>
+    <item ru="тий">ty</item>
+    <item ru="ций">tsy</item>
+    <item ru="ций">cy</item>
 </plist>
