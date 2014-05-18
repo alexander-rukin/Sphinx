@@ -35,7 +35,7 @@ public class SMSInformation {
     private final static Map<String, Integer> wordToRelationship = new HashMap<>();
 
     private static final double MAX = 100.;
-    private static final double SHIFT = MAX * 0.05;
+    private static final double SHIFT = MAX * 0.01;
 
     private static final String WEIGHT_ARRAY_TAG = "weight-array";
     private static final String ITEM_TAG = "item";
