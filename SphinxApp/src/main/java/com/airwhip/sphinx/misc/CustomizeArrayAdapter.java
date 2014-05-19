@@ -49,7 +49,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
         }
         sphinxStatistic.setText(count + "/" + names.length);
         Characteristic.generateResult();
-        generatePostMessage(names.length != count ? count * 17 : 100);
+        generatePostMessage(count == 0 ? 0 : (int) (count * 100. / names.length));
     }
 
     @Override
@@ -100,7 +100,7 @@ public class CustomizeArrayAdapter extends ArrayAdapter<String> {
                 }
                 sphinxStatistic.setText(count + "/" + names.length);
                 Characteristic.generateResult();
-                generatePostMessage(names.length != count ? count * 17 : 100);
+                generatePostMessage(count == 0 ? 0 : (int) (count * 100. / names.length));
 
             }
         });
