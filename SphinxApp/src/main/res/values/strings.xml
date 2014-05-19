@@ -26,7 +26,7 @@
         <item>Student</item>
         <item>Traveler</item>
         <item>Anime addicted</item>
-        <item>Sportsman</item>
+        <item>Sports lover</item>
         <item>Music lover</item>
         <item>Animal lover</item>
         <item>Pikabu lover</item>
@@ -38,7 +38,7 @@
         <item>student</item>
         <item>traveler</item>
         <item>anime addicted</item>
-        <item>sportsman</item>
+        <item>sports lover</item>
         <item>music lover</item>
         <item>animal lover</item>
         <item>pikabu lover</item>
@@ -84,7 +84,7 @@
         <item>years old</item>
         <item>years old</item>
     </string-array>
-    <string name="i_can_not_image_my_life_without_smth">I can not image my life without <b>%s</b></string>
+    <string name="i_can_not_image_my_life_without_smth">I can not imagine my life without <b>%s</b></string>
     <string name="i_like_smth">i like <b>%s</b></string>
     <string name="and_smth">and <b>%s</b></string>
     <string name="sphinx_was_right_at">Sphinx was right at</string>

@@ -2,14 +2,12 @@
 <plist version="1.0">
     <account>
         <weight-array id="100">
-            <item>twitter</item>
             <item>instagram</item>
         </weight-array>
     </account>
 
     <application>
         <weight-array id="100">
-            <item>twitter</item>
             <item>instagram</item>
             <item>aviate</item>
             <item>shell</item>
@@ -31,8 +29,6 @@
             <item>dribbbler</item>
             <item>ask.fm</item>
             <item>ray</item>
-            <item>bicycle</item>
-            <item>велосипед</item>
             <item>mainstream</item>
             <item>starbucks</item>
             <item>apple</item>
