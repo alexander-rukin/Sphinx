@@ -166,10 +166,12 @@ public class InformationParser {
                 max[index] = (storage.size() * MAX * PART + resultMax) / 2.;
             } else {
                 if (index == len) {
-                    Characteristic.addMale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
+                    if (!Double.isNaN(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.)))
+                        Characteristic.addMale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
                 }
                 if (index == len + 1) {
-                    Characteristic.addFemale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
+                    if (!Double.isNaN(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.)))
+                        Characteristic.addFemale(resultWeight / ((storage.size() * MAX * PART + resultMax) / 2.));
                 }
                 if (index == len + 2) {
                     Characteristic.addAges((int) resultWeight, correctEntries);
