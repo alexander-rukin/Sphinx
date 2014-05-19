@@ -84,7 +84,7 @@
         <item>years old</item>
         <item>years old</item>
     </string-array>
-    <string name="i_can_not_image_my_life_without_smth">I can not image my life without <b>%s</b></string>
+    <string name="i_can_not_image_my_life_without_smth">I can not imagine my life without <b>%s</b></string>
     <string name="i_like_smth">i like <b>%s</b></string>
     <string name="and_smth">and <b>%s</b></string>
     <string name="sphinx_was_right_at">Sphinx was right at</string>
