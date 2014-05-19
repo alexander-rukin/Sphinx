@@ -110,7 +110,7 @@ public class Characteristic {
         if (age == 0) {
             return DEFAULT_AGE;
         }
-        return (int) Math.floor(age / ageIteration);
+        return (int) (0.5 + age / ageIteration);
     }
 
     public static int getMale() {

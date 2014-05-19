@@ -75,8 +75,8 @@ public class AccountInformation {
             while (matcher.find()) {
                 try {
                     int year = Integer.parseInt(matcher.group());
-                    if (year < 100 && year >= 80) year += 1900;
-                    if (year >= 1950) {
+                    if (year < 100 && year >= 70) year += 1900;
+                    if (year >= 1950 && year <= currentYear - 10) {
                         Characteristic.addAges((currentYear - year) * Constants.BIG_WEIGHT, Constants.BIG_WEIGHT);
                     }
                 } catch (Exception e) {
