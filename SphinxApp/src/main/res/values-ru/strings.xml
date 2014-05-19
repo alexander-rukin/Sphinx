@@ -85,7 +85,7 @@
         <item>лет</item>
     </string-array>
     <string name="i_can_not_image_my_life_without_smth">я не могу представить свою жизнь без <b>%s</b></string>
-    <string name="i_like_smth">мне нравится <b>%s</b></string>
+    <string name="i_like_smth">я в восторге от <b>%s</b></string>
     <string name="and_smth"> и <b>%s</b></string>
     <string name="sphinx_was_right_at">Sphinx был прав на</string>
     <string name="who_are_you">А кто ты?</string>
