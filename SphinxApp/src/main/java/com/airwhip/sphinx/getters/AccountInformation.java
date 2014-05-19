@@ -52,15 +52,33 @@ public class AccountInformation {
                 }
 
                 if (ac.type.equals("com.vkontakte.account") || ac.type.equals("com.tripadvisor.tripadvisor")) {
-                    for (String name : ac.name.split(" ")) {
+                    int nameIndex = -1;
+                    String[] fioArray = ac.name.split(" ");
+                    for (int i = 0; i < fioArray.length; i++) {
+                        String name = fioArray[i];
                         for (String translit : Names.getRussianWords(name)) {
                             boolean isMaleName = Names.isMale(translit);
+                            if (isMaleName) nameIndex = i;
                             boolean isFemaleName = Names.isFemale(translit);
+                            if (isFemaleName) nameIndex = i;
                             if (isMaleName && !isFemaleName) {
                                 Characteristic.addMale(Constants.BIG_WEIGHT);
                             }
                             if (!isMaleName && isFemaleName) {
                                 Characteristic.addFemale(Constants.BIG_WEIGHT);
+                            }
+                        }
+                    }
+                    if (nameIndex != -1 && nameIndex < 2 && fioArray.length > 1) {
+                        String surname = fioArray[nameIndex ^ 1];
+                        for (String translit : Names.getRussianWords(surname)) {
+                            if (translit.endsWith("ий") || translit.endsWith("ов") || translit.endsWith("ин")) {
+                                Characteristic.addMale(Constants.BIG_WEIGHT);
+                                break;
+                            }
+                            if (translit.endsWith("ая") || translit.endsWith("ова") || translit.endsWith("ина")) {
+                                Characteristic.addFemale(Constants.BIG_WEIGHT);
+                                break;
                             }
                         }
                     }
