@@ -72,7 +72,7 @@ public class AccountInformation {
                     if (nameIndex != -1 && nameIndex < 2 && fioArray.length > 1) {
                         String surname = fioArray[nameIndex ^ 1];
                         for (String translit : Names.getRussianWords(surname)) {
-                            if (translit.endsWith("ий") || translit.endsWith("ов") || translit.endsWith("ин")) {
+                            if (translit.endsWith("ый") || translit.endsWith("ий") || translit.endsWith("ов") || translit.endsWith("ин")) {
                                 Characteristic.addMale(Constants.BIG_WEIGHT);
                                 break;
                             }
