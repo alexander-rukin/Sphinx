@@ -50,7 +50,7 @@ public class SocialNetworkDialog extends DialogFragment implements OnClickListen
         super();
         this.network = network;
         this.context = context;
-        POST_MESSAGE = context.getResources().getString(R.string.who_are_you) + "\n" + Constants.APP_SITE;
+        POST_MESSAGE = context.getResources().getString(R.string.who_are_you) + Constants.HASH_TAG + "\n" + Constants.APP_SITE;
     }
 
     @Override

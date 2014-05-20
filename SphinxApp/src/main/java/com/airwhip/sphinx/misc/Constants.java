@@ -17,6 +17,7 @@ public class Constants {
     public static final int BIG_WEIGHT = 1000;
 
     public static final String APP_SITE = "www.sphinx-app.com";
+    public static final String HASH_TAG = "#SphinxApp";
 
     public static final String FILE_PATH = "/sdcard/sphinx_post.png";
     public static final Uri FILE_URI = Uri.parse("file://" + FILE_PATH);
