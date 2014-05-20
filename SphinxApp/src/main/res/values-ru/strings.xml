@@ -56,6 +56,9 @@
         <item>С уверенностью можно сказать, что вы проводите уйму времени на этом сайте. Больше лойсов вам! А так же котят, сисек и печенек.</item>
     </string-array>
 
+    <string name="conchita_title">феникс!</string>
+    <string name="conchita_def">К сожалению Сфинкс не знает как определить ваш пол. И в связи с последними новостями ...</string>
+
     <string name="sphinx_thinks_that_i_ufo">Sphinx считает, что мой телефон забрал НЛО.</string>
     <string name="sphinx_thinks_that_i_smone">Sphinx считает, что я <b>%s</b></string>
     <string-array name="post_array">

@@ -142,13 +142,15 @@ public class ResultActivity extends Activity {
             if (Characteristic.getMale() != 50) {
                 typeAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
                 postAvatar.setImageResource(Constants.imgs[maxResultIndex][Characteristic.getMale() > Constants.MIN ? 0 : 1]);
+                typeName.setText(String.format(getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
+                typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
             } else {
                 typeAvatar.setImageResource(R.drawable.conchita);
                 postAvatar.setImageResource(R.drawable.conchita);
+                typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getString(R.string.conchita_title)));
+                typeDefinition.setText(getResources().getString(R.string.conchita_def));
             }
 
-            typeName.setText(String.format(getResources().getString(R.string.sphinx_thinks_you_look_like), getResources().getStringArray(R.array.types_for_title)[maxResultIndex]));
-            typeDefinition.setText(getResources().getStringArray(R.array.definitions)[maxResultIndex]);
             feedBackList.setFocusable(false);
 
             int[] sorted = new int[Characteristic.size() - (Characteristic.containsPikabu() ? 0 : 1)];
