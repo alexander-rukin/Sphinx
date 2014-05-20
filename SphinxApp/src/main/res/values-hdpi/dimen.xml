@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="progress_bar_wight">3</integer>
+    <integer name="move_dist">13</integer>
 </resources>

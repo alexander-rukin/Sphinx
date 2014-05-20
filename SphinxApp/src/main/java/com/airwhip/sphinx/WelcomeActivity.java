@@ -144,8 +144,9 @@ public class WelcomeActivity extends Activity {
                         fadeOut.setAnimationListener(new StartButtonAnimation(ProgramState.START));
                         tipText.startAnimation(fadeOut);
                     } else {
-                        plugImage.startAnimation(new Move(-17, 17, false));
-                        socketImage.startAnimation(new Move(17, -17, false));
+                        int dist = getResources().getInteger(R.integer.move_dist);
+                        plugImage.startAnimation(new Move(-dist, dist, false));
+                        socketImage.startAnimation(new Move(dist, -dist, false));
                     }
             }
 

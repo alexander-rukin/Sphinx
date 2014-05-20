@@ -33,16 +33,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:alpha="0"
-            android:src="@drawable/plug" />
+            android:src="@drawable/plug"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/socketImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:alpha="0"
-            android:src="@drawable/socket" />
+            android:src="@drawable/socket"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/noInternetText"
@@ -50,11 +50,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
             android:layout_marginTop="55dp"
-            android:alpha="0"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/no_internet"
             android:textColor="@color/title"
-            android:textSize="45dp" />
+            android:textSize="45dp"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/tipText"
@@ -73,8 +73,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:alpha="0"
-            android:src="@drawable/start_button_tablet" />
+            android:src="@drawable/start_button_tablet"
+            android:visibility="invisible" />
 
     </FrameLayout>
 

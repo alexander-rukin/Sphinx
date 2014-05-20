@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="progress_bar_wight">2</integer>
+    <integer name="progress_bar_wight">1</integer>
+    <integer name="move_dist">9</integer>
 </resources>

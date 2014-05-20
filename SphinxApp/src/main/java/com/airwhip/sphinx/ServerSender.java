@@ -26,7 +26,7 @@ public class ServerSender extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Characteristic.initDataBase(this);
-//        postRequest();
+        postRequest();
         stopSelf();
     }
 

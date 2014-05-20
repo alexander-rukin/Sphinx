@@ -3,6 +3,7 @@ package com.airwhip.sphinx.parser;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -63,11 +64,15 @@ public class Characteristic {
     }
 
     public static String getValueFromDataBase(String key) {
-        Cursor cursor = sqLiteDatabase.query(DBHelper.TABLE_NAME, new String[]{DBHelper.TEXT_TYPE, DBHelper.TEXT_RESULT}, DBHelper.TEXT_TYPE + "=" + "\'" + key + "\'", null, null, null, null);
-        cursor.moveToNext();
-        String result = cursor.getString(cursor.getColumnIndex(DBHelper.TEXT_RESULT));
-        cursor.close();
-        return result;
+        try {
+            Cursor cursor = sqLiteDatabase.query(DBHelper.TABLE_NAME, new String[]{DBHelper.TEXT_TYPE, DBHelper.TEXT_RESULT}, DBHelper.TEXT_TYPE + "=" + "\'" + key + "\'", null, null, null, null);
+            cursor.moveToNext();
+            String result = cursor.getString(cursor.getColumnIndex(DBHelper.TEXT_RESULT));
+            cursor.close();
+            return result;
+        } catch (CursorIndexOutOfBoundsException e) {
+            return "";
+        }
     }
 
     public static void fillFeedBackCategory(Context context, String[] categories) {
