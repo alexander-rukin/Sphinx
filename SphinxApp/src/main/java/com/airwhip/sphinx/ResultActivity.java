@@ -261,7 +261,7 @@ public class ResultActivity extends Activity {
                 canFacebookPost = true;
                 canPublishPost = false;
                 if (!facebookIsLoggedIn()) {
-                    loginBtn.callOnClick();
+                    loginBtn.performClick();
                 } else {
                     DialogFragment dlg = new SocialNetworkDialog(SocialNetworkDialog.SocialNetwork.FACEBOOK, ResultActivity.this);
                     dlg.show(getFragmentManager(), "");

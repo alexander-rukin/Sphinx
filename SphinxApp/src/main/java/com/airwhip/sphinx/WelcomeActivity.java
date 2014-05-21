@@ -47,9 +47,9 @@ public class WelcomeActivity extends Activity {
 
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         if (manager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
-            findViewById(R.id.tabletImage).setAlpha(1);
+            findViewById(R.id.tabletImage).setVisibility(View.VISIBLE);
             tipText.setText(getString(R.string.do_not_support_tablets));
-            startText.setAlpha(0);
+            startText.setVisibility(View.INVISIBLE);
         } else {
             plugImage = (ImageView) findViewById(R.id.plugImage);
             socketImage = (ImageView) findViewById(R.id.socketImage);
@@ -88,11 +88,11 @@ public class WelcomeActivity extends Activity {
                     new ImageLoader().execute();
                     break;
                 case NO_INTERNET:
-                    plugImage.setAlpha(1f);
-                    socketImage.setAlpha(1f);
-                    findViewById(R.id.noInternetText).setAlpha(1f);
+                    plugImage.setVisibility(View.VISIBLE);
+                    socketImage.setVisibility(View.VISIBLE);
+                    findViewById(R.id.noInternetText).setVisibility(View.VISIBLE);
                     tipText.setText(getString(R.string.check_internet));
-                    tipText.setAlpha(1f);
+                    tipText.setVisibility(View.VISIBLE);
                     circle.setOnClickListener(new StartButtonClick(ProgramState.NO_INTERNET));
                     break;
             }
@@ -127,7 +127,7 @@ public class WelcomeActivity extends Activity {
                         fadeOut.setAnimationListener(new StartButtonAnimation(ProgramState.NO_INTERNET));
                         startText.startAnimation(fadeOut);
                     }
-                    tipText.setAlpha(0);
+                    tipText.setVisibility(View.INVISIBLE);
                     break;
                 case NO_INTERNET:
                     if (Internet.checkInternetConnection(getApplicationContext())) {
@@ -137,8 +137,9 @@ public class WelcomeActivity extends Activity {
                         fadeOut.setAnimationListener(new StartButtonAnimation(ProgramState.START));
                         tipText.startAnimation(fadeOut);
                     } else {
-                        plugImage.startAnimation(new Move(-17, 17, false));
-                        socketImage.startAnimation(new Move(17, -17, false));
+                        int dist = getResources().getInteger(R.integer.move_dist);
+                        plugImage.startAnimation(new Move(-dist, dist, false));
+                        socketImage.startAnimation(new Move(dist, -dist, false));
                     }
             }
 

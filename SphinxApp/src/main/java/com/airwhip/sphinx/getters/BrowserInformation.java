@@ -55,17 +55,24 @@ public class BrowserInformation {
 
     private static StringBuilder getInformationFromDataBase(Cursor cursor) {
         StringBuilder result = new StringBuilder();
-        if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) {
-            while (!cursor.isAfterLast()) {
-                result.append(ITEM_TAG_BEGIN);
-                result.append(TITLE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(cursor.getString(cursor.getColumnIndex(Browser.BookmarkColumns.TITLE))) + TITLE_TAG_END);
-                result.append(URL_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(cursor.getString(cursor.getColumnIndex(Browser.BookmarkColumns.URL))) + URL_TAG_END);
-                result.append(ITEM_TAG_END);
-                cursor.moveToNext();
+        try {
+            if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) {
+                while (!cursor.isAfterLast()) {
+                    try {
+                        result.append(ITEM_TAG_BEGIN);
+                        result.append(TITLE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(cursor.getString(cursor.getColumnIndex(Browser.BookmarkColumns.TITLE))) + TITLE_TAG_END);
+                        result.append(URL_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(cursor.getString(cursor.getColumnIndex(Browser.BookmarkColumns.URL))) + URL_TAG_END);
+                        result.append(ITEM_TAG_END);
+                        cursor.moveToNext();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                cursor.close();
             }
-            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return result;
     }
 }
