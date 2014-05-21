@@ -59,13 +59,6 @@ public class WelcomeActivity extends Activity {
             Names.generate(this);
             Characteristic.initDataBase(this);
             Characteristic.updateDataBase("USER_ID", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
-
-            if (Build.VERSION.SDK_INT <= 14) {
-                plugImage.setVisibility(View.INVISIBLE);
-                socketImage.setVisibility(View.INVISIBLE);
-                findViewById(R.id.tabletImage).setVisibility(View.INVISIBLE);
-                findViewById(R.id.noInternetText).setVisibility(View.INVISIBLE);
-            }
         }
     }
 
