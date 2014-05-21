@@ -53,7 +53,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/no_internet"
             android:textColor="@color/title"
-            android:textSize="45dp"
+            android:textSize="@dimen/no_internet_size"
             android:visibility="invisible" />
 
         <TextView
