@@ -85,6 +85,7 @@ public class AccountInformation {
                         }
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

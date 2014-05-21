@@ -10,7 +10,6 @@
     <string name="select_social_network">Share</string>
     <string name="twitter_not_find">Twitter application not found on your device.</string>
     <string name="do_not_support_tablets">Unfortunately we do not support tablets</string>
-    <string name="facebook_problem">Unfortunately you can not share results on facebook with your device</string>
 
     <string name="vk_dialog_message">Are you sure that you want to continue and post message on your wall in Vkontakte?</string>
     <string name="facebook_dialog_message">Are you sure that you want to continue and post message on your wall in Facebook?</string>

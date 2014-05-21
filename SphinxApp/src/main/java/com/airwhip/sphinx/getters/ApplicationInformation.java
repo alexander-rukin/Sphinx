@@ -29,6 +29,7 @@ public class ApplicationInformation {
                 result.append(ITEM_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(packageInfo.packageName) + ITEM_TAG_END);
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return result.append(MAIN_TAG_END);

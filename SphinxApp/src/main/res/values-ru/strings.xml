@@ -10,7 +10,6 @@
     <string name="select_social_network">Поделиться</string>
     <string name="twitter_not_find">На вашем устройстве не найдено приложение Twitter.</string>
     <string name="do_not_support_tablets">К сожалению, мы пока не поддерживаем планшеты</string>
-    <string name="facebook_problem">К сожалению, вы не можете сделать пост в Facebook с помощью данного устройства</string>
 
     <string name="vk_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Вконтакте?</string>
     <string name="facebook_dialog_message">Уверены что хотите продолжить и разместить пост на вашей стене в Facebook?</string>

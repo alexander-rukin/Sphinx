@@ -65,11 +65,13 @@ public class BrowserInformation {
                         result.append(ITEM_TAG_END);
                         cursor.moveToNext();
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 cursor.close();
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return result;
     }

@@ -128,9 +128,11 @@ public class SMSInformation {
                     }
                     cursor.close();
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         if (uri.equals(SENT)) {

@@ -51,10 +51,12 @@ public class MusicInformation {
                             artistsStorage.put(artist, count + 1);
                         }
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         for (String artist : artistsList) {
