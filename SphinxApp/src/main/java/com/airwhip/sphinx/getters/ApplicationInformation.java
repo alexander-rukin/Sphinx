@@ -23,9 +23,12 @@ public class ApplicationInformation {
         StringBuilder result = new StringBuilder(MAIN_TAG_BEGIN);
 
         final PackageManager pm = context.getPackageManager();
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-        for (ApplicationInfo packageInfo : packages) {
-            result.append(ITEM_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(packageInfo.packageName) + ITEM_TAG_END);
+        try {
+            List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+            for (ApplicationInfo packageInfo : packages) {
+                result.append(ITEM_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(packageInfo.packageName) + ITEM_TAG_END);
+            }
+        } catch (Exception e) {
         }
 
         return result.append(MAIN_TAG_END);

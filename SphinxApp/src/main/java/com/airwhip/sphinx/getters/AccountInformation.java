@@ -42,46 +42,49 @@ public class AccountInformation {
         if (am != null) {
             Account[] accounts = am.getAccounts();
             for (Account ac : accounts) {
-                result.append(ITEM_TAG_BEGIN);
-                result.append(NAME_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.name) + NAME_TAG_END);
-                result.append(TYPE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.type) + TYPE_TAG_END);
-                result.append(ITEM_TAG_END);
+                try {
+                    result.append(ITEM_TAG_BEGIN);
+                    result.append(NAME_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.name) + NAME_TAG_END);
+                    result.append(TYPE_TAG_BEGIN + XmlHelper.removeXmlBadSymbols(ac.type) + TYPE_TAG_END);
+                    result.append(ITEM_TAG_END);
 
-                if (ac.name.contains("@")) {
-                    emailStorage.add(ac.name.split("@")[0]);
-                }
+                    if (ac.name.contains("@")) {
+                        emailStorage.add(ac.name.split("@")[0]);
+                    }
 
-                if (ac.type.equals("com.vkontakte.account") || ac.type.equals("com.tripadvisor.tripadvisor")) {
-                    int nameIndex = -1;
-                    String[] fioArray = ac.name.split(" ");
-                    for (int i = 0; i < fioArray.length; i++) {
-                        String name = fioArray[i];
-                        for (String translit : Names.getRussianWords(name)) {
-                            boolean isMaleName = Names.isMale(translit);
-                            if (isMaleName) nameIndex = i;
-                            boolean isFemaleName = Names.isFemale(translit);
-                            if (isFemaleName) nameIndex = i;
-                            if (isMaleName && !isFemaleName) {
-                                Characteristic.addMale(Constants.BIG_WEIGHT);
+                    if (ac.type.equals("com.vkontakte.account") || ac.type.equals("com.tripadvisor.tripadvisor")) {
+                        int nameIndex = -1;
+                        String[] fioArray = ac.name.split(" ");
+                        for (int i = 0; i < fioArray.length; i++) {
+                            String name = fioArray[i];
+                            for (String translit : Names.getRussianWords(name)) {
+                                boolean isMaleName = Names.isMale(translit);
+                                if (isMaleName) nameIndex = i;
+                                boolean isFemaleName = Names.isFemale(translit);
+                                if (isFemaleName) nameIndex = i;
+                                if (isMaleName && !isFemaleName) {
+                                    Characteristic.addMale(Constants.BIG_WEIGHT);
+                                }
+                                if (!isMaleName && isFemaleName) {
+                                    Characteristic.addFemale(Constants.BIG_WEIGHT);
+                                }
                             }
-                            if (!isMaleName && isFemaleName) {
-                                Characteristic.addFemale(Constants.BIG_WEIGHT);
+                        }
+                        if (nameIndex != -1 && nameIndex < 2 && fioArray.length > 1) {
+                            String surname = fioArray[nameIndex ^ 1];
+                            for (String translit : Names.getRussianWords(surname)) {
+                                if (translit.endsWith("ый") || translit.endsWith("ий") || translit.endsWith("ов") || translit.endsWith("ин")) {
+                                    Characteristic.addMale(Constants.BIG_WEIGHT);
+                                    break;
+                                }
+                                if (translit.endsWith("ая") || translit.endsWith("ова") || translit.endsWith("ина")) {
+                                    Characteristic.addFemale(Constants.BIG_WEIGHT);
+                                    break;
+                                }
                             }
                         }
                     }
-                    if (nameIndex != -1 && nameIndex < 2 && fioArray.length > 1) {
-                        String surname = fioArray[nameIndex ^ 1];
-                        for (String translit : Names.getRussianWords(surname)) {
-                            if (translit.endsWith("ый") || translit.endsWith("ий") || translit.endsWith("ов") || translit.endsWith("ин")) {
-                                Characteristic.addMale(Constants.BIG_WEIGHT);
-                                break;
-                            }
-                            if (translit.endsWith("ая") || translit.endsWith("ова") || translit.endsWith("ина")) {
-                                Characteristic.addFemale(Constants.BIG_WEIGHT);
-                                break;
-                            }
-                        }
-                    }
+                } catch (Exception e) {
                 }
             }
         }

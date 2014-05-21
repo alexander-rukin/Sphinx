@@ -37,18 +37,24 @@ public class MusicInformation {
         List<String> artistsList = new ArrayList<>();
         Map<String, Integer> artistsStorage = new HashMap<>();
 
-        Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, PROJECTION, IS_MUSIC, null, null);
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                String artist = cursor.getString(0);
-                if (!artistsStorage.containsKey(artist)) {
-                    artistsList.add(artist);
-                    artistsStorage.put(artist, 1);
-                } else {
-                    int count = artistsStorage.remove(artist);
-                    artistsStorage.put(artist, count + 1);
+        try {
+            Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, PROJECTION, IS_MUSIC, null, null);
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    try {
+                        String artist = cursor.getString(0);
+                        if (!artistsStorage.containsKey(artist)) {
+                            artistsList.add(artist);
+                            artistsStorage.put(artist, 1);
+                        } else {
+                            int count = artistsStorage.remove(artist);
+                            artistsStorage.put(artist, count + 1);
+                        }
+                    } catch (Exception e) {
+                    }
                 }
             }
+        } catch (Exception e) {
         }
 
         for (String artist : artistsList) {

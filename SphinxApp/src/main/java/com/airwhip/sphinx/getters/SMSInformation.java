@@ -115,16 +115,22 @@ public class SMSInformation {
         List<Integer> dates = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
 
-        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-        if (cursor != null) {
-            for (boolean hasData = cursor.moveToFirst(); hasData; hasData = cursor.moveToNext()) {
-                list.add(cursor.getString(cursor.getColumnIndexOrThrow("body")));
-                if (uri.equals(SENT)) {
-                    calendar.setTimeInMillis(Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow("date"))));
-                    dates.add(calendar.get(Calendar.YEAR));
+        try {
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null) {
+                try {
+                    for (boolean hasData = cursor.moveToFirst(); hasData; hasData = cursor.moveToNext()) {
+                        list.add(cursor.getString(cursor.getColumnIndexOrThrow("body")));
+                        if (uri.equals(SENT)) {
+                            calendar.setTimeInMillis(Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow("date"))));
+                            dates.add(calendar.get(Calendar.YEAR));
+                        }
+                    }
+                    cursor.close();
+                } catch (Exception e) {
                 }
             }
-            cursor.close();
+        } catch (Exception e) {
         }
 
         if (uri.equals(SENT)) {
