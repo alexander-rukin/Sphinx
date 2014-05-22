@@ -137,22 +137,26 @@ public class Characteristic {
             Log.e(Constants.ERROR_TAG, "INCORRECT ARRAY SIZE");
         }
         for (int i = 0; i < values.length; i++) {
-            weight[i] += values[i];
-            max[i] += maxValues[i];
+            if (!Double.isNaN(values[i]) && !Double.isNaN(maxValues[i])) {
+                weight[i] += values[i];
+                max[i] += maxValues[i];
+            }
         }
     }
 
     public static void addMale(double value) {
-        maleWeight += value;
+        if (!Double.isNaN(value)) maleWeight += value;
     }
 
     public static void addFemale(double value) {
-        femaleWeight += value;
+        if (!Double.isNaN(value)) femaleWeight += value;
     }
 
     public static void addRelationship(double value, double maxValue) {
-        relationshipWeight += value;
-        relationshipMaxWeight += maxValue;
+        if (!Double.isNaN(value) && !Double.isNaN(maxValue)) {
+            relationshipWeight += value;
+            relationshipMaxWeight += maxValue;
+        }
     }
 
     public static int getRelationship() {
@@ -188,7 +192,7 @@ public class Characteristic {
         for (int i = 0; i < weight.length; i++) {
             sum += get(i);
         }
-        return sum < weight.length * 10;
+        return sum < weight.length * 5;
     }
 
     public static int get(int i) {
