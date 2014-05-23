@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.provider.MediaStore;
 
 import com.airwhip.sphinx.misc.XmlHelper;
+import com.airwhip.sphinx.parser.Characteristic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +32,15 @@ public class MusicInformation {
     private static final String COUNT_TAG_BEGIN = "\t\t<count>";
     private static final String COUNT_TAG_END = "</count>\n";
 
+    public static int size(Context context) {
+        try {
+            Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, PROJECTION, IS_MUSIC, null, null);
+            return (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) ? cursor.getCount() : 0;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static StringBuilder get(Context context) {
         StringBuilder result = new StringBuilder(MAIN_TAG_BEGIN);
 
@@ -53,6 +63,7 @@ public class MusicInformation {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    Characteristic.updateProgress();
                 }
             }
         } catch (Exception e) {

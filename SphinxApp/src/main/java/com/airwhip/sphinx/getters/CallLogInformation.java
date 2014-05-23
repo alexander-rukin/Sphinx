@@ -22,6 +22,15 @@ import java.util.Set;
  */
 public class CallLogInformation {
 
+    public static int size(Context context) {
+        try {
+            Cursor cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
+            return (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) ? cursor.getCount() : 0;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static void get(Context context) {
         Set<String> storage = new HashSet<>();
         try {
@@ -60,6 +69,7 @@ public class CallLogInformation {
                 } catch (Exception e) {
                     Log.e(Constants.ERROR_TAG, "Call name is null");
                 }
+                Characteristic.updateProgress();
             }
             cursor.close();
         }

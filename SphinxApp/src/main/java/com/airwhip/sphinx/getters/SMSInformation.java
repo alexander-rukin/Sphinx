@@ -42,6 +42,21 @@ public class SMSInformation {
 
     private final static String PRONOUN = "я_ты_вы_он_она_оно_мы_вы_они";
 
+    public static int size(Context context) {
+        try {
+            int result = 0;
+            Cursor cursor;
+            for (Uri uri : new Uri[]{SENT, INBOX}) {
+                cursor = context.getContentResolver().query(uri, null, null, null, null);
+                if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0)
+                    result += cursor.getCount();
+            }
+            return result;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static void get(Context context) {
         try {
             XmlResourceParser xrp = context.getResources().getXml(R.xml.age_sms);
@@ -125,6 +140,7 @@ public class SMSInformation {
                             calendar.setTimeInMillis(Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow("date"))));
                             dates.add(calendar.get(Calendar.YEAR));
                         }
+                        Characteristic.updateProgress();
                     }
                     cursor.close();
                 } catch (Exception e) {

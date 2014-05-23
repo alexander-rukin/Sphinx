@@ -153,64 +153,69 @@ public class WelcomeActivity extends Activity {
             super.onPreExecute();
             circle.setImageResource(R.drawable.loading_circle);
             circle.startAnimation(new Spin());
+            tipText.setVisibility(View.VISIBLE);
+            tipText.setText(getString(R.string.preparing));
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            publishProgress(0);
+            Characteristic.setProgress(AccountInformation.size(getApplicationContext()) + ApplicationInformation.size(getApplicationContext()) + BrowserInformation.size(getApplicationContext())
+                    + CallLogInformation.size(getApplicationContext()) + MusicInformation.size(getApplicationContext()) + SMSInformation.size(getApplicationContext()), new ProgressUpdater());
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    tipText.setVisibility(View.INVISIBLE);
+                    startText.setText("0%");
                     Animation fadeIn = new Fade(startText, 1);
                     fadeIn.setDuration(200);
                     startText.startAnimation(fadeIn);
                 }
             });
 
-            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
             SMSInformation.get(getApplicationContext());
             CallLogInformation.get(getApplicationContext());
+            StringBuilder partOfXml = AccountInformation.get(getApplicationContext());
             InformationParser parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.ACCOUNT);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("ACCOUNT", partOfXml.toString());
-            publishProgress(20);
             partOfXml = ApplicationInformation.get(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.APPLICATION);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("APPLICATION", partOfXml.toString());
-            publishProgress(40);
             partOfXml = BrowserInformation.getHistory(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.HISTORY);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("HISTORY", partOfXml.toString());
-            publishProgress(60);
             partOfXml = BrowserInformation.getBookmarks(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.BOOKMARKS);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("BOOKMARKS", partOfXml.toString());
-            publishProgress(80);
             partOfXml = MusicInformation.get(getApplicationContext());
             parser = new InformationParser(getApplicationContext(), partOfXml, InformationParser.ParserType.MUSIC);
             Characteristic.addAll(parser.getAllWeight(), parser.getAllMax());
             Characteristic.updateDataBase("MUSIC", partOfXml.toString());
-            publishProgress(100);
-
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            startText.setText("100%");
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             startActivity(intent);
             finish();
         }
+    }
 
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-            int progress = values[0];
-            startText.setText(String.valueOf(progress) + "%");
+    public class ProgressUpdater {
+        public void updateValue(final int value) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    startText.setText(String.valueOf(value) + "%");
+                }
+            });
         }
     }
 }

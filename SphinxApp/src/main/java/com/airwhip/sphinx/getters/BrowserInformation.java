@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.provider.Browser;
 
 import com.airwhip.sphinx.misc.XmlHelper;
+import com.airwhip.sphinx.parser.Characteristic;
 
 /**
  * Created by Whiplash on 07.03.14.
@@ -33,6 +34,22 @@ public class BrowserInformation {
     private static final String URL_TAG_BEGIN = "\t\t<url>";
     private static final String URL_TAG_END = "</url>\n";
 
+    public static int size(Context context) {
+        try {
+            int result = 0;
+            Cursor cursor;
+            for (Uri uri : URI) {
+                cursor = context.getContentResolver().query(uri, PROJECTION, HISTORY, null, null);
+                if (cursor != null && cursor.moveToFirst()) result += cursor.getCount();
+                cursor = context.getContentResolver().query(uri, PROJECTION, BOOKMARK, null, null);
+                if (cursor != null && cursor.moveToFirst()) result += cursor.getCount();
+            }
+            return result;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static StringBuilder getHistory(Context context) {
         StringBuilder result = new StringBuilder(HISTORY_TAG_BEGIN);
 
@@ -56,7 +73,7 @@ public class BrowserInformation {
     private static StringBuilder getInformationFromDataBase(Cursor cursor) {
         StringBuilder result = new StringBuilder();
         try {
-            if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) {
+            if (cursor != null && cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
                     try {
                         result.append(ITEM_TAG_BEGIN);
@@ -67,6 +84,7 @@ public class BrowserInformation {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    Characteristic.updateProgress();
                 }
                 cursor.close();
             }

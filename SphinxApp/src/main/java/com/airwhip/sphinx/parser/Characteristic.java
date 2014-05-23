@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.airwhip.sphinx.R;
+import com.airwhip.sphinx.WelcomeActivity;
 import com.airwhip.sphinx.misc.Constants;
 import com.airwhip.sphinx.misc.DBHelper;
 
@@ -41,7 +42,25 @@ public class Characteristic {
     private static double age = 0;
     private static int ageIteration = 0;
 
+    private static int currentProgress = 0;
+    private static int maxProgress = 0;
+
+    private static WelcomeActivity.ProgressUpdater update;
+
     private Characteristic() {
+    }
+
+    public static void setProgress(int max, WelcomeActivity.ProgressUpdater updateFun) {
+        maxProgress = max;
+        update = updateFun;
+    }
+
+    public static void updateProgress() {
+        currentProgress++;
+        Log.d(Constants.DEBUG_TAG, "PROGRESS: " + currentProgress);
+        if (100 * currentProgress / maxProgress != 100 * (currentProgress - 1) / maxProgress) {
+            update.updateValue(100 * currentProgress / maxProgress);
+        }
     }
 
     public static void initDataBase(Context context) {

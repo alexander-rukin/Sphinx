@@ -33,6 +33,15 @@ public class AccountInformation {
     private static final String TYPE_TAG_BEGIN = "\t\t<type>";
     private static final String TYPE_TAG_END = "</type>\n";
 
+    public static int size(Context context) {
+        try {
+            AccountManager am = AccountManager.get(context);
+            return am != null ? am.getAccounts().length : 0;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static StringBuilder get(Context context) {
         StringBuilder result = new StringBuilder(MAIN_TAG_BEGIN);
 
@@ -87,6 +96,7 @@ public class AccountInformation {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                Characteristic.updateProgress();
             }
         }
 
