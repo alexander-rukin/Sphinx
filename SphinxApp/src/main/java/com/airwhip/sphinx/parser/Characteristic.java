@@ -57,7 +57,6 @@ public class Characteristic {
 
     public static void updateProgress() {
         currentProgress++;
-        Log.d(Constants.DEBUG_TAG, "PROGRESS: " + currentProgress);
         if (100 * currentProgress / maxProgress != 100 * (currentProgress - 1) / maxProgress) {
             update.updateValue(100 * currentProgress / maxProgress);
         }
