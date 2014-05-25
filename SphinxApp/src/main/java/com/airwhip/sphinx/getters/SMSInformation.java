@@ -48,8 +48,7 @@ public class SMSInformation {
             Cursor cursor;
             for (Uri uri : new Uri[]{SENT, INBOX}) {
                 cursor = context.getContentResolver().query(uri, null, null, null, null);
-                if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0)
-                    result += cursor.getCount();
+                if (cursor != null) result += cursor.getCount();
             }
             return result;
         } catch (Exception e) {

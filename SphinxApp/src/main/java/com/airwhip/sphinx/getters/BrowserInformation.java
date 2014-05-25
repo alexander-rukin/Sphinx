@@ -40,9 +40,9 @@ public class BrowserInformation {
             Cursor cursor;
             for (Uri uri : URI) {
                 cursor = context.getContentResolver().query(uri, PROJECTION, HISTORY, null, null);
-                if (cursor != null && cursor.moveToFirst()) result += cursor.getCount();
+                if (cursor != null) result += cursor.getCount();
                 cursor = context.getContentResolver().query(uri, PROJECTION, BOOKMARK, null, null);
-                if (cursor != null && cursor.moveToFirst()) result += cursor.getCount();
+                if (cursor != null) result += cursor.getCount();
             }
             return result;
         } catch (Exception e) {

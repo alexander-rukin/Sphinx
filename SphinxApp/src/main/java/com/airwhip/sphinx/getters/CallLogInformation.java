@@ -25,7 +25,7 @@ public class CallLogInformation {
     public static int size(Context context) {
         try {
             Cursor cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
-            return (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) ? cursor.getCount() : 0;
+            return (cursor != null) ? cursor.getCount() : 0;
         } catch (Exception e) {
             return 0;
         }

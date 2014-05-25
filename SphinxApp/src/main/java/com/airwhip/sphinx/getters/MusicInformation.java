@@ -35,7 +35,7 @@ public class MusicInformation {
     public static int size(Context context) {
         try {
             Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, PROJECTION, IS_MUSIC, null, null);
-            return (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) ? cursor.getCount() : 0;
+            return (cursor != null) ? cursor.getCount() : 0;
         } catch (Exception e) {
             return 0;
         }
