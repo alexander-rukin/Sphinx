@@ -79,7 +79,7 @@ public class ResultActivity extends Activity {
                         }
                     });
                     Bundle params = request.getParameters();
-                    params.putString("message", getString(R.string.who_are_you) + Constants.HASH_TAG + "\n" + Constants.APP_SITE);
+                    params.putString("message", getString(R.string.who_are_you) + " " + Constants.HASH_TAG + "\n" + Constants.APP_SITE);
                     request.setParameters(params);
                     request.executeAsync();
                 } catch (Exception e) {

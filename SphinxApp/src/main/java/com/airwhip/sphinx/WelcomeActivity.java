@@ -165,7 +165,7 @@ public class WelcomeActivity extends Activity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    tipText.setVisibility(View.INVISIBLE);
+                    tipText.setText(getString(R.string.analyzing));
                     startText.setText("0%");
                     Animation fadeIn = new Fade(startText, 1);
                     fadeIn.setDuration(200);
